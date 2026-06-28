@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Brand color / radius / shadow / layout tokens are injected at runtime from
+ * config/theme.ts (see app/layout.tsx → themeToCss). This file holds only the
+ * base layer, fluid type scale, and a couple of reusable utilities. Nothing here
+ * is brand-specific, so it never changes between niches.
+ */
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  * {
+    @apply border-line;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: rgb(var(--color-cream));
+    color: rgb(var(--color-charcoal));
+    font-family: var(--font-sans), system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Honor the OS "reduce motion" setting everywhere — kill transforms + animation. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Accessible focus ring on every interactive element. */
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid rgb(var(--color-sage-deep));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background-color: rgb(var(--color-sage-soft) / 0.35);
+    color: rgb(var(--color-charcoal));
+  }
+}
+
+@layer components {
+  /* Fluid display + heading scale (brief §4.2). */
+  .text-display {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(2.5rem, 6vw, 4.25rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+  }
+  .text-h2 {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .text-h3 {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+    line-height: 1.25;
+  }
+}
+
+@layer utilities {
+  /* Subtle grain-free gradient wash used behind the hero / footer. */
+  .bg-wash {
+    background-image: radial-gradient(
+        120% 90% at 100% 0%,
+        rgb(var(--color-cream-deep) / 0.7) 0%,
+        transparent 55%
+      ),
+      radial-gradient(
+        90% 80% at 0% 100%,
+        rgb(var(--color-sage-soft) / 0.1) 0%,
+        transparent 50%
+      );
+  }
+
+  /* Loading shimmer for image placeholders. */
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgb(var(--color-cream) / 0.35),
+      transparent
+    );
+    animation: shimmer 1.6s infinite;
+  }
+}

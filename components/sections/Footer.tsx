@@ -1,0 +1,66 @@
+import Link from 'next/link';
+import { Mail, Phone } from 'lucide-react';
+import { Container } from '@/components/ui/Container';
+import { Button } from '@/components/ui/Button';
+import { Logo } from '@/components/ui/Logo';
+import { footer } from '@/config/content';
+
+/**
+ * Section 9 — Footer. TechxServe branding + tagline, the US-registered company
+ * line, contact, one final repeat CTA, and privacy + terms links (required for ad
+ * platforms + SMS consent). This is the one place a small red accent is permitted
+ * (the Logo `accent` glyph). Brief §8/Section 9.
+ */
+export function Footer() {
+  return (
+    <footer className="bg-sage-deep text-cream">
+      <Container className="py-16">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
+          {/* Brand */}
+          <div>
+            {/* Footer brand sits on sage — render the wordmark in cream with the
+                single permitted red accent. */}
+            <span className="font-display text-xl font-semibold tracking-tight text-cream">
+              Techx<span className="text-accent-brand">Serve</span>
+            </span>
+            <p className="mt-3 font-display text-lg text-cream/90">{footer.tagline}</p>
+            <p className="mt-4 max-w-sm text-sm text-cream/70">{footer.companyLine}</p>
+
+            <div className="mt-6 flex flex-col gap-2 text-sm text-cream/80">
+              <a href={`mailto:${footer.contact.email}`} className="inline-flex items-center gap-2 hover:text-cream">
+                <Mail className="size-4" strokeWidth={1.5} />
+                {footer.contact.email}
+              </a>
+              <a href={`tel:${footer.contact.phone.replace(/[^\d+]/g, '')}`} className="inline-flex items-center gap-2 hover:text-cream">
+                <Phone className="size-4" strokeWidth={1.5} />
+                {footer.contact.phone}
+              </a>
+            </div>
+          </div>
+
+          {/* Final CTA + legal */}
+          <div className="flex flex-col items-start gap-6 lg:items-end lg:text-right">
+            <p className="max-w-xs font-display text-h3 text-cream">
+              Ready to see your new site?
+            </p>
+            <Button source="footer" variant="invert" size="lg" withArrow>
+              {footer.cta}
+            </Button>
+            <nav className="mt-2 flex gap-5 text-sm text-cream/70" aria-label="Legal">
+              {footer.legal.map((l) => (
+                <Link key={l.href} href={l.href} className="underline decoration-cream/30 underline-offset-4 hover:text-cream">
+                  {l.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+        </div>
+
+        <div className="mt-12 border-t border-cream/15 pt-6 text-xs text-cream/55">
+          <Logo className="sr-only" />
+          {footer.copyright}
+        </div>
+      </Container>
+    </footer>
+  );
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="TechxServe med spa websites">
+  <rect width="1200" height="630" fill="#FAF6F0"/>
+  <rect x="0" y="0" width="1200" height="12" fill="#5E6B52"/>
+  <circle cx="1050" cy="120" r="240" fill="#8C9A7E" opacity="0.1"/>
+  <text x="90" y="150" font-family="Arial, sans-serif" font-size="22" fill="#8C9A7E" letter-spacing="6">FOR US MED SPAS &amp; AESTHETIC CLINICS</text>
+  <line x1="90" y1="170" x2="160" y2="170" stroke="#C5A572" stroke-width="2"/>
+  <text x="90" y="260" font-family="Georgia, serif" font-size="62" fill="#5E6B52" font-weight="600">A beautiful new website</text>
+  <text x="90" y="332" font-family="Georgia, serif" font-size="62" fill="#5E6B52" font-weight="600">that books more treatments.</text>
+  <text x="90" y="396" font-family="Arial, sans-serif" font-size="26" fill="#2E2A26" opacity="0.75">Modern, fast, mobile-first — live in about 3 days.</text>
+  <rect x="90" y="450" width="280" height="62" rx="31" fill="#5E6B52"/>
+  <text x="230" y="490" font-family="Arial, sans-serif" font-size="20" fill="#FAF6F0" text-anchor="middle">See What We’d Build</text>
+  <text x="90" y="575" font-family="Georgia, serif" font-size="26" fill="#5E6B52">Techx<tspan fill="#C5A572">Serve</tspan></text>
+  <text x="240" y="575" font-family="Arial, sans-serif" font-size="16" fill="#2E2A26" opacity="0.55">Tomorrow’s Reality, Today.</text>
+</svg>
