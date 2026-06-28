@@ -29,7 +29,7 @@ export function Video() {
           )}
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
-          <div className="mt-8">
+          <div className="mt-5">
             <Button source="video" size="lg">
               {video.cta}
             </Button>

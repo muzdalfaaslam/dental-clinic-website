@@ -1,5 +1,4 @@
 import { Container } from '@/components/ui/Container';
-import { Button } from '@/components/ui/Button';
 import { HeroBackground } from '@/components/ui/HeroBackground';
 import { ScrollReveal } from '@/components/layout/ScrollReveal';
 import { hero } from '@/config/content';
@@ -61,20 +60,11 @@ export function Hero() {
             </p>
           </ScrollReveal>
 
-          {/* trust line — sits directly above the CTA */}
+          {/* trust line — the single CTA now lives below the live preview */}
           <ScrollReveal delay={0.15}>
-            <p className="mt-7 text-xs uppercase tracking-[0.16em] text-charcoal/45">
+            <p className="mt-6 text-xs uppercase tracking-[0.16em] text-charcoal/45">
               {hero.trustLine}
             </p>
-          </ScrollReveal>
-
-          {/* CTA with leading arrow */}
-          <ScrollReveal delay={0.18}>
-            <div className="mt-3">
-              <Button source="hero" size="lg" arrowSide="left" className="px-8 py-3.5">
-                {hero.cta}
-              </Button>
-            </div>
           </ScrollReveal>
         </div>
       </Container>
