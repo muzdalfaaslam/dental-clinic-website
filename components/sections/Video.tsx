@@ -2,6 +2,7 @@ import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { VideoFrame } from '@/components/ui/VideoFrame';
+import { AnimatedDemo } from '@/components/ui/AnimatedDemo';
 import { ScrollReveal } from '@/components/layout/ScrollReveal';
 import { video } from '@/config/content';
 
@@ -25,12 +26,18 @@ export function Video() {
           <p className="mt-4 max-w-xl text-body-lg text-charcoal/75">{video.blurb}</p>
         </ScrollReveal>
         <ScrollReveal delay={0.12} className="mt-10 w-full">
-          <VideoFrame
-            poster={video.poster}
-            src={video.src || undefined}
-            captionsSrc={video.captionsSrc || undefined}
-            title={video.heading}
-          />
+          {/* Real video when supplied (config-driven); the animated demo fills the
+              gap until then — never a broken placeholder. */}
+          {video.src ? (
+            <VideoFrame
+              poster={video.poster}
+              src={video.src}
+              captionsSrc={video.captionsSrc || undefined}
+              title={video.heading}
+            />
+          ) : (
+            <AnimatedDemo />
+          )}
         </ScrollReveal>
         <ScrollReveal delay={0.15}>
           <div className="mt-8">

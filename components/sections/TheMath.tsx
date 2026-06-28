@@ -26,10 +26,13 @@ export function TheMath() {
           </ScrollReveal>
         </div>
 
-        <StaggerGroup className="mt-14 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerGroup className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {math.stats.map((s) => (
-            <StaggerItem key={s.caption}>
-              <StatBlock value={s.value} suffix={s.suffix} caption={s.caption} />
+            <StaggerItem key={s.caption} className="h-full">
+              {/* Accent cards — each stat fully contained, so nothing overlaps. */}
+              <div className="group flex h-full items-center justify-center rounded-lg border border-line bg-cream p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-champagne/40 hover:shadow-card">
+                <StatBlock value={s.value} suffix={s.suffix} caption={s.caption} centered />
+              </div>
             </StaggerItem>
           ))}
         </StaggerGroup>

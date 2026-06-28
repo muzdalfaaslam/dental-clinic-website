@@ -13,7 +13,8 @@ the same skeleton ships for the next niche as a config swap, not a rebuild.
 - **Tailwind CSS** with a CSS-variable token layer (the re-skin seam)
 - **Framer Motion** — scroll reveals, respects `prefers-reduced-motion`
 - **React Hook Form + Zod** — typed, inline-validated form (client **and** server)
-- **Embla Carousel** — testimonials · custom **before/after slider**
+- Infinite-loop **testimonial marquee** + custom **before/after slider** + a
+  looping **animated demo** (CSS/Framer Motion) standing in for the real video
 - **Lucide React** — thin-stroke icons, recolored to sage/gold
 - **next/font** — self-hosted Playfair Display + Inter (no third font, no CLS)
 - Deploy target: **Vercel** (static + Edge API route)
@@ -50,7 +51,7 @@ app/page.tsx        ← composes the 9 sections in order
 app/api/lead/route.ts ← Edge form handler (re-validates, spam guards, webhook)
 components/ui/       ← Button, FeatureTile, StatBlock, PhoneMockup, BeforeAfterSlider, …
 components/form/     ← FormField primitives, ConsentCheckbox, useLeadForm
-components/layout/   ← StickyNav, StickyMobileCTA, ScrollReveal
+components/layout/   ← StickyMobileCTA, ScrollReveal
 components/sections/ ← the 9 sections
 ```
 
@@ -105,7 +106,7 @@ TechxServe's.** The brand appears only in the nav and footer.
 ## Accessibility & performance
 
 - Semantic landmarks, single `<h1>`, labelled inputs, `aria-describedby` errors,
-  `aria-live` status, focus-visible rings, keyboard-operable slider + carousel.
+  `aria-live` status, focus-visible rings, keyboard-operable before/after slider.
 - WCAG AA contrast: body text is always charcoal-on-cream; sage is used for
   headings/large text only.
 - `prefers-reduced-motion` disables all transforms/animations.

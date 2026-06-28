@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/Button';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { PhoneMockup } from '@/components/ui/PhoneMockup';
 import { BeforeAfterSlider } from '@/components/ui/BeforeAfterSlider';
-import { TestimonialCarousel } from '@/components/ui/TestimonialCarousel';
+import { TestimonialMarquee } from '@/components/ui/TestimonialMarquee';
 import { ScrollReveal } from '@/components/layout/ScrollReveal';
 import { socialProof } from '@/config/content';
 
@@ -39,26 +39,39 @@ export function SocialProof() {
             </ScrollReveal>
           </div>
 
-          {/* Before/after in a phone frame */}
+          {/* 3D phone pair: a finished design behind, the before/after slider in front */}
           <ScrollReveal delay={0.1}>
-            <div className="relative">
+            <div className="perspective-1000 relative">
               <div
                 aria-hidden
-                className="absolute left-1/2 top-1/2 -z-10 size-[105%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-rose/15 blur-2xl"
+                className="absolute left-1/2 top-1/2 -z-10 size-[110%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-rose/15 blur-2xl"
               />
-              <PhoneMockup>
-                <BeforeAfterSlider
-                  before={socialProof.beforeAfter.before}
-                  after={socialProof.beforeAfter.after}
-                />
-              </PhoneMockup>
+              <div className="relative flex items-center justify-center">
+                {/* back phone — a second finished design (hidden on the smallest screens) */}
+                <div className="phone-3d phone-3d-left relative z-0 hidden -mr-12 opacity-95 sm:block">
+                  <PhoneMockup
+                    src={socialProof.showcasePhone.src}
+                    alt={socialProof.showcasePhone.alt}
+                    className="w-[clamp(12rem,40vw,15rem)]"
+                  />
+                </div>
+                {/* front phone — interactive before/after */}
+                <div className="phone-3d phone-3d-right relative z-10">
+                  <PhoneMockup>
+                    <BeforeAfterSlider
+                      before={socialProof.beforeAfter.before}
+                      after={socialProof.beforeAfter.after}
+                    />
+                  </PhoneMockup>
+                </div>
+              </div>
             </div>
           </ScrollReveal>
         </div>
 
-        {/* Testimonials (illustrative until real ones land) */}
+        {/* Testimonials — infinite-loop marquee (illustrative until real ones land) */}
         <ScrollReveal delay={0.05} className="mt-20">
-          <TestimonialCarousel items={socialProof.testimonials} />
+          <TestimonialMarquee items={socialProof.testimonials} />
         </ScrollReveal>
 
         <ScrollReveal delay={0.05}>

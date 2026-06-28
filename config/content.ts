@@ -187,6 +187,12 @@ export const socialProof = {
     before: { src: '/images/before-site.svg', alt: 'A dated med spa website, before the rebuild' },
     after: { src: '/images/after-site.svg', alt: 'The same med spa website, rebuilt by TechxServe' },
   },
+  // Second device shown beside the before/after for a 3D phone pair.
+  // CLIENT: replace asset — a second finished med spa design.
+  showcasePhone: {
+    src: '/images/hero-site-mockup.svg',
+    alt: 'Another finished med spa website design by TechxServe',
+  },
   // CLIENT: real testimonials arrive post-launch. Cards render from this array;
   // until then we show the credibility + scarcity copy above and these samples are
   // clearly marked as illustrative via `pending: true`.

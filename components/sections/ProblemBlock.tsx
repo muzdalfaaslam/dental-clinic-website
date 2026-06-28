@@ -27,12 +27,12 @@ export function ProblemBlock() {
             const Icon = getIcon(point.icon);
             return (
               <StaggerItem key={point.text}>
-                <div className="flex h-full items-start gap-4 rounded-md border border-line bg-cream p-6 shadow-soft">
+                <div className="group flex h-full items-start gap-4 rounded-md border border-line bg-cream p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-champagne/40 hover:shadow-card">
                   <span
                     aria-hidden
-                    className="mt-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-cream-deep ring-1 ring-inset ring-champagne/40"
+                    className="mt-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-cream-deep ring-1 ring-inset ring-champagne/40 transition-colors duration-300 group-hover:bg-sage-soft/20"
                   >
-                    <Icon className="size-5 text-sage-soft" strokeWidth={1.5} />
+                    <Icon className="size-5 text-sage-soft transition-colors duration-300 group-hover:text-sage-deep" strokeWidth={1.5} />
                   </span>
                   <p className="text-[0.95rem] leading-relaxed text-charcoal/85">{point.text}</p>
                 </div>

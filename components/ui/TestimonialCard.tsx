@@ -26,7 +26,7 @@ export function TestimonialCard({
   return (
     <figure
       className={cn(
-        'flex h-full flex-col gap-5 rounded-lg border border-line p-7 shadow-soft',
+        'flex h-full flex-col gap-5 rounded-lg border border-line p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-champagne/40 hover:shadow-card',
         tint ? 'bg-rose/15' : 'bg-cream',
         className,
       )}

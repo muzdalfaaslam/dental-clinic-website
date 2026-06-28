@@ -100,6 +100,45 @@
       );
   }
 
+  /* Gentle ambient motion for decorative background elements (reduced-motion safe
+     via the global media query above). */
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-22px) translateX(10px); }
+  }
+  @keyframes float-slower {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(18px) translateX(-12px); }
+  }
+  @keyframes drift-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .animate-float-slow { animation: float-slow 9s ease-in-out infinite; }
+  .animate-float-slower { animation: float-slower 11s ease-in-out infinite; }
+  .animate-drift-spin { animation: drift-spin 40s linear infinite; }
+
+  /* Continuous marquee for the infinite testimonial loop. */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-marquee { animation: marquee var(--marquee-duration, 40s) linear infinite; }
+  .marquee-paused:hover .animate-marquee { animation-play-state: paused; }
+
+  /* 3D phone perspective container + tilted phones that straighten on hover. */
+  .perspective-1000 { perspective: 1200px; }
+  .phone-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .phone-3d-left { transform: rotateY(22deg) rotateX(6deg) translateZ(0); }
+  .phone-3d-right { transform: rotateY(-16deg) rotateX(5deg); }
+  .phone-3d-left:hover,
+  .phone-3d-right:hover {
+    transform: rotateY(0deg) rotateX(0deg) translateY(-10px) scale(1.03);
+  }
+
   /* Loading shimmer for image placeholders. */
   .shimmer::after {
     content: '';

@@ -15,11 +15,13 @@ export function StatBlock({
   suffix = '',
   caption,
   className,
+  centered = false,
 }: {
   value: string;
   suffix?: string;
   caption: string;
   className?: string;
+  centered?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.5 });
@@ -49,13 +51,18 @@ export function StatBlock({
   }, [inView, numeric, reduce, value]);
 
   return (
-    <div ref={ref} className={cn('flex flex-col gap-3', className)}>
-      <div className="font-display text-[clamp(2.5rem,6vw,3.75rem)] font-semibold leading-none text-sage-deep">
+    <div
+      ref={ref}
+      className={cn('flex flex-col gap-3', centered && 'items-center text-center', className)}
+    >
+      <div className="font-display text-[clamp(2.25rem,5vw,3.25rem)] font-semibold leading-[1.05] text-sage-deep">
         {display}
-        {suffix && <span className="text-[0.55em] font-medium text-sage-soft">{suffix}</span>}
+        {suffix && <span className="text-[0.5em] font-medium text-sage-soft">{suffix}</span>}
       </div>
       <GoldRule width="w-10" />
-      <p className="max-w-[22ch] text-sm leading-relaxed text-charcoal/70">{caption}</p>
+      <p className={cn('text-sm leading-relaxed text-charcoal/70', centered ? 'max-w-[24ch]' : 'max-w-[22ch]')}>
+        {caption}
+      </p>
     </div>
   );
 }
