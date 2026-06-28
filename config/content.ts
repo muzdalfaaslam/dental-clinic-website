@@ -50,8 +50,12 @@ export const nav = {
 /* ── Section 1 — Hero. ────────────────────────────────────────────────────── */
 export const hero = {
   eyebrow: 'FOR US MED SPAS & AESTHETIC CLINICS',
-  headline:
-    'A Beautiful New Website That Turns Visitors Into Booked Treatments in About 3 Days',
+  // Rendered as two lines with the closing emphasis highlighted (gold underline).
+  headline: {
+    line1: 'A Beautiful New Website That Turns Visitors',
+    line2: 'Into Booked Treatments in About',
+    highlight: '3 Days',
+  },
   subhead:
     'We design and build modern, fast, mobile-first websites made specifically for med spas, so more of the people finding you online actually book.',
   cta: ctas.hero,

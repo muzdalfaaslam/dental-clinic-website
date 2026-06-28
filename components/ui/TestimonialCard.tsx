@@ -3,8 +3,9 @@ import { cn } from '@/lib/utils';
 
 /**
  * Soft testimonial card — quote, star rating, name + city. Optional dusty-rose
- * tint variant for warmer sections (brief §6). `pending` marks illustrative
- * placeholder content until real, consented testimonials arrive.
+ * tint variant for warmer sections (brief §6). `pending` is still accepted on the
+ * data shape (marks not-yet-consented placeholders) but is no longer surfaced in
+ * the UI.
  */
 export function TestimonialCard({
   quote,
@@ -12,7 +13,6 @@ export function TestimonialCard({
   city,
   rating = 5,
   tint = false,
-  pending = false,
   className,
 }: {
   quote: string;
@@ -48,12 +48,6 @@ export function TestimonialCard({
       <figcaption className="text-sm">
         <span className="font-medium text-charcoal">{name}</span>
         <span className="text-charcoal/60"> · {city}</span>
-        {pending && (
-          // CLIENT: replace with a real, consented testimonial. Visible in dev only-ish.
-          <span className="ml-2 rounded-full bg-cream-deep px-2 py-0.5 text-[0.65rem] uppercase tracking-wider text-charcoal/50">
-            Illustrative
-          </span>
-        )}
       </figcaption>
     </figure>
   );
