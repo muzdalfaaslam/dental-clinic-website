@@ -28,10 +28,10 @@ export function PhoneMockup({
         className,
       )}
     >
-      {/* notch */}
+      {/* subtle pill notch (dynamic-island style) — small so it doesn't cover content */}
       <div
         aria-hidden
-        className="absolute left-1/2 top-2.5 z-10 h-5 w-28 -translate-x-1/2 rounded-b-2xl bg-charcoal"
+        className="absolute left-1/2 top-3 z-10 h-3 w-14 -translate-x-1/2 rounded-full bg-charcoal/90"
       />
       <div className="relative h-full w-full overflow-hidden rounded-[2rem] bg-cream">
         {children ??

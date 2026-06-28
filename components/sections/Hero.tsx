@@ -62,7 +62,7 @@ export function Hero() {
 
           {/* trust line — the single CTA now lives below the live preview */}
           <ScrollReveal delay={0.15}>
-            <p className="mt-6 text-xs uppercase tracking-[0.16em] text-charcoal/45">
+            <p className="mt-6 -translate-y-[2px] text-xs uppercase tracking-[0.16em] text-charcoal/45">
               {hero.trustLine}
             </p>
           </ScrollReveal>

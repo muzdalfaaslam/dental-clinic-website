@@ -1,10 +1,12 @@
 'use client';
 
+import { Controller } from 'react-hook-form';
 import { CheckCircle2 } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { SectionLabel } from '@/components/ui/SectionLabel';
-import { TextField, SelectField, CheckboxGroup } from '@/components/form/FormField';
+import { TextField, CheckboxGroup } from '@/components/form/FormField';
+import { SelectMenu } from '@/components/form/SelectMenu';
 import { ConsentCheckbox } from '@/components/form/ConsentCheckbox';
 import { useLeadForm } from '@/components/form/useLeadForm';
 import { formatUsPhone } from '@/lib/validation';
@@ -21,6 +23,7 @@ export function QualificationForm() {
   const {
     register,
     setValue,
+    control,
     formState: { errors },
   } = methods;
 
@@ -128,19 +131,35 @@ export function QualificationForm() {
           </div>
 
           <div className="mt-5 grid gap-5 sm:grid-cols-2">
-            <SelectField
-              label={f.role.label}
-              placeholder={f.role.placeholder}
-              options={f.role.options}
-              error={errors.role?.message}
-              {...register('role')}
+            <Controller
+              name="role"
+              control={control}
+              render={({ field }) => (
+                <SelectMenu
+                  label={f.role.label}
+                  placeholder={f.role.placeholder}
+                  options={f.role.options}
+                  value={field.value}
+                  onChange={field.onChange}
+                  onBlur={field.onBlur}
+                  error={errors.role?.message}
+                />
+              )}
             />
-            <SelectField
-              label={f.patientsPerMonth.label}
-              placeholder={f.patientsPerMonth.placeholder}
-              options={f.patientsPerMonth.options}
-              error={errors.patientsPerMonth?.message}
-              {...register('patientsPerMonth')}
+            <Controller
+              name="patientsPerMonth"
+              control={control}
+              render={({ field }) => (
+                <SelectMenu
+                  label={f.patientsPerMonth.label}
+                  placeholder={f.patientsPerMonth.placeholder}
+                  options={f.patientsPerMonth.options}
+                  value={field.value}
+                  onChange={field.onChange}
+                  onBlur={field.onBlur}
+                  error={errors.patientsPerMonth?.message}
+                />
+              )}
             />
           </div>
 
@@ -155,12 +174,20 @@ export function QualificationForm() {
           </div>
 
           <div className="mt-5">
-            <SelectField
-              label={f.timeline.label}
-              placeholder={f.timeline.placeholder}
-              options={f.timeline.options}
-              error={errors.timeline?.message}
-              {...register('timeline')}
+            <Controller
+              name="timeline"
+              control={control}
+              render={({ field }) => (
+                <SelectMenu
+                  label={f.timeline.label}
+                  placeholder={f.timeline.placeholder}
+                  options={f.timeline.options}
+                  value={field.value}
+                  onChange={field.onChange}
+                  onBlur={field.onBlur}
+                  error={errors.timeline?.message}
+                />
+              )}
             />
           </div>
 
