@@ -17,7 +17,7 @@ export function LegalPage({
     <div className="min-h-screen bg-cream">
       <header className="border-b border-line">
         <Container className="flex items-center justify-between py-4">
-          <Link href="/" aria-label="TechxServe — home">
+          <Link href="/" aria-label="TechxServe home">
             <Logo />
           </Link>
           <Link

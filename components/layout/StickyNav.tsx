@@ -32,7 +32,7 @@ export function StickyNav() {
       )}
     >
       <Container className="flex items-center justify-between py-3.5">
-        <a href="#top" className="inline-flex items-center" aria-label="TechxServe — back to top">
+        <a href="#top" className="inline-flex items-center" aria-label="TechxServe, back to top">
           <Logo />
         </a>
         <Button source="nav" size="md" withArrow={false} className="px-5 py-2.5 text-sm">

@@ -3,7 +3,7 @@ import { LegalPage } from '@/components/layout/LegalPage';
 import { footer } from '@/config/content';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service — TechxServe',
+  title: 'Terms of Service | TechxServe',
   description: 'The terms that govern your use of this website and our services.',
   robots: { index: false, follow: true },
 };

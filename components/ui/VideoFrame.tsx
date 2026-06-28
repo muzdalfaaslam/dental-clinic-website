@@ -70,7 +70,7 @@ export function VideoFrame({
             type="button"
             onClick={handlePlay}
             className="group absolute inset-0 flex items-center justify-center bg-charcoal/15 transition-colors hover:bg-charcoal/25"
-            aria-label={src ? `Play video: ${title}` : `${title} — demo preview`}
+            aria-label={src ? `Play video: ${title}` : `${title}: demo preview`}
           >
             <span className="flex size-20 items-center justify-center rounded-full bg-cream/90 text-sage-deep shadow-card ring-1 ring-champagne/50 transition-transform duration-200 motion-safe:group-hover:scale-105">
               <Play className="ml-1 size-8" strokeWidth={1.5} fill="currentColor" />

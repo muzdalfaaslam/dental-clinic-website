@@ -3,7 +3,7 @@ import { LegalPage } from '@/components/layout/LegalPage';
 import { footer, form } from '@/config/content';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — TechxServe',
+  title: 'Privacy Policy | TechxServe',
   description: 'How TechxServe collects, uses, and protects the information you submit.',
   robots: { index: false, follow: true },
 };

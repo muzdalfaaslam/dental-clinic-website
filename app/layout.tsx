@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     title: meta.title,
     description: meta.description,
     url: siteUrl,
-    siteName: 'TechxServe — Med Spa Websites',
+    siteName: 'TechxServe Med Spa Websites',
     type: 'website',
     locale: 'en_US',
     images: [{ url: '/images/og.svg', width: 1200, height: 630, alt: meta.ogImageAlt }],

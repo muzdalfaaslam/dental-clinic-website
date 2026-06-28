@@ -33,9 +33,9 @@ export const FORM_ANCHOR = 'qualify';
 
 /* ── Site / SEO metadata (brief §10). ─────────────────────────────────────── */
 export const meta = {
-  title: 'Beautiful Med Spa Websites That Book More Treatments — TechxServe',
+  title: 'Beautiful Med Spa Websites That Book More Treatments | TechxServe',
   description:
-    'We design and build modern, fast, mobile-first websites made specifically for med spas — so more of the people finding you online actually book. Live in about 3 days.',
+    'We design and build modern, fast, mobile-first websites made specifically for med spas, so more of the people finding you online actually book. Live in about 3 days.',
   ogImageAlt: 'A beautiful med spa website on a phone, built by TechxServe',
   // One-line toggle for paid-only traffic that wants the page kept out of search.
   indexable: true, // set false to emit <meta name="robots" content="noindex">
@@ -51,9 +51,9 @@ export const nav = {
 export const hero = {
   eyebrow: 'FOR US MED SPAS & AESTHETIC CLINICS',
   headline:
-    'A Beautiful New Website That Turns Visitors Into Booked Treatments — In About 3 Days',
+    'A Beautiful New Website That Turns Visitors Into Booked Treatments in About 3 Days',
   subhead:
-    'We design and build modern, fast, mobile-first websites made specifically for med spas — so more of the people finding you online actually book.',
+    'We design and build modern, fast, mobile-first websites made specifically for med spas, so more of the people finding you online actually book.',
   cta: ctas.hero,
   trustLine: 'A US-registered software company. Built by TechxServe.',
   // CLIENT: replace asset — hero phone mockup of a finished med spa site.
@@ -68,7 +68,7 @@ export const video = {
   eyebrow: 'A 60-SECOND LOOK',
   heading: 'Watch a Med Spa Site Come to Life',
   blurb:
-    'A quick visual demo: real before/after med spa sites animating on a phone — see the transformation, then book your 15-minute call.',
+    'A quick visual demo: real before/after med spa sites animating on a phone. See the transformation, then book your 15-minute call.',
   // CLIENT: replace asset — real 45–90s visual demo + poster supplied later.
   poster: '/images/video-poster.svg',
   // Wired to a single config constant; drop the real file in /public/video/ and point here.
@@ -87,7 +87,7 @@ export const problem = {
     },
     {
       icon: 'smartphone' as IconKey,
-      text: 'It’s slow or clumsy on a phone — where most of your bookings happen',
+      text: 'It’s slow or clumsy on a phone, where most of your bookings happen',
     },
     {
       icon: 'calendar' as IconKey,
@@ -111,7 +111,7 @@ export const problem = {
 /* ── Section 4 — What we build (feature tiles + platform showcase). ───────── */
 export const whatWeBuild = {
   eyebrow: 'YOUR NEW WEBSITE, DONE FOR YOU',
-  headline: 'Your New Website, Done For You — In About 3 Days',
+  headline: 'Your New Website, Done For You, in About 3 Days',
   features: [
     {
       icon: 'palette' as IconKey,
@@ -148,9 +148,9 @@ export const whatWeBuild = {
     eyebrow: 'EVERYTHING UNDER ONE ROOF',
     heading: 'Your website is just the start',
     blurb:
-      'Behind it sits one connected platform that runs your whole clinic — add any part whenever you’re ready.',
+      'Behind it sits one connected platform that runs your whole clinic. Add any part whenever you’re ready.',
     upsellSeed:
-      'One platform. One login. Everything connected — booking, client records, reminders, marketing, and AI. Start with your new site; grow into the rest.',
+      'One platform. One login. Everything connected: booking, client records, reminders, marketing, and AI. Start with your new site; grow into the rest.',
   },
   cta: ctas.whatWeBuild,
 };
@@ -160,16 +160,16 @@ export const math = {
   eyebrow: 'THE MATH IS SIMPLE',
   headline: 'The Math Is Simple',
   intro:
-    'A single new patient is worth hundreds up front — and often thousands over time with repeat visits.',
+    'A single new patient is worth hundreds up front, and often thousands over time with repeat visits.',
   // CLIENT: confirm figures — keep ranges defensible, no "double your revenue" claims.
   stats: [
     { value: 'Hundreds', suffix: '', caption: 'Value of one new patient up front' },
     { value: 'Thousands', suffix: '', caption: 'Lifetime value with repeat visits' },
-    { value: '2–4', suffix: '/mo', caption: 'New patients a slow site can quietly cost you' },
+    { value: '2-4', suffix: '/mo', caption: 'New patients a slow site can quietly cost you' },
     { value: '~3', suffix: ' days', caption: 'From kickoff to a site built to convert' },
   ],
   closing:
-    'If a slow site or buried booking button costs you even 2–4 new patients a month, that’s real revenue walking out the door every single month. A website built to convert pays for itself with a handful of extra bookings.',
+    'If a slow site or buried booking button costs you even 2-4 new patients a month, that’s real revenue walking out the door every single month. A website built to convert pays for itself with a handful of extra bookings.',
   cta: ctas.math,
 };
 
@@ -179,9 +179,9 @@ export const socialProof = {
   headline: 'Built exclusively for med spas',
   // Pre-testimonial: credibility + scarcity (brief §6).
   credibility:
-    'We build websites exclusively for med spas. We’re currently taking on a small number of US clinics — if accepted, you’ll have a site that puts you ahead of the clinic down the street.',
+    'We build websites exclusively for med spas. We’re currently taking on a small number of US clinics. If accepted, you’ll have a site that puts you ahead of the clinic down the street.',
   beforeAfterHeading: 'Before & after, on the device that matters most',
-  beforeAfterNote: 'Drag to compare — the same clinic, rebuilt to book treatments.',
+  beforeAfterNote: 'Drag to compare: the same clinic, rebuilt to book treatments.',
   // CLIENT: replace asset — real before/after screenshots of an actual rebuild.
   beforeAfter: {
     before: { src: '/images/before-site.svg', alt: 'A dated med spa website, before the rebuild' },
@@ -199,7 +199,7 @@ export const socialProof = {
       pending: true, // CLIENT: replace with a real, consented testimonial
     },
     {
-      quote: 'Went from 4 online bookings a month to 19 — the booking button is finally where people look.',
+      quote: 'Went from 4 online bookings a month to 19. The booking button is finally where people look.',
       name: 'Owner',
       city: 'Austin, TX',
       rating: 5,
@@ -219,7 +219,7 @@ export const socialProof = {
 /* ── Section 7 — Qualification form. ──────────────────────────────────────── */
 export const form = {
   eyebrow: 'FREE, NO OBLIGATION',
-  headline: 'See What We’d Build For Your Clinic — Free, No Obligation',
+  headline: 'See What We’d Build For Your Clinic. Free, No Obligation',
   subline:
     'Tell us a little about your clinic and we’ll show you exactly what your new site could look like. Limited spots each month.',
   fields: {
@@ -238,7 +238,7 @@ export const form = {
       label: 'Roughly how many new patients a month?',
       placeholder: 'Select a range',
       // QUALIFIER: filters clinics too small to benefit yet.
-      options: ['Under 20', '20–50', '50–100', '100+'], // CLIENT: confirm qualifier bands
+      options: ['Under 20', '20-50', '50-100', '100+'], // CLIENT: confirm qualifier bands
     },
     frustration: {
       label: 'What’s your biggest frustration with your current site?',
@@ -257,7 +257,7 @@ export const form = {
       label: 'When would you want a new site live?',
       placeholder: 'Select a timeline',
       // Gauges urgency / readiness.
-      options: ['As soon as possible', 'Within a month', '1–3 months', 'Just exploring'],
+      options: ['As soon as possible', 'Within a month', '1-3 months', 'Just exploring'],
     },
   },
   // ⚠ Required SMS consent (US / TCPA). Exact mandated text — do not alter.
@@ -270,7 +270,7 @@ export const form = {
   // protect submit rate. Extension point lives in the form component, disabled.
   success: {
     heading: 'You’re on the list.',
-    body: 'We’ll review your clinic and reach out shortly to show you exactly what your new site could look like. Keep an eye on your phone — we may text to confirm a time.',
+    body: 'We’ll review your clinic and reach out shortly to show you exactly what your new site could look like. Keep an eye on your phone. We may text to confirm a time.',
     // Slot for the later "thank-you" no-show-reducer video (brief §2).
     thankYouVideoSrc: '', // CLIENT: add 60–90s thank-you video later
   },
@@ -282,8 +282,8 @@ export const form = {
 export const reassurance = {
   items: [
     'No long-term contracts',
-    'Done for you — zero extra work on your end',
-    'We build for med spas only — we know your patients',
+    'Done for you, zero extra work on your end',
+    'We build for med spas only, so we know your patients',
     'Your new site, ready in about 3 days',
   ],
 };
@@ -330,7 +330,7 @@ export const platformCatalog: PlatformGroup[] = [
     title: 'Website & Online Booking',
     tagline: 'The front door',
     items: [
-      { name: 'Custom med spa website', desc: 'On-brand, fast, mobile-first — built to turn visitors into booked treatments, live in ~3 days' },
+      { name: 'Custom med spa website', desc: 'On-brand, fast, mobile-first, built to turn visitors into booked treatments, live in ~3 days' },
       { name: 'Online booking platform', desc: '24/7 self-service scheduling with real-time availability, deposits, and instant confirmations' },
       { name: 'Treatment & service pages', desc: 'Each treatment given its own page, designed to sell and drive bookings' },
       { name: 'Before / after galleries', desc: 'Showcase real results that turn browsers into patients' },
@@ -343,7 +343,7 @@ export const platformCatalog: PlatformGroup[] = [
     title: 'Client Management',
     tagline: 'Every client’s history in one click',
     items: [
-      { name: 'Med spa CRM', desc: 'Full client history — treatments, notes, photos, preferences, visit history — in a single click' },
+      { name: 'Med spa CRM', desc: 'Full client history (treatments, notes, photos, preferences, visit history) in a single click' },
       { name: 'Digital intake & consent forms', desc: 'Paperless, e-signed, stored automatically against the client record' },
       { name: 'Treatment & photo records', desc: 'Before/after photos and chart notes tied to each client' },
       { name: 'Memberships & loyalty tracking', desc: 'Packages, points, and recurring members managed automatically' },
@@ -355,7 +355,7 @@ export const platformCatalog: PlatformGroup[] = [
     title: 'Communication & Reminders',
     tagline: 'The texting app',
     items: [
-      { name: 'Two-way texting app', desc: 'Text clients and reply from one shared clinic inbox — on web and mobile' },
+      { name: 'Two-way texting app', desc: 'Text clients and reply from one shared clinic inbox, on web and mobile' },
       { name: 'Automated appointment reminders', desc: 'SMS + email reminders that cut no-shows dramatically' },
       { name: 'Confirmations & rescheduling', desc: 'Clients confirm or rebook with a single tap' },
       { name: 'Aftercare & follow-up messages', desc: 'Automatic post-treatment check-ins that build loyalty' },
@@ -367,10 +367,10 @@ export const platformCatalog: PlatformGroup[] = [
     title: 'Retention & Marketing',
     tagline: 'Keep them coming back',
     items: [
-      { name: 'Patient reactivation', desc: 'Win back lapsed clients automatically — fast, high-margin revenue' },
+      { name: 'Patient reactivation', desc: 'Win back lapsed clients automatically for fast, high-margin revenue' },
       { name: 'Rebooking automations', desc: 'Treatment-cycle nudges (e.g. time-to-rebook reminders for injectables)' },
       { name: 'Email & SMS campaigns', desc: 'Promotions, new treatments, and seasonal offers, sent for them' },
-      { name: 'Review automation', desc: 'Ask happy clients for reviews automatically — more 5-star ratings' },
+      { name: 'Review automation', desc: 'Ask happy clients for reviews automatically for more 5-star ratings' },
       { name: 'Loyalty & referral programs', desc: 'Reward repeat clients and turn them into referrers' },
     ],
   },
@@ -400,7 +400,7 @@ export const platformCatalog: PlatformGroup[] = [
     title: 'Apps & Infrastructure',
     tagline: 'The foundation',
     items: [
-      { name: 'Branded mobile app', desc: 'Your own client app — booking, history, loyalty, and push notifications' },
+      { name: 'Branded mobile app', desc: 'Your own client app for booking, history, loyalty, and push notifications' },
       { name: 'Staff & schedule management', desc: 'Roles, calendars, and clinic operations in one place' },
       { name: 'Hosting, security & support', desc: 'We host, maintain, secure, and support everything' },
     ],
