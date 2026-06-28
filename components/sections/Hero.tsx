@@ -33,7 +33,7 @@ export function Hero() {
           {/* headline — two lines: sage line 1, charcoal line 2 with a sage marker
               on "Booked Treatments" and a gold underline on "3 Days" */}
           <ScrollReveal delay={0.05}>
-            <h1 className="mt-5 font-display text-[clamp(1.9rem,4.4vw,2.85rem)] font-semibold leading-[1.12] tracking-[-0.01em] text-sage-deep">
+            <h1 className="mt-5 font-display text-[clamp(1.9rem,4.4vw,2.85rem)] font-semibold leading-[1.28] tracking-[-0.01em] text-sage-deep">
               {hero.headline.line1}
               <br />
               <span className="text-charcoal">

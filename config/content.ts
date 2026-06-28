@@ -242,6 +242,7 @@ export const form = {
   fields: {
     fullName: { label: 'Full name', placeholder: 'Jordan Avery' },
     clinicName: { label: 'Clinic / business name', placeholder: 'Glow Aesthetic Studio' },
+    email: { label: 'Email', placeholder: 'you@glowaesthetic.com' },
     website: { label: 'Clinic website', placeholder: 'glowaesthetic.com', optional: true },
     phone: { label: 'Phone number', placeholder: '(555) 123-4567' },
     cityState: { label: 'City / State', placeholder: 'Austin, TX' },

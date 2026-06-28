@@ -95,6 +95,15 @@ export function QualificationForm() {
               {...register('clinicName')}
             />
             <TextField
+              label={f.email.label}
+              placeholder={f.email.placeholder}
+              type="email"
+              inputMode="email"
+              autoComplete="email"
+              error={errors.email?.message}
+              {...register('email')}
+            />
+            <TextField
               label={f.website.label}
               placeholder={f.website.placeholder}
               optional={f.website.optional}

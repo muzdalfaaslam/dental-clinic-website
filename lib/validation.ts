@@ -62,6 +62,12 @@ export const leadSchema = z.object({
     .trim()
     .min(2, 'Please enter your clinic or business name.')
     .max(120, 'That name is a little too long.'),
+  email: z
+    .string()
+    .trim()
+    .min(1, 'Please enter your email.')
+    .max(254, 'That email is a little too long.')
+    .email('Please enter a valid email address.'),
   website: looseUrl.optional().default(''),
   phone: z
     .string()
@@ -94,6 +100,7 @@ export type LeadData = z.output<typeof leadSchema>;
 export const leadDefaults: LeadInput = {
   fullName: '',
   clinicName: '',
+  email: '',
   website: '',
   phone: '',
   cityState: '',
