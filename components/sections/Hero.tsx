@@ -15,34 +15,36 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-wash pb-20 pt-32 sm:pt-36 lg:pb-28 lg:pt-44"
+      className="relative overflow-hidden bg-wash pb-8 pt-24 sm:pt-24 lg:pb-10 lg:pt-28"
     >
       <HeroBackground />
       <Container>
-        <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           {/* pill eyebrow */}
           <ScrollReveal>
-            <span className="inline-flex items-center rounded-full border border-sage-soft/45 bg-cream/50 px-5 py-2 text-eyebrow font-medium uppercase text-sage-deep backdrop-blur-sm">
+            <span className="inline-flex items-center rounded-full border border-sage-soft/45 bg-cream/50 px-4 py-1.5 text-eyebrow font-medium uppercase text-sage-deep backdrop-blur-sm">
               {hero.eyebrow}
             </span>
           </ScrollReveal>
 
-          {/* oversized headline */}
+          {/* headline */}
           <ScrollReveal delay={0.05}>
-            <h1 className="mt-7 font-display text-[clamp(2.6rem,7.5vw,5rem)] font-semibold leading-[1.05] tracking-[-0.01em] text-sage-deep text-balance">
+            <h1 className="mt-5 font-display text-[clamp(2.25rem,5.6vw,3.75rem)] font-semibold leading-[1.06] tracking-[-0.01em] text-sage-deep text-balance">
               {hero.headline}
             </h1>
           </ScrollReveal>
 
           {/* subhead */}
           <ScrollReveal delay={0.1}>
-            <p className="mt-7 max-w-xl text-body-lg text-charcoal/80">{hero.subhead}</p>
+            <p className="mt-4 max-w-lg text-[1.05rem] leading-relaxed text-charcoal/80">
+              {hero.subhead}
+            </p>
           </ScrollReveal>
 
-          {/* big CTA with leading arrow */}
+          {/* CTA with leading arrow */}
           <ScrollReveal delay={0.15}>
-            <div className="mt-10">
-              <Button source="hero" size="lg" arrowSide="left" className="px-9 py-4 text-base">
+            <div className="mt-6">
+              <Button source="hero" size="lg" arrowSide="left" className="px-8 py-3.5">
                 {hero.cta}
               </Button>
             </div>
@@ -50,15 +52,12 @@ export function Hero() {
 
           {/* fine-print trust line */}
           <ScrollReveal delay={0.2}>
-            <p className="mt-7 text-xs uppercase tracking-[0.16em] text-charcoal/45">
+            <p className="mt-4 text-xs uppercase tracking-[0.16em] text-charcoal/45">
               {hero.trustLine}
             </p>
           </ScrollReveal>
         </div>
       </Container>
-
-      {/* soft fade into the next section */}
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-cream" />
     </section>
   );
 }
