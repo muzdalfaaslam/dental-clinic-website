@@ -12,40 +12,40 @@ import { math } from '@/config/content';
  */
 export function TheMath() {
   return (
-    <section className="bg-cream-deep py-section">
-      <Container>
+    <section className="bg-cream-deep py-16 lg:py-24">
+      <Container className="max-w-5xl">
         <div className="mx-auto max-w-2xl text-center">
           <ScrollReveal>
             <SectionLabel className="justify-center">{math.eyebrow}</SectionLabel>
           </ScrollReveal>
           <ScrollReveal delay={0.05}>
-            <h2 className="mt-4 text-h2 text-sage-deep">{math.headline}</h2>
+            <h2 className="mt-3 text-h2 text-sage-deep">{math.headline}</h2>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <p className="mt-4 text-body-lg text-charcoal/75">{math.intro}</p>
+            <p className="mx-auto mt-3 max-w-md text-[0.95rem] text-charcoal/70">{math.intro}</p>
           </ScrollReveal>
         </div>
 
-        <StaggerGroup className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerGroup className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
           {math.stats.map((s) => (
             <StaggerItem key={s.caption} className="h-full">
-              {/* Accent cards — each stat fully contained, so nothing overlaps. */}
-              <div className="group flex h-full items-center justify-center rounded-lg border border-line bg-cream p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-champagne/40 hover:shadow-card">
-                <StatBlock value={s.value} suffix={s.suffix} caption={s.caption} centered />
+              {/* Accent cards — compact, each fully contained so nothing overlaps. */}
+              <div className="group flex h-full items-center justify-center rounded-lg border border-line bg-cream px-4 py-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-champagne/40 hover:shadow-card">
+                <StatBlock value={s.value} suffix={s.suffix} caption={s.caption} centered compact />
               </div>
             </StaggerItem>
           ))}
         </StaggerGroup>
 
         <ScrollReveal delay={0.05}>
-          <p className="mx-auto mt-14 max-w-3xl text-center text-body-lg text-charcoal/80">
+          <p className="mx-auto mt-10 max-w-2xl text-center text-[0.95rem] leading-relaxed text-charcoal/75">
             {math.closing}
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={0.08}>
-          <div className="mt-10 flex justify-center">
-            <Button source="the_math" size="lg">
+          <div className="mt-8 flex justify-center">
+            <Button source="the_math" size="md">
               {math.cta}
             </Button>
           </div>

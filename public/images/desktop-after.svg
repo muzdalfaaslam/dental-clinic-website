@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" role="img" aria-label="Rebuilt med spa website on desktop, by TechxServe">
+  <defs>
+    <linearGradient id="dsage" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8C9A7E"/>
+      <stop offset="1" stop-color="#5E6B52"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="#FAF6F0"/>
+  <!-- nav -->
+  <rect x="0" y="0" width="1200" height="64" fill="#FAF6F0"/>
+  <text x="56" y="40" font-family="Georgia, serif" font-size="24" fill="#5E6B52" font-weight="700">Lumière</text>
+  <g font-family="Arial, sans-serif" font-size="13" fill="#2E2A26" opacity="0.55">
+    <text x="720" y="40">Treatments</text>
+    <text x="850" y="40">About</text>
+    <text x="940" y="40">Reviews</text>
+  </g>
+  <rect x="1030" y="22" width="114" height="30" rx="15" fill="#5E6B52"/>
+  <text x="1087" y="42" font-family="Arial" font-size="12" fill="#FAF6F0" text-anchor="middle">Book Now</text>
+  <!-- hero -->
+  <rect x="0" y="64" width="1200" height="360" fill="url(#dsage)"/>
+  <circle cx="1050" cy="160" r="150" fill="#FAF6F0" opacity="0.07"/>
+  <circle cx="180" cy="400" r="120" fill="#FAF6F0" opacity="0.05"/>
+  <text x="56" y="210" font-family="Georgia, serif" font-size="58" fill="#FAF6F0" font-weight="600">Glow that lasts.</text>
+  <rect x="56" y="240" width="360" height="16" rx="3" fill="#FAF6F0" opacity="0.5"/>
+  <rect x="56" y="266" width="240" height="16" rx="3" fill="#FAF6F0" opacity="0.35"/>
+  <rect x="56" y="320" width="200" height="48" rx="24" fill="#C5A572"/>
+  <text x="156" y="350" font-family="Arial" font-size="15" fill="#2E2A26" text-anchor="middle" font-weight="600">Reserve a visit</text>
+  <!-- service cards -->
+  <g>
+    <rect x="56" y="468" width="340" height="150" rx="14" fill="#F2EBE0"/>
+    <rect x="430" y="468" width="340" height="150" rx="14" fill="#F2EBE0"/>
+    <rect x="804" y="468" width="340" height="150" rx="14" fill="#F2EBE0"/>
+    <circle cx="106" cy="520" r="22" fill="#8C9A7E" opacity="0.4"/>
+    <circle cx="480" cy="520" r="22" fill="#8C9A7E" opacity="0.4"/>
+    <circle cx="854" cy="520" r="22" fill="#8C9A7E" opacity="0.4"/>
+    <rect x="146" y="510" width="150" height="12" rx="6" fill="#5E6B52" opacity="0.5"/>
+    <rect x="520" y="510" width="150" height="12" rx="6" fill="#5E6B52" opacity="0.5"/>
+    <rect x="894" y="510" width="150" height="12" rx="6" fill="#5E6B52" opacity="0.5"/>
+    <rect x="146" y="534" width="110" height="10" rx="5" fill="#2E2A26" opacity="0.2"/>
+    <rect x="520" y="534" width="110" height="10" rx="5" fill="#2E2A26" opacity="0.2"/>
+    <rect x="894" y="534" width="110" height="10" rx="5" fill="#2E2A26" opacity="0.2"/>
+  </g>
+  <!-- footer -->
+  <rect x="0" y="690" width="1200" height="60" fill="#5E6B52"/>
+  <text x="56" y="727" font-family="Georgia, serif" font-size="17" fill="#FAF6F0">Lumière Aesthetics</text>
+</svg>

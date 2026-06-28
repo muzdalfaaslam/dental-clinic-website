@@ -12,9 +12,11 @@ clip-art.
 
 | Asset | Path | Aspect / size | Used in | Config key |
 |---|---|---|---|---|
-| Hero site mockup | `public/images/hero-site-mockup.svg` | 9:19 portrait (≈360×760, export ≥1080×2280) | Hero phone | `hero.mockup` |
-| Before (current site) | `public/images/before-site.svg` | 9:19 portrait | Social proof slider | `socialProof.beforeAfter.before` |
-| After (rebuilt site) | `public/images/after-site.svg` | 9:19 portrait | Social proof slider | `socialProof.beforeAfter.after` |
+| Desktop — before | `public/images/desktop-before.svg` | 16:10 landscape (≈1200×750, export ≥2400×1500) | Social proof desktop slider | `socialProof.beforeAfter.before` |
+| Desktop — after | `public/images/desktop-after.svg` | 16:10 landscape | Social proof desktop slider | `socialProof.beforeAfter.after` |
+| Phone — alt design | `public/images/phone-design-2.svg` | 9:19 portrait (≈360×760, export ≥1080×2280) | Social proof phone (a *different* clinic) | `socialProof.showcasePhone` |
+| Hero site mockup | `public/images/hero-site-mockup.svg` | 9:19 portrait | (kept in config; not currently rendered) | `hero.mockup` |
+| Before/after — portrait (legacy) | `public/images/before-site.svg`, `after-site.svg` | 9:19 portrait | unused (kept for reuse) | — |
 | Video poster | `public/images/video-poster.svg` | 16:9 (1280×720, export 1920×1080) | Video frame | `video.poster` |
 | Open Graph image | `public/images/og.svg` | 1200×630 | Social share preview | `app/layout.tsx` metadata |
 | Favicon | `public/favicon.svg` | 32×32 (SVG scales) | Browser tab | `app/layout.tsx` icons |

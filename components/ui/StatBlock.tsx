@@ -16,12 +16,14 @@ export function StatBlock({
   caption,
   className,
   centered = false,
+  compact = false,
 }: {
   value: string;
   suffix?: string;
   caption: string;
   className?: string;
   centered?: boolean;
+  compact?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.5 });
@@ -53,14 +55,32 @@ export function StatBlock({
   return (
     <div
       ref={ref}
-      className={cn('flex flex-col gap-3', centered && 'items-center text-center', className)}
+      className={cn(
+        'flex flex-col',
+        compact ? 'gap-2' : 'gap-3',
+        centered && 'items-center text-center',
+        className,
+      )}
     >
-      <div className="font-display text-[clamp(2.25rem,5vw,3.25rem)] font-semibold leading-[1.05] text-sage-deep">
+      <div
+        className={cn(
+          'font-display font-semibold leading-[1.05] text-sage-deep',
+          compact
+            ? 'text-[clamp(1.75rem,3.4vw,2.5rem)]'
+            : 'text-[clamp(2.25rem,5vw,3.25rem)]',
+        )}
+      >
         {display}
         {suffix && <span className="text-[0.5em] font-medium text-sage-soft">{suffix}</span>}
       </div>
-      <GoldRule width="w-10" />
-      <p className={cn('text-sm leading-relaxed text-charcoal/70', centered ? 'max-w-[24ch]' : 'max-w-[22ch]')}>
+      <GoldRule width={compact ? 'w-8' : 'w-10'} />
+      <p
+        className={cn(
+          'leading-relaxed text-charcoal/70',
+          compact ? 'text-[0.8rem]' : 'text-sm',
+          centered ? 'max-w-[24ch]' : 'max-w-[22ch]',
+        )}
+      >
         {caption}
       </p>
     </div>

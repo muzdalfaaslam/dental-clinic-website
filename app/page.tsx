@@ -1,3 +1,4 @@
+import { StickyNav } from '@/components/layout/StickyNav';
 import { StickyMobileCTA } from '@/components/layout/StickyMobileCTA';
 import { Hero } from '@/components/sections/Hero';
 import { Video } from '@/components/sections/Video';
@@ -16,6 +17,7 @@ import { Footer } from '@/components/sections/Footer';
 export default function Page() {
   return (
     <>
+      <StickyNav />
       <main>
         {/* 1 */} <Hero />
         {/* 2 */} <Video />

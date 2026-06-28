@@ -23,7 +23,7 @@ export function PhoneMockup({
   return (
     <div
       className={cn(
-        'relative mx-auto aspect-[9/19] w-[clamp(15rem,80vw,18rem)] rounded-[2.5rem] ' +
+        'relative mx-auto aspect-[9/19] w-full max-w-[18rem] rounded-[2.5rem] ' +
           'bg-charcoal p-2.5 shadow-card ring-1 ring-charcoal/10',
         className,
       )}

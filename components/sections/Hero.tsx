@@ -1,63 +1,58 @@
-import { ShieldCheck, Clock, Smartphone } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
-import { SectionLabel } from '@/components/ui/SectionLabel';
 import { HeroBackground } from '@/components/ui/HeroBackground';
 import { ScrollReveal } from '@/components/layout/ScrollReveal';
 import { hero } from '@/config/content';
 
 /**
- * Section 1 — Hero (above the fold). Centered single-column layout with an
- * on-brand decorative backdrop (no device mockup). Eyebrow, Playfair headline,
- * subhead, single gold-accented CTA, trust line, and a slim row of reassurance
- * chips. CTA visible without scrolling on mobile. Brief §6/Section 1.
+ * Section 1 — Hero (above the fold). Centered layout matching the reference:
+ * a bordered pill eyebrow, an oversized Playfair headline, a constrained subhead,
+ * one big CTA with a leading arrow, and a fine-print trust line — all on a clean
+ * cream field with a thin line motif. CTA visible without scrolling on mobile.
+ * Med spa skin (sage/champagne), not roofing's terracotta/condensed type.
  */
-const CHIPS = [
-  { icon: Clock, label: 'Live in ~3 days' },
-  { icon: Smartphone, label: 'Mobile-first' },
-  { icon: ShieldCheck, label: 'US-registered company' },
-];
-
 export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-wash pb-20 pt-28 sm:pt-32 lg:pb-28 lg:pt-40"
+      className="relative overflow-hidden bg-wash pb-20 pt-32 sm:pt-36 lg:pb-28 lg:pt-44"
     >
       <HeroBackground />
       <Container>
-        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+        <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+          {/* pill eyebrow */}
           <ScrollReveal>
-            <SectionLabel className="justify-center">{hero.eyebrow}</SectionLabel>
+            <span className="inline-flex items-center rounded-full border border-sage-soft/45 bg-cream/50 px-5 py-2 text-eyebrow font-medium uppercase text-sage-deep backdrop-blur-sm">
+              {hero.eyebrow}
+            </span>
           </ScrollReveal>
+
+          {/* oversized headline */}
           <ScrollReveal delay={0.05}>
-            <h1 className="mt-6 text-display text-sage-deep text-balance">{hero.headline}</h1>
+            <h1 className="mt-7 font-display text-[clamp(2.6rem,7.5vw,5rem)] font-semibold leading-[1.05] tracking-[-0.01em] text-sage-deep text-balance">
+              {hero.headline}
+            </h1>
           </ScrollReveal>
+
+          {/* subhead */}
           <ScrollReveal delay={0.1}>
-            <p className="mt-6 max-w-xl text-body-lg text-charcoal/80">{hero.subhead}</p>
+            <p className="mt-7 max-w-xl text-body-lg text-charcoal/80">{hero.subhead}</p>
           </ScrollReveal>
+
+          {/* big CTA with leading arrow */}
           <ScrollReveal delay={0.15}>
-            <div className="mt-9 flex flex-col items-center gap-3">
-              <Button source="hero" size="lg">
+            <div className="mt-10">
+              <Button source="hero" size="lg" arrowSide="left" className="px-9 py-4 text-base">
                 {hero.cta}
               </Button>
-              <p className="text-sm text-charcoal/60">{hero.trustLine}</p>
             </div>
           </ScrollReveal>
 
-          {/* reassurance chips */}
+          {/* fine-print trust line */}
           <ScrollReveal delay={0.2}>
-            <ul className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              {CHIPS.map(({ icon: Icon, label }) => (
-                <li
-                  key={label}
-                  className="group inline-flex items-center gap-2 rounded-full border border-line bg-cream/70 px-4 py-2 text-sm text-charcoal/75 shadow-soft backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-champagne/50 hover:text-charcoal hover:shadow-card"
-                >
-                  <Icon className="size-4 text-sage-soft transition-colors group-hover:text-sage-deep" strokeWidth={1.5} />
-                  {label}
-                </li>
-              ))}
-            </ul>
+            <p className="mt-7 text-xs uppercase tracking-[0.16em] text-charcoal/45">
+              {hero.trustLine}
+            </p>
           </ScrollReveal>
         </div>
       </Container>

@@ -39,8 +39,10 @@ interface CommonProps {
   children: React.ReactNode;
   /** Analytics source label for the cta_click event. */
   source?: string;
-  /** Show the trailing arrow (default true for primary). */
+  /** Show the arrow (default true for primary). */
   withArrow?: boolean;
+  /** Which side the arrow sits on (default right). */
+  arrowSide?: 'left' | 'right';
 }
 
 interface LinkButtonProps extends CommonProps {
@@ -75,21 +77,30 @@ export const Button = forwardRef<HTMLElement, ButtonProps>(function Button(props
     children,
     source,
     withArrow,
+    arrowSide = 'right',
   } = props;
 
   const showArrow = withArrow ?? variant === 'primary';
   const classes = cn(base, variants[variant], sizes[size], className);
 
+  const arrow = showArrow ? (
+    <ArrowRight
+      aria-hidden
+      className={cn(
+        'size-4 transition-transform duration-200',
+        arrowSide === 'right'
+          ? 'motion-safe:group-hover:translate-x-0.5'
+          : 'motion-safe:group-hover:-translate-x-0.5',
+      )}
+      strokeWidth={1.75}
+    />
+  ) : null;
+
   const content = (
     <>
+      {arrowSide === 'left' && arrow}
       {children}
-      {showArrow && (
-        <ArrowRight
-          aria-hidden
-          className="size-4 transition-transform duration-200 motion-safe:group-hover:translate-x-0.5"
-          strokeWidth={1.75}
-        />
-      )}
+      {arrowSide === 'right' && arrow}
     </>
   );
 

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" role="img" aria-label="A dated med spa website on desktop, before the rebuild">
+  <rect width="1200" height="750" fill="#E9E6E0"/>
+  <!-- dated header -->
+  <rect x="0" y="0" width="1200" height="74" fill="#6B6B6B"/>
+  <text x="40" y="46" font-family="Times New Roman, serif" font-size="26" fill="#DDD" font-weight="700">MEDSPA INC.</text>
+  <rect x="0" y="74" width="1200" height="26" fill="#4A4A4A"/>
+  <text x="40" y="92" font-family="Arial" font-size="12" fill="#BBB" letter-spacing="2">HOME   ABOUT   SERVICES   PRICING   CONTACT   BLOG   FAQ</text>
+  <!-- clashing hero -->
+  <rect x="0" y="100" width="1200" height="240" fill="#9AA7B0"/>
+  <text x="40" y="200" font-family="Arial" font-size="40" fill="#FFFFFF" font-weight="700">Welcome To Our Website!!</text>
+  <text x="40" y="240" font-family="Arial" font-size="16" fill="#EEE">We do botox, fillers, facials, laser hair removal and more...</text>
+  <rect x="40" y="268" width="160" height="40" rx="3" fill="#C0392B"/>
+  <text x="120" y="294" font-family="Arial" font-size="15" fill="#FFF" text-anchor="middle">CALL NOW</text>
+  <!-- wall of text + sidebar -->
+  <g fill="#888">
+    <rect x="40" y="380" width="760" height="9"/>
+    <rect x="40" y="402" width="760" height="9"/>
+    <rect x="40" y="424" width="700" height="9"/>
+    <rect x="40" y="446" width="760" height="9"/>
+    <rect x="40" y="468" width="640" height="9"/>
+    <rect x="40" y="490" width="760" height="9"/>
+    <rect x="40" y="512" width="560" height="9"/>
+  </g>
+  <rect x="840" y="380" width="320" height="300" fill="#CFCabf"/>
+  <text x="1000" y="540" font-family="Arial" font-size="13" fill="#fff" text-anchor="middle" opacity="0.7">[ sidebar ad ]</text>
+  <!-- low-res gallery -->
+  <rect x="40" y="560" width="180" height="120" fill="#B7AFA6"/>
+  <rect x="240" y="560" width="180" height="120" fill="#B7AFA6"/>
+  <rect x="440" y="560" width="180" height="120" fill="#B7AFA6"/>
+  <text x="330" y="624" font-family="Arial" font-size="12" fill="#fff" text-anchor="middle" opacity="0.7">[ image ]</text>
+  <rect x="0" y="700" width="1200" height="50" fill="#333"/>
+  <text x="40" y="730" font-family="Arial" font-size="12" fill="#999">© 2014 MedSpa Inc. All rights reserved.</text>
+</svg>

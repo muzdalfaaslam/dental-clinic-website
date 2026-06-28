@@ -1,38 +1,40 @@
 /**
- * Decorative, on-brand hero backdrop — soft sage/rose gradient orbs, a thin gold
- * ring, a faint dotted grid, and floating accent dots. Purely decorative
- * (aria-hidden); ambient motion is disabled under prefers-reduced-motion via the
- * global media query. Replaces the hero phone mockup with atmosphere (brief §5:
- * negative space, soft shapes, thin gold/sage rules).
+ * Minimal, on-brand hero backdrop. Echoes the reference layout's clean cream field
+ * with a single thin "topographic" line motif drawn across it — rendered here as
+ * soft, elegant flowing curves in sage/champagne rather than a hard mountain peak,
+ * plus two very faint orbs for warmth. Purely decorative (aria-hidden); ambient
+ * motion is disabled under prefers-reduced-motion. (brief §5: whitespace, thin
+ * sage/gold rules, calm.)
  */
 export function HeroBackground() {
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-      {/* faint dotted grid */}
-      <div
-        className="absolute inset-0 opacity-[0.5]"
-        style={{
-          backgroundImage:
-            'radial-gradient(rgb(var(--color-sage-soft) / 0.16) 1px, transparent 1px)',
-          backgroundSize: '26px 26px',
-          maskImage: 'radial-gradient(75% 60% at 50% 35%, #000 0%, transparent 75%)',
-          WebkitMaskImage: 'radial-gradient(75% 60% at 50% 35%, #000 0%, transparent 75%)',
-        }}
-      />
+      {/* faint warm orbs */}
+      <div className="absolute -left-32 top-10 size-80 rounded-full bg-sage-soft/12 blur-3xl animate-float-slow" />
+      <div className="absolute -right-28 top-24 size-96 rounded-full bg-rose/14 blur-3xl animate-float-slower" />
 
-      {/* gradient orbs */}
-      <div className="absolute -left-24 top-8 size-80 rounded-full bg-sage-soft/20 blur-3xl animate-float-slow" />
-      <div className="absolute -right-20 top-24 size-96 rounded-full bg-rose/25 blur-3xl animate-float-slower" />
-      <div className="absolute bottom-0 left-1/3 size-72 rounded-full bg-cream-deep blur-3xl" />
+      {/* thin flowing line motif spanning the hero */}
+      <svg
+        className="absolute inset-x-0 top-1/2 h-[120%] w-full -translate-y-1/2"
+        viewBox="0 0 1440 600"
+        fill="none"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <path
+          d="M-50 360 C 320 180, 560 180, 720 300 S 1140 460, 1490 240"
+          stroke="rgb(var(--color-sage-soft) / 0.35)"
+          strokeWidth="1"
+        />
+        <path
+          d="M-50 420 C 300 300, 600 300, 760 380 S 1180 500, 1490 320"
+          stroke="rgb(var(--color-champagne) / 0.3)"
+          strokeWidth="1"
+        />
+      </svg>
 
-      {/* thin gold ring, slowly drifting */}
-      <div className="absolute right-[12%] top-[18%] size-40 rounded-full border border-champagne/40 animate-drift-spin" />
-      <div className="absolute left-[10%] bottom-[16%] size-24 rounded-full border border-sage-soft/40 animate-float-slow" />
-
-      {/* small accent dots */}
-      <span className="absolute left-[18%] top-[28%] size-2 rounded-full bg-champagne/70 animate-float-slower" />
-      <span className="absolute right-[22%] bottom-[26%] size-1.5 rounded-full bg-sage-deep/50 animate-float-slow" />
-      <span className="absolute right-[30%] top-[20%] size-1.5 rounded-full bg-rose/70 animate-float-slower" />
+      {/* a couple of soft accent dots */}
+      <span className="absolute left-[16%] top-[30%] size-1.5 rounded-full bg-champagne/60 animate-float-slower" />
+      <span className="absolute right-[18%] top-[26%] size-1.5 rounded-full bg-sage-deep/40 animate-float-slow" />
     </div>
   );
 }

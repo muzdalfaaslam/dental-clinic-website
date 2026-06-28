@@ -163,8 +163,8 @@ export const math = {
     'A single new patient is worth hundreds up front, and often thousands over time with repeat visits.',
   // CLIENT: confirm figures — keep ranges defensible, no "double your revenue" claims.
   stats: [
-    { value: 'Hundreds', suffix: '', caption: 'Value of one new patient up front' },
-    { value: 'Thousands', suffix: '', caption: 'Lifetime value with repeat visits' },
+    { value: '$500', suffix: '+', caption: 'Value of one new patient up front' }, // CLIENT: confirm figures
+    { value: '$5K', suffix: '+', caption: 'Lifetime value with repeat visits' }, // CLIENT: confirm figures
     { value: '2-4', suffix: '/mo', caption: 'New patients a slow site can quietly cost you' },
     { value: '~3', suffix: ' days', caption: 'From kickoff to a site built to convert' },
   ],
@@ -180,18 +180,20 @@ export const socialProof = {
   // Pre-testimonial: credibility + scarcity (brief §6).
   credibility:
     'We build websites exclusively for med spas. We’re currently taking on a small number of US clinics. If accepted, you’ll have a site that puts you ahead of the clinic down the street.',
-  beforeAfterHeading: 'Before & after, on the device that matters most',
-  beforeAfterNote: 'Drag to compare: the same clinic, rebuilt to book treatments.',
+  beforeAfterHeading: 'Before & after, on every screen',
+  beforeAfterNote: 'Drag the desktop to compare the rebuild. The phone shows a different clinic we built.',
+  // Desktop before/after (landscape) — drag to compare the rebuild.
   // CLIENT: replace asset — real before/after screenshots of an actual rebuild.
   beforeAfter: {
-    before: { src: '/images/before-site.svg', alt: 'A dated med spa website, before the rebuild' },
-    after: { src: '/images/after-site.svg', alt: 'The same med spa website, rebuilt by TechxServe' },
+    before: { src: '/images/desktop-before.svg', alt: 'A dated med spa website, before the rebuild' },
+    after: { src: '/images/desktop-after.svg', alt: 'The same med spa website, rebuilt by TechxServe' },
   },
-  // Second device shown beside the before/after for a 3D phone pair.
-  // CLIENT: replace asset — a second finished med spa design.
+  // Phone beside the desktop shows a DIFFERENT clinic's design (distinct style) —
+  // proof of range, not a repeat of the desktop after.
+  // CLIENT: replace asset — a second, distinct finished med spa design.
   showcasePhone: {
-    src: '/images/hero-site-mockup.svg',
-    alt: 'Another finished med spa website design by TechxServe',
+    src: '/images/phone-design-2.svg',
+    alt: 'A different med spa website design, built for mobile by TechxServe',
   },
   // CLIENT: real testimonials arrive post-launch. Cards render from this array;
   // until then we show the credibility + scarcity copy above and these samples are

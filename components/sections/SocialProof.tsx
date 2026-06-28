@@ -2,6 +2,7 @@ import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { PhoneMockup } from '@/components/ui/PhoneMockup';
+import { DesktopMockup } from '@/components/ui/DesktopMockup';
 import { BeforeAfterSlider } from '@/components/ui/BeforeAfterSlider';
 import { TestimonialMarquee } from '@/components/ui/TestimonialMarquee';
 import { ScrollReveal } from '@/components/layout/ScrollReveal';
@@ -39,31 +40,28 @@ export function SocialProof() {
             </ScrollReveal>
           </div>
 
-          {/* 3D phone pair: a finished design behind, the before/after slider in front */}
+          {/* Device pair: desktop showing the before/after rebuild, with a phone in
+              front showing a different clinic's design. */}
           <ScrollReveal delay={0.1}>
-            <div className="perspective-1000 relative">
+            <div className="relative pb-8 pr-8 sm:pb-0">
               <div
                 aria-hidden
-                className="absolute left-1/2 top-1/2 -z-10 size-[110%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-rose/15 blur-2xl"
+                className="absolute left-1/2 top-1/2 -z-10 size-[115%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-rose/15 blur-2xl"
               />
-              <div className="relative flex items-center justify-center">
-                {/* back phone — a second finished design (hidden on the smallest screens) */}
-                <div className="phone-3d phone-3d-left relative z-0 hidden -mr-12 opacity-95 sm:block">
-                  <PhoneMockup
-                    src={socialProof.showcasePhone.src}
-                    alt={socialProof.showcasePhone.alt}
-                    className="w-[clamp(12rem,40vw,15rem)]"
-                  />
-                </div>
-                {/* front phone — interactive before/after */}
-                <div className="phone-3d phone-3d-right relative z-10">
-                  <PhoneMockup>
-                    <BeforeAfterSlider
-                      before={socialProof.beforeAfter.before}
-                      after={socialProof.beforeAfter.after}
-                    />
-                  </PhoneMockup>
-                </div>
+              {/* desktop — drag-to-compare before/after */}
+              <DesktopMockup className="w-full max-w-xl transition-transform duration-500 hover:-translate-y-1">
+                <BeforeAfterSlider
+                  before={socialProof.beforeAfter.before}
+                  after={socialProof.beforeAfter.after}
+                />
+              </DesktopMockup>
+              {/* phone — a different finished design, overlapping the front-right */}
+              <div className="absolute -bottom-2 right-0 w-[34%] min-w-[7.5rem] max-w-[10rem] transition-transform duration-500 hover:-translate-y-1 sm:-bottom-6 sm:right-2">
+                <PhoneMockup
+                  src={socialProof.showcasePhone.src}
+                  alt={socialProof.showcasePhone.alt}
+                  className="w-full"
+                />
               </div>
             </div>
           </ScrollReveal>
