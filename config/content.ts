@@ -158,8 +158,8 @@ export const whatWeBuild = {
     heading: 'Your website is just the start',
     blurb:
       'Behind it sits one connected platform that runs your whole clinic. Add any part whenever you’re ready.',
-    upsellSeed:
-      'One platform. One login. Everything connected: booking, client records, reminders, marketing, and AI. Start with your new site; grow into the rest.',
+    upsellSeed: 'One platform. One login. Everything connected.',
+    upsellHighlight: 'Start with your new site; grow into the rest.',
   },
   cta: ctas.whatWeBuild,
 };
@@ -339,6 +339,7 @@ export interface PlatformGroup {
   icon: IconKey;
   title: string;
   tagline: string;
+  phrases?: string[];
   items: PlatformItem[];
 }
 
@@ -360,6 +361,11 @@ export const platformCatalog: PlatformGroup[] = [
     icon: 'users',
     title: 'Client Management',
     tagline: "Every client's history in one click",
+    phrases: [
+      "Full patient history — one tap, any device",
+      "Paperless intake, signed before they arrive",
+      "Photos, notes, and preferences auto-stored",
+    ],
     items: [
       { name: 'Med spa CRM', desc: 'Full client history (treatments, notes, photos, preferences, visit history) in a single click' },
       { name: 'Digital intake & consent forms', desc: 'Paperless, e-signed, stored automatically against the client record' },
@@ -372,6 +378,11 @@ export const platformCatalog: PlatformGroup[] = [
     icon: 'messageSquare',
     title: 'Communication & Reminders',
     tagline: 'Always in touch',
+    phrases: [
+      "Cut no-shows dramatically — automatically",
+      "Clients confirm with a single reply",
+      "Set once. Runs forever in the background",
+    ],
     items: [
       { name: 'Automated appointment reminders', desc: 'SMS + email reminders that cut no-shows dramatically' },
       { name: 'Confirmations & rescheduling', desc: 'Clients confirm or rebook with a single tap' },
@@ -383,6 +394,11 @@ export const platformCatalog: PlatformGroup[] = [
     icon: 'repeat',
     title: 'Retention & Marketing',
     tagline: 'Keep them coming back',
+    phrases: [
+      "Win back lapsed patients — automatically",
+      "Promos and campaigns sent without lifting a finger",
+      "Turn your happiest patients into referrers",
+    ],
     items: [
       { name: 'Patient reactivation', desc: 'Win back lapsed clients automatically for fast, high-margin revenue' },
       { name: 'Rebooking automations', desc: 'Treatment-cycle nudges (e.g. time-to-rebook reminders for injectables)' },
@@ -395,6 +411,11 @@ export const platformCatalog: PlatformGroup[] = [
     icon: 'search',
     title: 'SEO & Get Found',
     tagline: 'Local growth',
+    phrases: [
+      "Rank for 'med spa near me' in your city",
+      "Show up before the clinic down the street",
+      "More visibility, more bookings, less ad spend",
+    ],
     items: [
       { name: 'Local SEO', desc: 'Rank for “med spa near me” in your city' },
       { name: 'Google Business Profile', desc: 'Optimized so you show up on the map and in search' },
@@ -406,6 +427,11 @@ export const platformCatalog: PlatformGroup[] = [
     icon: 'bot',
     title: 'AI Chatbot & 24/7 Support',
     tagline: 'Always available',
+    phrases: [
+      "Books appointments while you sleep",
+      "Every after-hours inquiry answered instantly",
+      "No missed leads. Ever.",
+    ],
     items: [
       { name: 'AI receptionist chatbot', desc: 'Answers questions and books appointments around the clock, even after hours' },
       { name: '24/7 customer service', desc: 'No missed inquiries — every lead gets an instant, intelligent response' },
@@ -417,6 +443,11 @@ export const platformCatalog: PlatformGroup[] = [
     icon: 'smartphone',
     title: 'Mobile Application',
     tagline: 'For consistent customers',
+    phrases: [
+      "Your clinic in their pocket, always",
+      "Rebook a favourite treatment in one tap",
+      "Loyalty and rewards that keep them returning",
+    ],
     items: [
       { name: 'Branded client app', desc: 'Your own app so returning patients book, track history, and earn loyalty points easily' },
       { name: 'Push notifications', desc: 'Re-engage clients with offers, reminders, and new treatment announcements' },
@@ -427,6 +458,11 @@ export const platformCatalog: PlatformGroup[] = [
     icon: 'wrench',
     title: 'Maintenance',
     tagline: 'Whenever you need it',
+    phrases: [
+      "Changes done the same day you ask",
+      "Security and hosting handled, always",
+      "Zero tech headaches on your end",
+    ],
     items: [
       { name: 'Hosting & uptime monitoring', desc: 'Your site stays fast, live, and secure 24/7 with no effort on your end' },
       { name: 'Updates on demand', desc: "New offers, photos, pages, or copy — just ask and it's done" },
@@ -438,6 +474,11 @@ export const platformCatalog: PlatformGroup[] = [
     icon: 'palette',
     title: 'Brand Refreshment',
     tagline: 'Look the part',
+    phrases: [
+      "Look as polished as your results",
+      "A brand patients trust on sight",
+      "Consistent across every touchpoint",
+    ],
     items: [
       { name: 'Logo & identity refresh', desc: 'Modernize your brand without starting from scratch' },
       { name: 'Color, typography & style guide', desc: 'A consistent look across every touchpoint, online and offline' },
@@ -448,6 +489,11 @@ export const platformCatalog: PlatformGroup[] = [
     icon: 'barChart',
     title: 'Management System',
     tagline: 'Your business, in one view',
+    phrases: [
+      "Revenue, staff, clients — one screen",
+      "Real-time numbers, no spreadsheets",
+      "Run your whole clinic from anywhere",
+    ],
     items: [
       { name: 'Revenue tracking', desc: 'Real-time revenue reports across services, providers, and locations' },
       { name: 'Client management', desc: 'Full client records, history, spend, and communication all in one place' },

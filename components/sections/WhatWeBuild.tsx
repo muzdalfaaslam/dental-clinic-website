@@ -55,10 +55,13 @@ export function WhatWeBuild() {
           </div>
 
           <ScrollReveal delay={0.05}>
-            <div className="mx-auto mt-10 flex max-w-2xl flex-col items-center gap-5 text-center">
+            <div className="mx-auto mt-10 flex max-w-2xl flex-col items-center gap-4 text-center">
               <GoldRule width="w-12" />
-              <p className="text-body-lg italic text-charcoal/80">
+              <p className="text-body-lg italic text-charcoal/70">
                 {whatWeBuild.platform.upsellSeed}
+              </p>
+              <p className="font-display text-[1.1rem] font-semibold text-sage-deep">
+                {whatWeBuild.platform.upsellHighlight}
               </p>
             </div>
           </ScrollReveal>

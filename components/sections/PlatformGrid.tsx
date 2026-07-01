@@ -1,15 +1,11 @@
+'use client';
+
+import { MousePointer2 } from 'lucide-react';
 import { getIcon } from '@/components/ui/icon-registry';
 import { GoldRule } from '@/components/ui/GoldRule';
 import { StaggerGroup, StaggerItem } from '@/components/layout/ScrollReveal';
 import { platformCatalog } from '@/config/content';
 
-/**
- * "Everything Under One Roof" grid. Row 1 is the website & online booking group —
- * the main offer — rendered as a centered, highlighted accent card. The remaining
- * six groups sit below it, three to a row. Only group title + tagline + icon (plus
- * a few item names on the highlight) render here; the full catalog stays in config
- * for the sales team (brief §6 note, §9).
- */
 export function PlatformGrid() {
   const [primary, ...rest] = platformCatalog;
   if (!primary) return null;
@@ -17,11 +13,10 @@ export function PlatformGrid() {
 
   return (
     <div className="space-y-3">
-      {/* Row 1 — the main offer, centered + highlighted accent card */}
+      {/* Row 1 — featured card */}
       <StaggerGroup>
         <StaggerItem>
           <div className="group relative mx-auto max-w-2xl overflow-hidden rounded-lg border-2 border-champagne/60 bg-gradient-to-br from-cream to-cream-deep p-7 text-center shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(94,107,82,0.16)] sm:p-9">
-            {/* corner glow */}
             <div
               aria-hidden
               className="absolute -right-10 -top-10 size-32 rounded-full bg-champagne/15 blur-2xl transition-opacity duration-300 group-hover:opacity-80"
@@ -62,25 +57,55 @@ export function PlatformGrid() {
       {/* connector */}
       <div aria-hidden className="mx-auto h-6 w-px bg-line" />
 
-      {/* Rows below — the rest, three to a row */}
+      {/* Hover hint */}
+      <p className="flex items-center justify-center gap-1.5 pb-1 text-[0.7rem] uppercase tracking-[0.14em] text-charcoal/35 select-none">
+        <MousePointer2 className="size-3" strokeWidth={1.5} />
+        Hover any card to explore
+      </p>
+
+      {/* Rows below */}
       <StaggerGroup className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {rest.map((group) => {
           const Icon = getIcon(group.icon);
           return (
             <StaggerItem key={group.title}>
-              <div className="group flex h-full items-center gap-4 rounded-md border border-line bg-cream p-5 transition-all duration-300 hover:-translate-y-1 hover:border-champagne/40 hover:shadow-card">
-                <span
-                  aria-hidden
-                  className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-cream-deep ring-1 ring-inset ring-champagne/40 transition-colors duration-300 group-hover:bg-sage-deep"
-                >
-                  <Icon
-                    className="size-5 text-sage-deep transition-colors duration-300 group-hover:text-cream"
-                    strokeWidth={1.5}
-                  />
-                </span>
-                <div>
-                  <h4 className="font-display text-base font-medium text-charcoal">{group.title}</h4>
-                  <p className="text-sm text-charcoal/60">{group.tagline}</p>
+              <div className="group flex h-full cursor-default flex-col rounded-md border border-line bg-cream p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-champagne/50 hover:shadow-card">
+                {/* Icon + title */}
+                <div className="flex items-center gap-3">
+                  <span
+                    aria-hidden
+                    className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-cream-deep ring-1 ring-inset ring-champagne/40 transition-colors duration-300 group-hover:bg-sage-deep"
+                  >
+                    <Icon
+                      className="size-[1.1rem] text-sage-deep transition-colors duration-300 group-hover:text-cream"
+                      strokeWidth={1.5}
+                    />
+                  </span>
+                  <h4 className="font-display text-[0.88rem] font-medium leading-snug text-charcoal">
+                    {group.title}
+                  </h4>
+                </div>
+
+                {/* Tagline → phrases swap */}
+                <div className="relative mt-3 min-h-[3.6rem]">
+                  {/* Default: tagline */}
+                  <p className="absolute inset-0 text-xs leading-relaxed text-charcoal/50 transition-opacity duration-200 group-hover:opacity-0">
+                    {group.tagline}
+                  </p>
+                  {/* Hover: selling phrases */}
+                  {group.phrases && (
+                    <ul
+                      aria-hidden
+                      className="absolute inset-0 space-y-[0.28rem] opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                    >
+                      {group.phrases.map((phrase, i) => (
+                        <li key={i} className="flex items-start gap-1.5 text-[0.72rem] leading-snug text-charcoal/80">
+                          <span className="mt-[0.32rem] inline-block size-[0.28rem] shrink-0 rounded-full bg-champagne" />
+                          {phrase}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </div>
             </StaggerItem>
