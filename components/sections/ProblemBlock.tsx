@@ -98,34 +98,36 @@ export function ProblemBlock() {
           })}
         </StaggerGroup>
 
-        {/* Per-item response callout */}
+        {/* Per-item response callout — reveal shell animates height+opacity only */}
         <div
-          aria-live="polite"
           className={[
-            'mx-auto mt-8 max-w-xl overflow-hidden rounded-lg border text-center transition-all duration-300',
-            count > 0
-              ? 'border-champagne/50 bg-gradient-to-br from-cream to-cream-deep p-6 opacity-100 shadow-card'
-              : 'max-h-0 border-transparent p-0 opacity-0',
+            'mx-auto mt-8 max-w-xl overflow-hidden rounded-lg border shadow-card',
+            'bg-gradient-to-br from-cream to-cream-deep border-champagne/50',
+            'transition-[max-height,opacity] duration-300 ease-out',
+            count > 0 ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0 pointer-events-none',
           ].join(' ')}
         >
-          {activePoint && (
-            <>
-              <p className="text-[0.68rem] font-medium uppercase tracking-[0.16em] text-champagne">
-                {count > 1 ? `${count} issues selected` : '1 issue selected'}
-              </p>
-              <p className="mt-2 font-display text-[1.05rem] font-semibold leading-snug text-sage-deep">
-                {activePoint.response.headline}
-              </p>
-              <p className="mt-2 text-sm leading-relaxed text-charcoal/65">
-                {activePoint.response.body}
-              </p>
-              <div className="mt-5">
-                <Button source="problem_block" size="md">
-                  Show Me What We&apos;d Fix
-                </Button>
+          {/* Inner padding is never animated — text stays perfectly formed */}
+          <div aria-live="polite" className="p-6 text-center">
+            {activePoint && (
+              <div key={lastActive} className="animate-fade-in-up">
+                <p className="text-[0.68rem] font-medium uppercase tracking-[0.16em] text-champagne">
+                  {count > 1 ? `${count} issues selected` : '1 issue selected'}
+                </p>
+                <p className="mt-2 font-display text-[1.05rem] font-semibold leading-snug text-sage-deep">
+                  {activePoint.response.headline}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-charcoal/65">
+                  {activePoint.response.body}
+                </p>
+                <div className="mt-5">
+                  <Button source="problem_block" size="md">
+                    Show Me What We&apos;d Fix
+                  </Button>
+                </div>
               </div>
-            </>
-          )}
+            )}
+          </div>
         </div>
       </Container>
     </section>
