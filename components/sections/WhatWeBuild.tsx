@@ -26,7 +26,7 @@ export function WhatWeBuild() {
           </ScrollReveal>
         </div>
 
-        <StaggerGroup className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <StaggerGroup className="mt-10 grid gap-x-10 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
           {whatWeBuild.features.map((f) => (
             <StaggerItem key={f.label}>
               <FeatureTile icon={f.icon} label={f.label} desc={f.desc} />
