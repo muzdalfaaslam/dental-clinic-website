@@ -1,6 +1,3 @@
-'use client';
-
-import { MousePointer2 } from 'lucide-react';
 import { getIcon } from '@/components/ui/icon-registry';
 import { GoldRule } from '@/components/ui/GoldRule';
 import { StaggerGroup, StaggerItem } from '@/components/layout/ScrollReveal';
@@ -57,12 +54,6 @@ export function PlatformGrid() {
       {/* connector */}
       <div aria-hidden className="mx-auto h-6 w-px bg-line" />
 
-      {/* Hover hint */}
-      <p className="flex items-center justify-center gap-1.5 pb-1 text-[0.7rem] uppercase tracking-[0.14em] text-charcoal/35 select-none">
-        <MousePointer2 className="size-3" strokeWidth={1.5} />
-        Hover any card to explore
-      </p>
-
       {/* Rows below */}
       <StaggerGroup className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {rest.map((group) => {
@@ -86,27 +77,19 @@ export function PlatformGrid() {
                   </h4>
                 </div>
 
-                {/* Tagline → phrases swap */}
-                <div className="relative mt-3 min-h-[3.6rem]">
-                  {/* Default: tagline */}
-                  <p className="absolute inset-0 text-xs leading-relaxed text-charcoal/50 transition-opacity duration-200 group-hover:opacity-0">
-                    {group.tagline}
-                  </p>
-                  {/* Hover: selling phrases */}
-                  {group.phrases && (
-                    <ul
-                      aria-hidden
-                      className="absolute inset-0 space-y-[0.28rem] opacity-0 transition-opacity duration-200 group-hover:opacity-100"
-                    >
-                      {group.phrases.map((phrase, i) => (
-                        <li key={i} className="flex items-start gap-1.5 text-[0.72rem] leading-snug text-charcoal/80">
-                          <span className="mt-[0.32rem] inline-block size-[0.28rem] shrink-0 rounded-full bg-champagne" />
-                          {phrase}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
+                {/* Phrases always visible */}
+                {group.phrases ? (
+                  <ul className="mt-3 space-y-[0.3rem]">
+                    {group.phrases.map((phrase, i) => (
+                      <li key={i} className="flex items-start gap-1.5 text-[0.72rem] leading-snug text-charcoal/70 transition-colors duration-200 group-hover:text-charcoal/90">
+                        <span className="mt-[0.32rem] inline-block size-[0.28rem] shrink-0 rounded-full bg-champagne" />
+                        {phrase}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="mt-3 text-xs leading-relaxed text-charcoal/50">{group.tagline}</p>
+                )}
               </div>
             </StaggerItem>
           );

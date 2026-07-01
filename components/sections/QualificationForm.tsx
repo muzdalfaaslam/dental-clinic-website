@@ -4,7 +4,6 @@ import { Controller } from 'react-hook-form';
 import { CheckCircle2 } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
-import { SectionLabel } from '@/components/ui/SectionLabel';
 import { TextField, CheckboxGroup } from '@/components/form/FormField';
 import { SelectMenu } from '@/components/form/SelectMenu';
 import { ConsentCheckbox } from '@/components/form/ConsentCheckbox';
@@ -56,8 +55,7 @@ export function QualificationForm() {
     <section id={FORM_ANCHOR} className="scroll-mt-24 bg-cream-deep py-section">
       <Container className="max-w-3xl">
         <div className="text-center">
-          <SectionLabel className="justify-center">{form.eyebrow}</SectionLabel>
-          <h2 className="mt-4 text-h2 text-sage-deep text-balance">{form.headline}</h2>
+          <h2 className="text-h2 text-sage-deep text-balance">{form.headline}</h2>
           <p className="mx-auto mt-4 max-w-xl text-body-lg text-charcoal/75">{form.subline}</p>
         </div>
 

@@ -10,7 +10,7 @@ type Variant = 'primary' | 'ghost' | 'invert';
 type Size = 'md' | 'lg';
 
 const base =
-  'group inline-flex items-center justify-center gap-2 rounded-full font-medium ' +
+  'group inline-flex items-center justify-center gap-2 rounded-lg font-medium ' +
   'transition-[transform,box-shadow,background-color,color] duration-200 ease-out ' +
   'will-change-transform select-none disabled:cursor-not-allowed disabled:opacity-60 ' +
   'motion-safe:hover:-translate-y-0.5 active:translate-y-0';

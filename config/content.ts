@@ -174,11 +174,11 @@ export const math = {
   stats: [
     { value: '$500', suffix: '+', caption: 'Value of one new patient up front' }, // CLIENT: confirm figures
     { value: '$5K', suffix: '+', caption: 'Lifetime value with repeat visits' }, // CLIENT: confirm figures
-    { value: '2-4', suffix: '/mo', caption: 'New patients a slow site can quietly cost you' },
+    { value: '10-15', suffix: '/mo', caption: 'New patients a slow site can quietly cost you' },
     { value: '~3', suffix: ' days', caption: 'From kickoff to a site built to convert' },
   ],
   closing:
-    'If a slow site or buried booking button costs you even 2-4 new patients a month, that’s real revenue walking out the door every single month. A website built to convert pays for itself with a handful of extra bookings.',
+    'If a slow site or buried booking button costs you even 10-15 new patients a month, that is real revenue walking out the door every single month. A website built to convert pays for itself with a handful of extra bookings.',
   cta: ctas.math,
 };
 
@@ -362,7 +362,7 @@ export const platformCatalog: PlatformGroup[] = [
     title: 'Client Management',
     tagline: "Every client's history in one click",
     phrases: [
-      "Full patient history — one tap, any device",
+      "Full patient history, one tap, any device",
       "Paperless intake, signed before they arrive",
       "Photos, notes, and preferences auto-stored",
     ],
@@ -379,7 +379,7 @@ export const platformCatalog: PlatformGroup[] = [
     title: 'Communication & Reminders',
     tagline: 'Always in touch',
     phrases: [
-      "Cut no-shows dramatically — automatically",
+      "Cut no-shows. Dramatically. Automatically.",
       "Clients confirm with a single reply",
       "Set once. Runs forever in the background",
     ],
@@ -395,7 +395,7 @@ export const platformCatalog: PlatformGroup[] = [
     title: 'Retention & Marketing',
     tagline: 'Keep them coming back',
     phrases: [
-      "Win back lapsed patients — automatically",
+      "Win back lapsed patients, automatically",
       "Promos and campaigns sent without lifting a finger",
       "Turn your happiest patients into referrers",
     ],
@@ -434,9 +434,9 @@ export const platformCatalog: PlatformGroup[] = [
     ],
     items: [
       { name: 'AI receptionist chatbot', desc: 'Answers questions and books appointments around the clock, even after hours' },
-      { name: '24/7 customer service', desc: 'No missed inquiries — every lead gets an instant, intelligent response' },
+      { name: '24/7 customer service', desc: 'No missed inquiries. Every lead gets an instant, intelligent response' },
       { name: 'AI lead follow-up', desc: 'Instantly responds to and nurtures new enquiries so none go cold' },
-      { name: 'Smart workflows', desc: 'Intake, reminder, aftercare, review, rebook — fully automated end to end' },
+      { name: 'Smart workflows', desc: 'Intake, reminder, aftercare, review, rebook. Fully automated end to end' },
     ],
   },
   {
@@ -465,7 +465,7 @@ export const platformCatalog: PlatformGroup[] = [
     ],
     items: [
       { name: 'Hosting & uptime monitoring', desc: 'Your site stays fast, live, and secure 24/7 with no effort on your end' },
-      { name: 'Updates on demand', desc: "New offers, photos, pages, or copy — just ask and it's done" },
+      { name: 'Updates on demand', desc: "New offers, photos, pages, or copy. Just ask and it's done" },
       { name: 'Security & backups', desc: 'Always patched, always backed up, always protected' },
       { name: 'Dedicated support', desc: 'Help when you need it, no ticket queue, no waiting' },
     ],
@@ -482,7 +482,7 @@ export const platformCatalog: PlatformGroup[] = [
     items: [
       { name: 'Logo & identity refresh', desc: 'Modernize your brand without starting from scratch' },
       { name: 'Color, typography & style guide', desc: 'A consistent look across every touchpoint, online and offline' },
-      { name: 'Brand assets & collateral', desc: 'Business cards, social kits, menus, and more — all on-brand' },
+      { name: 'Brand assets & collateral', desc: 'Business cards, social kits, menus, and more, all on-brand' },
     ],
   },
   {
@@ -490,7 +490,7 @@ export const platformCatalog: PlatformGroup[] = [
     title: 'Management System',
     tagline: 'Your business, in one view',
     phrases: [
-      "Revenue, staff, clients — one screen",
+      "Revenue, staff, clients in one screen",
       "Real-time numbers, no spreadsheets",
       "Run your whole clinic from anywhere",
     ],
