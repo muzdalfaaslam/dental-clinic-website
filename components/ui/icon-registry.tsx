@@ -1,4 +1,5 @@
 import {
+  BarChart2,
   Bot,
   Calendar,
   Clock,
@@ -14,6 +15,7 @@ import {
   Smartphone,
   Sparkles,
   Users,
+  Wrench,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -24,6 +26,7 @@ import {
  * and Tailwind text classes at the call site. No clip-art (brief §5).
  */
 export const ICONS = {
+  barChart: BarChart2,
   bot: Bot,
   calendar: Calendar,
   clock: Clock,
@@ -39,6 +42,7 @@ export const ICONS = {
   smartphone: Smartphone,
   sparkles: Sparkles,
   users: Users,
+  wrench: Wrench,
 } satisfies Record<string, LucideIcon>;
 
 export type IconKey = keyof typeof ICONS;

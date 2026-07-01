@@ -359,7 +359,7 @@ export const platformCatalog: PlatformGroup[] = [
   {
     icon: 'users',
     title: 'Client Management',
-    tagline: 'Every client’s history in one click',
+    tagline: "Every client's history in one click",
     items: [
       { name: 'Med spa CRM', desc: 'Full client history (treatments, notes, photos, preferences, visit history) in a single click' },
       { name: 'Digital intake & consent forms', desc: 'Paperless, e-signed, stored automatically against the client record' },
@@ -371,9 +371,8 @@ export const platformCatalog: PlatformGroup[] = [
   {
     icon: 'messageSquare',
     title: 'Communication & Reminders',
-    tagline: 'The texting app',
+    tagline: 'Always in touch',
     items: [
-      { name: 'Two-way texting app', desc: 'Text clients and reply from one shared clinic inbox, on web and mobile' },
       { name: 'Automated appointment reminders', desc: 'SMS + email reminders that cut no-shows dramatically' },
       { name: 'Confirmations & rescheduling', desc: 'Clients confirm or rebook with a single tap' },
       { name: 'Aftercare & follow-up messages', desc: 'Automatic post-treatment check-ins that build loyalty' },
@@ -393,34 +392,66 @@ export const platformCatalog: PlatformGroup[] = [
     ],
   },
   {
-    icon: 'mapPin',
-    title: 'Get Found',
+    icon: 'search',
+    title: 'SEO & Get Found',
     tagline: 'Local growth',
     items: [
       { name: 'Local SEO', desc: 'Rank for “med spa near me” in your city' },
       { name: 'Google Business Profile', desc: 'Optimized so you show up on the map and in search' },
       { name: 'Social media & content', desc: 'On-brand Instagram content that keeps the calendar full' },
-      { name: 'Paid ads', desc: 'Meta & Google campaigns when you’re ready to scale' },
+      { name: 'Paid ads', desc: "Meta & Google campaigns when you're ready to scale" },
     ],
   },
   {
     icon: 'bot',
-    title: 'AI & Automation',
-    tagline: 'Work that runs itself',
+    title: 'AI Chatbot & 24/7 Support',
+    tagline: 'Always available',
     items: [
-      { name: 'AI receptionist', desc: 'A 24/7 assistant that answers questions and books appointments after hours' },
+      { name: 'AI receptionist chatbot', desc: 'Answers questions and books appointments around the clock, even after hours' },
+      { name: '24/7 customer service', desc: 'No missed inquiries — every lead gets an instant, intelligent response' },
       { name: 'AI lead follow-up', desc: 'Instantly responds to and nurtures new enquiries so none go cold' },
-      { name: 'Smart workflows', desc: 'Intake → reminder → aftercare → review → rebook, fully automated' },
+      { name: 'Smart workflows', desc: 'Intake, reminder, aftercare, review, rebook — fully automated end to end' },
     ],
   },
   {
     icon: 'smartphone',
-    title: 'Apps & Infrastructure',
-    tagline: 'The foundation',
+    title: 'Mobile Application',
+    tagline: 'For consistent customers',
     items: [
-      { name: 'Branded mobile app', desc: 'Your own client app for booking, history, loyalty, and push notifications' },
-      { name: 'Staff & schedule management', desc: 'Roles, calendars, and clinic operations in one place' },
-      { name: 'Hosting, security & support', desc: 'We host, maintain, secure, and support everything' },
+      { name: 'Branded client app', desc: 'Your own app so returning patients book, track history, and earn loyalty points easily' },
+      { name: 'Push notifications', desc: 'Re-engage clients with offers, reminders, and new treatment announcements' },
+      { name: 'In-app booking & history', desc: 'One tap to rebook a favourite treatment, view past visits, or redeem rewards' },
+    ],
+  },
+  {
+    icon: 'wrench',
+    title: 'Maintenance',
+    tagline: 'Whenever you need it',
+    items: [
+      { name: 'Hosting & uptime monitoring', desc: 'Your site stays fast, live, and secure 24/7 with no effort on your end' },
+      { name: 'Updates on demand', desc: "New offers, photos, pages, or copy — just ask and it's done" },
+      { name: 'Security & backups', desc: 'Always patched, always backed up, always protected' },
+      { name: 'Dedicated support', desc: 'Help when you need it, no ticket queue, no waiting' },
+    ],
+  },
+  {
+    icon: 'palette',
+    title: 'Brand Refreshment',
+    tagline: 'Look the part',
+    items: [
+      { name: 'Logo & identity refresh', desc: 'Modernize your brand without starting from scratch' },
+      { name: 'Color, typography & style guide', desc: 'A consistent look across every touchpoint, online and offline' },
+      { name: 'Brand assets & collateral', desc: 'Business cards, social kits, menus, and more — all on-brand' },
+    ],
+  },
+  {
+    icon: 'barChart',
+    title: 'Management System',
+    tagline: 'Your business, in one view',
+    items: [
+      { name: 'Revenue tracking', desc: 'Real-time revenue reports across services, providers, and locations' },
+      { name: 'Client management', desc: 'Full client records, history, spend, and communication all in one place' },
+      { name: 'Employee management', desc: 'Schedules, roles, commissions, and performance in one system' },
     ],
   },
 ];
