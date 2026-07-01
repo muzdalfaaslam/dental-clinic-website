@@ -236,7 +236,7 @@ export const socialProof = {
 /* ── Section 7 — Qualification form. ──────────────────────────────────────── */
 export const form = {
   eyebrow: 'FREE, NO OBLIGATION',
-  headline: 'See What We’d Build For Your Clinic. Free, No Obligation',
+  headline: 'See What We’d Build For Your Clinic',
   subline:
     'Tell us a little about your clinic and we’ll show you exactly what your new site could look like. Limited spots each month.',
   fields: {
