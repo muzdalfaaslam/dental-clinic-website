@@ -1,16 +1,17 @@
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { SectionLabel } from '@/components/ui/SectionLabel';
-import { FeatureTile } from '@/components/ui/FeatureTile';
+import { FeaturePointerMockup } from '@/components/ui/FeaturePointerMockup';
 import { GoldRule } from '@/components/ui/GoldRule';
-import { ScrollReveal, StaggerGroup, StaggerItem } from '@/components/layout/ScrollReveal';
+import { ScrollReveal } from '@/components/layout/ScrollReveal';
 import { PlatformGrid } from './PlatformGrid';
 import { whatWeBuild } from '@/config/content';
 
 /**
- * Section 4 — What we build. The website as the hero deliverable (six feature
- * tiles), then the "Everything Under One Roof" platform showcase + upsell seed
- * line. CTA kept un-buried with its own breathing room. Brief §6/Section 4.
+ * Section 4 — What we build. The website as the hero deliverable, shown as an
+ * interactive screen mockup with animated feature pointers, then the
+ * "Everything Under One Roof" platform showcase + upsell seed line. CTA kept
+ * un-buried with its own breathing room. Brief §6/Section 4.
  */
 export function WhatWeBuild() {
   return (
@@ -26,13 +27,11 @@ export function WhatWeBuild() {
           </ScrollReveal>
         </div>
 
-        <StaggerGroup className="mt-10 grid gap-x-10 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
-          {whatWeBuild.features.map((f) => (
-            <StaggerItem key={f.label}>
-              <FeatureTile icon={f.icon} label={f.label} desc={f.desc} />
-            </StaggerItem>
-          ))}
-        </StaggerGroup>
+        <ScrollReveal delay={0.08}>
+          <div className="mt-10">
+            <FeaturePointerMockup features={whatWeBuild.features} />
+          </div>
+        </ScrollReveal>
 
         {/* Platform showcase */}
         <div className="mt-20 rounded-lg border border-line bg-cream-deep/50 p-8 sm:p-12">

@@ -12,11 +12,11 @@ clip-art.
 
 | Asset | Path | Aspect / size | Used in | Config key |
 |---|---|---|---|---|
-| Desktop — before | `public/images/desktop-before.svg` | 16:10 landscape (≈1200×750, export ≥2400×1500) | Social proof desktop slider | `socialProof.beforeAfter.before` |
-| Desktop — after | `public/images/desktop-after.svg` | 16:10 landscape | Social proof desktop slider | `socialProof.beforeAfter.after` |
-| Phone — alt design | `public/images/phone-design-2.svg` | 9:19 portrait (≈360×760, export ≥1080×2280) | Social proof phone (a *different* clinic) | `socialProof.showcasePhone` |
+| Desktop — before | `public/images/desktop-before.svg` | 16:10 landscape (≈1200×750, export ≥2400×1500) | Social proof desktop slider | `socialProof.beforeAfter.desktop.before` |
+| Desktop — after | `public/images/desktop-after.svg` | 16:10 landscape | Social proof desktop slider | `socialProof.beforeAfter.desktop.after` |
+| Mobile — before | `public/images/before-site.svg` | 9:19 portrait (≈360×760, export ≥1080×2280) | Social proof phone slider | `socialProof.beforeAfter.mobile.before` |
+| Mobile — after | `public/images/after-site.svg` | 9:19 portrait | Social proof phone slider | `socialProof.beforeAfter.mobile.after` |
 | Hero site mockup | `public/images/hero-site-mockup.svg` | 9:19 portrait | (kept in config; not currently rendered) | `hero.mockup` |
-| Before/after — portrait (legacy) | `public/images/before-site.svg`, `after-site.svg` | 9:19 portrait | unused (kept for reuse) | — |
 | Video poster | `public/images/video-poster.svg` | 16:9 (1280×720, export 1920×1080) | Video frame | `video.poster` |
 | Open Graph image | `public/images/og.svg` | 1200×630 | Social share preview | `app/layout.tsx` metadata |
 | Favicon | `public/favicon.svg` | 32×32 (SVG scales) | Browser tab | `app/layout.tsx` icons |
@@ -33,10 +33,7 @@ clip-art.
 ## Coming with real clients
 
 - **Before/after screenshots** of an actual rebuild (strongest proof for this niche)
-  → replace `before-site.svg` / `after-site.svg`.
-- **Testimonials**: real quote + name + city + star rating in
-  `socialProof.testimonials` (remove `pending: true`). Optional avatar images can
-  be added to `public/images/avatars/` and wired into `TestimonialCard` if desired.
+  → replace all four files in `socialProof.beforeAfter` (desktop + mobile pairs).
 - **Treatment-room / brand photography** for future section backgrounds, if art
   direction calls for it.
 

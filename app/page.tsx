@@ -4,6 +4,7 @@ import { Hero } from '@/components/sections/Hero';
 import { Video } from '@/components/sections/Video';
 import { ProblemBlock } from '@/components/sections/ProblemBlock';
 import { WhatWeBuild } from '@/components/sections/WhatWeBuild';
+import { ThemeShowcase } from '@/components/sections/ThemeShowcase';
 import { TheMath } from '@/components/sections/TheMath';
 import { SocialProof } from '@/components/sections/SocialProof';
 import { QualificationForm } from '@/components/sections/QualificationForm';
@@ -11,8 +12,8 @@ import { ReassuranceStrip } from '@/components/sections/ReassuranceStrip';
 import { Footer } from '@/components/sections/Footer';
 
 /**
- * The single landing page — nine sections composed in the brief's exact order.
- * All copy comes from config/content.ts; all brand values from config/theme.ts.
+ * The single landing page — ten sections composed in order. All copy comes
+ * from config/content.ts; all brand values from config/theme.ts.
  */
 export default function Page() {
   return (
@@ -23,12 +24,13 @@ export default function Page() {
         {/* 2 */} <Video />
         {/* 3 */} <ProblemBlock />
         {/* 4 */} <WhatWeBuild />
-        {/* 5 */} <TheMath />
-        {/* 6 */} <SocialProof />
-        {/* 7 */} <QualificationForm />
-        {/* 8 */} <ReassuranceStrip />
+        {/* 5 */} <ThemeShowcase />
+        {/* 6 */} <TheMath />
+        {/* 7 */} <SocialProof />
+        {/* 8 */} <QualificationForm />
+        {/* 9 */} <ReassuranceStrip />
       </main>
-      {/* 9 */} <Footer />
+      {/* 10 */} <Footer />
       <StickyMobileCTA />
     </>
   );

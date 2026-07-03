@@ -1,7 +1,8 @@
 import { Container } from '@/components/ui/Container';
 import { HeroBackground } from '@/components/ui/HeroBackground';
+import { InlineTextCta } from '@/components/ui/InlineTextCta';
 import { ScrollReveal } from '@/components/layout/ScrollReveal';
-import { hero } from '@/config/content';
+import { hero, quiz } from '@/config/content';
 
 /**
  * Section 1 — Hero (above the fold). Centered layout matching the reference:
@@ -60,11 +61,18 @@ export function Hero() {
             </p>
           </ScrollReveal>
 
-          {/* trust line — the single CTA now lives below the live preview */}
+          {/* trust line — the single main CTA lives below the live preview */}
           <ScrollReveal delay={0.15}>
             <p className="mt-3 text-xs uppercase tracking-[0.16em] text-charcoal/45">
               {hero.trustLine}
             </p>
+          </ScrollReveal>
+
+          {/* secondary, low-key CTA into the fast one-question-at-a-time path */}
+          <ScrollReveal delay={0.18}>
+            <InlineTextCta href="/quiz" source="hero_quiz" className="mt-5">
+              {quiz.entryCta}
+            </InlineTextCta>
           </ScrollReveal>
         </div>
       </Container>

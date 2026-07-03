@@ -43,12 +43,14 @@ const looseUrl = z
   );
 
 /* ── Option enums (non-empty tuples for z.enum) ───────────────────────────── */
-const asTuple = (arr: readonly string[]) => arr as [string, ...string[]];
+export const asTuple = (arr: readonly string[]) => arr as [string, ...string[]];
 
-const roleEnum = z.enum(asTuple(form.fields.role.options));
-const patientsEnum = z.enum(asTuple(form.fields.patientsPerMonth.options));
-const timelineEnum = z.enum(asTuple(form.fields.timeline.options));
-const frustrationValues = form.fields.frustration.options;
+// Exported so other schemas (e.g. the quiz funnel) can reuse the same option
+// enums instead of redefining them.
+export const roleEnum = z.enum(asTuple(form.fields.role.options));
+export const patientsEnum = z.enum(asTuple(form.fields.patientsPerMonth.options));
+export const timelineEnum = z.enum(asTuple(form.fields.timeline.options));
+export const frustrationValues = form.fields.frustration.options;
 
 /* ── The lead schema ──────────────────────────────────────────────────────── */
 export const leadSchema = z.object({

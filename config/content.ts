@@ -145,36 +145,43 @@ export const problem = {
 export const whatWeBuild = {
   eyebrow: 'YOUR NEW WEBSITE, DONE FOR YOU',
   headline: 'Your New Website, Done For You, in About 3 Days',
+  // `hotspot` places the pulsing pin over the screen mockup (percentages).
   features: [
     {
       icon: 'palette' as IconKey,
       label: 'Custom, on-brand design',
       desc: 'Matched to your clinic’s aesthetic',
+      hotspot: { x: 50, y: 27 },
     },
     {
       icon: 'smartphone' as IconKey,
       label: 'Fast, mobile-first',
       desc: 'Flawless on a phone',
+      hotspot: { x: 15, y: 12 },
     },
     {
       icon: 'calendar' as IconKey,
       label: 'Online booking front and center',
       desc: 'The button patients actually find',
+      hotspot: { x: 92, y: 39 },
     },
     {
       icon: 'images' as IconKey,
       label: 'Before/after galleries & reviews',
       desc: 'Proof that sells for you',
+      hotspot: { x: 24, y: 80 },
     },
     {
       icon: 'fileText' as IconKey,
       label: 'Treatment & service pages',
       desc: 'Built to convert browsers into bookings',
+      hotspot: { x: 62, y: 65 },
     },
     {
       icon: 'phoneCall' as IconKey,
       label: 'Click-to-call, maps & contact',
       desc: 'Instant ways to reach you',
+      hotspot: { x: 50, y: 93 },
     },
   ],
   platform: {
@@ -188,21 +195,32 @@ export const whatWeBuild = {
   cta: ctas.whatWeBuild,
 };
 
+/* ── New section — theme showcase ("try it live"). ────────────────────────── */
+export const themeShowcase = {
+  eyebrow: 'MAKE IT YOURS',
+  headline: 'Your site, your colors',
+  blurb:
+    'Every color on this page is a variable, not a decision we made for you. Try a few — the whole page repaints, live.',
+  resetLabel: 'Reset to default',
+};
+
 /* ── Section 5 — The math. ────────────────────────────────────────────────── */
 export const math = {
   eyebrow: 'THE MATH IS SIMPLE',
   headline: 'The Math Is Simple',
-  intro:
-    'A single new patient is worth hundreds up front, and often thousands over time with repeat visits.',
+  intro: 'Drag the slider to see what a slow site could quietly be costing your clinic.',
   // CLIENT: confirm figures — keep ranges defensible, no "double your revenue" claims.
-  stats: [
-    { value: '$500', suffix: '+', caption: 'Value of one new patient up front' }, // CLIENT: confirm figures
-    { value: '$5K', suffix: '+', caption: 'Lifetime value with repeat visits' }, // CLIENT: confirm figures
-    { value: '10-15', suffix: '/mo', caption: 'New patients a slow site can quietly cost you' },
-    { value: '~3', suffix: ' days', caption: 'From kickoff to a site built to convert' },
-  ],
+  calculator: {
+    label: 'New patients a slow site costs you, per month',
+    min: 5,
+    max: 30,
+    step: 1,
+    default: 12,
+    valuePerPatient: 500, // CLIENT: confirm figures — value of one new patient up front
+  },
+  fact: { value: '~3', suffix: ' days', caption: 'From kickoff to a site built to convert' },
   closing:
-    'If a slow site or buried booking button costs you even 10-15 new patients a month, that is real revenue walking out the door every single month. A website built to convert pays for itself with a handful of extra bookings.',
+    'A website built to convert pays for itself with a handful of extra bookings — every single month.',
   cta: ctas.math,
 };
 
@@ -210,50 +228,23 @@ export const math = {
 export const socialProof = {
   eyebrow: 'BUILT FOR MED SPAS ONLY',
   headline: 'Built exclusively for med spas',
-  // Pre-testimonial: credibility + scarcity (brief §6).
+  // Credibility + scarcity (brief §6).
   credibility:
     'We build websites exclusively for med spas. We’re currently taking on a small number of US clinics. If accepted, you’ll have a site that puts you ahead of the clinic down the street.',
   beforeAfterHeading: 'Before & after, on every screen',
-  beforeAfterNote: 'Drag the desktop to compare the rebuild. The phone shows a different clinic we built.',
-  // Desktop before/after (landscape) — drag to compare the rebuild.
+  beforeAfterNote: 'Drag either one to compare the same rebuild, on desktop and on mobile.',
+  // Same rebuild, shown big on both a desktop screen and a phone.
   // CLIENT: replace asset — real before/after screenshots of an actual rebuild.
   beforeAfter: {
-    before: { src: '/images/desktop-before.svg', alt: 'A dated med spa website, before the rebuild' },
-    after: { src: '/images/desktop-after.svg', alt: 'The same med spa website, rebuilt by TechxServe' },
+    desktop: {
+      before: { src: '/images/desktop-before.svg', alt: 'A dated med spa website, before the rebuild' },
+      after: { src: '/images/desktop-after.svg', alt: 'The same med spa website, rebuilt by TechxServe' },
+    },
+    mobile: {
+      before: { src: '/images/before-site.svg', alt: 'A dated med spa website on mobile, before the rebuild' },
+      after: { src: '/images/after-site.svg', alt: 'The same med spa website on mobile, rebuilt by TechxServe' },
+    },
   },
-  // Phone beside the desktop shows a DIFFERENT clinic's design (distinct style) —
-  // proof of range, not a repeat of the desktop after.
-  // CLIENT: replace asset — a second, distinct finished med spa design.
-  showcasePhone: {
-    src: '/images/phone-design-2.svg',
-    alt: 'A different med spa website design, built for mobile by TechxServe',
-  },
-  // CLIENT: real testimonials arrive post-launch. Cards render from this array;
-  // until then we show the credibility + scarcity copy above and these samples are
-  // clearly marked as illustrative via `pending: true`.
-  testimonials: [
-    {
-      quote: 'We started getting online bookings the first week the new site went live.',
-      name: 'Owner',
-      city: 'Scottsdale, AZ',
-      rating: 5,
-      pending: true, // CLIENT: replace with a real, consented testimonial
-    },
-    {
-      quote: 'Went from 4 online bookings a month to 19. The booking button is finally where people look.',
-      name: 'Owner',
-      city: 'Austin, TX',
-      rating: 5,
-      pending: true, // CLIENT: replace with a real, consented testimonial
-    },
-    {
-      quote: 'It finally looks like the brand we’ve worked so hard to build in the room.',
-      name: 'Medical Director',
-      city: 'Miami, FL',
-      rating: 5,
-      pending: true, // CLIENT: replace with a real, consented testimonial
-    },
-  ],
   cta: ctas.socialProof,
 };
 
@@ -318,6 +309,69 @@ export const form = {
   },
   error:
     'Something went wrong on our end. Please try again, or email us and we’ll take care of it.',
+};
+
+/* ── Standalone quiz funnel — linked from Hero's secondary CTA (/quiz). ───── */
+export const quiz = {
+  entryCta: 'Don’t have the time? It takes 1 minute.',
+  metaTitle: 'Quick Start — See What We’d Build For Your Clinic | TechxServe',
+  // Reuses the SAME option data as the long form (no duplication) — just a
+  // faster, one-question-at-a-time path to the same qualifiers.
+  steps: [
+    {
+      key: 'role' as const,
+      question: 'Which best describes you?',
+      type: 'single' as const,
+      options: form.fields.role.options,
+    },
+    {
+      key: 'patientsPerMonth' as const,
+      question: 'Roughly how many new patients a month?',
+      type: 'single' as const,
+      options: form.fields.patientsPerMonth.options,
+    },
+    {
+      key: 'frustration' as const,
+      question: 'What’s your biggest frustration with your current site?',
+      helper: 'Choose all that apply.',
+      type: 'multi' as const,
+      options: form.fields.frustration.options,
+    },
+    {
+      key: 'timeline' as const,
+      question: 'When would you want a new site live?',
+      type: 'single' as const,
+      options: form.fields.timeline.options,
+    },
+  ],
+  // Maps a frustration answer to the whatWeBuild.features index it resolves —
+  // powers the personalized "here's what we'd build for you" results step.
+  frustrationFeatureMap: {
+    'It looks dated': 0,
+    'It’s slow or clumsy on mobile': 1,
+    'No easy online booking': 2,
+    'Before/afters & reviews are buried': 3,
+    'It doesn’t reflect our brand': 0,
+    'New patients can’t find us': 5,
+  } as Record<string, number>,
+  resultsHeading: 'Here’s what we’d build for you',
+  resultsCta: 'Continue',
+  contact: {
+    heading: 'Almost there',
+    body: 'Where should we send it?',
+    fullName: { label: 'Full name', placeholder: 'Jordan Avery' },
+    email: { label: 'Email', placeholder: 'you@glowaesthetic.com' },
+  },
+  submit: 'Show Me My New Website',
+  success: {
+    heading: 'On its way.',
+    body: 'Check your inbox for what we’d build for your clinic — then grab a time below.',
+    meetingLinkLabel: 'Book Your 15-Minute Call',
+    meetingLink: '', // CLIENT: add scheduling link (e.g. Calendly)
+    fallbackNote: 'Prefer to tell us more first?',
+    fallbackLinkLabel: 'Fill out the full form',
+  },
+  error: form.error,
 };
 
 /* ── Section 8 — Reassurance strip. ───────────────────────────────────────── */

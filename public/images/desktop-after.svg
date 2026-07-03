@@ -1,46 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" role="img" aria-label="Rebuilt med spa website on desktop, by TechxServe">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" role="img" aria-label="The same med spa website, rebuilt by TechxServe — a new split-hero design">
   <defs>
-    <linearGradient id="dsage" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#8C9A7E"/>
-      <stop offset="1" stop-color="#5E6B52"/>
+    <linearGradient id="afterHero" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#D9B8B0"/>
+      <stop offset="1" stop-color="#8C9A7E"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="750" fill="#FAF6F0"/>
+
   <!-- nav -->
-  <rect x="0" y="0" width="1200" height="64" fill="#FAF6F0"/>
-  <text x="56" y="40" font-family="Georgia, serif" font-size="24" fill="#5E6B52" font-weight="700">Lumière</text>
+  <rect x="0" y="0" width="1200" height="72" fill="#FAF6F0"/>
+  <text x="40" y="46" font-family="Georgia, serif" font-size="25" fill="#5E6B52" font-weight="700">Aurelia</text>
   <g font-family="Arial, sans-serif" font-size="13" fill="#2E2A26" opacity="0.55">
-    <text x="720" y="40">Treatments</text>
-    <text x="850" y="40">About</text>
-    <text x="940" y="40">Reviews</text>
+    <text x="560" y="42">Treatments</text>
+    <text x="680" y="42">Results</text>
+    <text x="770" y="42">About</text>
+    <text x="860" y="42">Contact</text>
   </g>
-  <rect x="1030" y="22" width="114" height="30" rx="15" fill="#5E6B52"/>
-  <text x="1087" y="42" font-family="Arial" font-size="12" fill="#FAF6F0" text-anchor="middle">Book Now</text>
-  <!-- hero -->
-  <rect x="0" y="64" width="1200" height="360" fill="url(#dsage)"/>
-  <circle cx="1050" cy="160" r="150" fill="#FAF6F0" opacity="0.07"/>
-  <circle cx="180" cy="400" r="120" fill="#FAF6F0" opacity="0.05"/>
-  <text x="56" y="210" font-family="Georgia, serif" font-size="58" fill="#FAF6F0" font-weight="600">Glow that lasts.</text>
-  <rect x="56" y="240" width="360" height="16" rx="3" fill="#FAF6F0" opacity="0.5"/>
-  <rect x="56" y="266" width="240" height="16" rx="3" fill="#FAF6F0" opacity="0.35"/>
-  <rect x="56" y="320" width="200" height="48" rx="24" fill="#C5A572"/>
-  <text x="156" y="350" font-family="Arial" font-size="15" fill="#2E2A26" text-anchor="middle" font-weight="600">Reserve a visit</text>
-  <!-- service cards -->
+  <rect x="1010" y="21" width="150" height="40" rx="20" fill="#C5A572"/>
+  <text x="1085" y="46" font-family="Arial" font-size="13" fill="#2E2A26" text-anchor="middle" font-weight="600">Book a Visit</text>
+
+  <!-- hero: split layout -->
+  <rect x="40" y="118" width="220" height="28" rx="14" fill="#F2EBE0"/>
+  <text x="150" y="136" font-family="Arial" font-size="11" fill="#5E6B52" text-anchor="middle" letter-spacing="1" font-weight="600">MED SPA &amp; AESTHETICS</text>
+
+  <text x="38" y="216" font-family="Georgia, serif" font-size="46" fill="#5E6B52" font-weight="700">Confidence,</text>
+  <text x="38" y="268" font-family="Georgia, serif" font-size="46" fill="#2E2A26" font-weight="700">delivered.</text>
+
+  <rect x="40" y="298" width="360" height="14" rx="3" fill="#2E2A26" opacity="0.3"/>
+  <rect x="40" y="322" width="260" height="14" rx="3" fill="#2E2A26" opacity="0.2"/>
+
+  <rect x="40" y="362" width="232" height="54" rx="27" fill="#5E6B52"/>
+  <text x="130" y="395" font-family="Arial" font-size="14" fill="#FAF6F0" text-anchor="middle" font-weight="600">Reserve Your Visit</text>
+  <path d="M228 389 l10 0 m-4 -5 l5 5 -5 5" stroke="#FAF6F0" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g fill="#8C9A7E">
+    <circle cx="52" cy="452" r="10"/>
+    <circle cx="70" cy="452" r="10" opacity="0.7"/>
+    <circle cx="88" cy="452" r="10" opacity="0.45"/>
+  </g>
+  <text x="106" y="457" font-family="Arial" font-size="12" fill="#2E2A26" opacity="0.6">500+ five-star visits this year</text>
+
+  <!-- hero image block -->
+  <rect x="620" y="104" width="540" height="356" rx="28" fill="url(#afterHero)"/>
+  <circle cx="1080" cy="150" r="110" fill="#FAF6F0" opacity="0.12"/>
+  <circle cx="660" cy="420" r="70" fill="#FAF6F0" opacity="0.08"/>
+  <rect x="652" y="380" width="168" height="56" rx="16" fill="#FAF6F0"/>
+  <g fill="#C5A572">
+    <circle cx="672" cy="400" r="3"/><circle cx="682" cy="400" r="3"/><circle cx="692" cy="400" r="3"/><circle cx="702" cy="400" r="3"/><circle cx="712" cy="400" r="3"/>
+  </g>
+  <text x="672" y="420" font-family="Georgia, serif" font-size="14" fill="#2E2A26" font-weight="600">5.0 · 214 reviews</text>
+
+  <!-- treatments row -->
+  <text x="40" y="512" font-family="Georgia, serif" font-size="20" fill="#5E6B52" font-weight="600">Popular treatments</text>
   <g>
-    <rect x="56" y="468" width="340" height="150" rx="14" fill="#F2EBE0"/>
-    <rect x="430" y="468" width="340" height="150" rx="14" fill="#F2EBE0"/>
-    <rect x="804" y="468" width="340" height="150" rx="14" fill="#F2EBE0"/>
-    <circle cx="106" cy="520" r="22" fill="#8C9A7E" opacity="0.4"/>
-    <circle cx="480" cy="520" r="22" fill="#8C9A7E" opacity="0.4"/>
-    <circle cx="854" cy="520" r="22" fill="#8C9A7E" opacity="0.4"/>
-    <rect x="146" y="510" width="150" height="12" rx="6" fill="#5E6B52" opacity="0.5"/>
-    <rect x="520" y="510" width="150" height="12" rx="6" fill="#5E6B52" opacity="0.5"/>
-    <rect x="894" y="510" width="150" height="12" rx="6" fill="#5E6B52" opacity="0.5"/>
-    <rect x="146" y="534" width="110" height="10" rx="5" fill="#2E2A26" opacity="0.2"/>
-    <rect x="520" y="534" width="110" height="10" rx="5" fill="#2E2A26" opacity="0.2"/>
-    <rect x="894" y="534" width="110" height="10" rx="5" fill="#2E2A26" opacity="0.2"/>
+    <rect x="40" y="536" width="266" height="120" rx="16" fill="#F2EBE0"/>
+    <rect x="326" y="536" width="266" height="120" rx="16" fill="#F2EBE0"/>
+    <rect x="612" y="536" width="266" height="120" rx="16" fill="#F2EBE0"/>
+    <rect x="898" y="536" width="262" height="120" rx="16" fill="#F2EBE0"/>
+    <circle cx="76" cy="574" r="18" fill="#5E6B52" opacity="0.85"/>
+    <circle cx="362" cy="574" r="18" fill="#5E6B52" opacity="0.85"/>
+    <circle cx="648" cy="574" r="18" fill="#5E6B52" opacity="0.85"/>
+    <circle cx="934" cy="574" r="18" fill="#5E6B52" opacity="0.85"/>
+    <rect x="106" y="566" width="120" height="11" rx="5" fill="#5E6B52" opacity="0.55"/>
+    <rect x="392" y="566" width="120" height="11" rx="5" fill="#5E6B52" opacity="0.55"/>
+    <rect x="678" y="566" width="120" height="11" rx="5" fill="#5E6B52" opacity="0.55"/>
+    <rect x="964" y="566" width="116" height="11" rx="5" fill="#5E6B52" opacity="0.55"/>
+    <rect x="106" y="588" width="90" height="9" rx="4" fill="#2E2A26" opacity="0.22"/>
+    <rect x="392" y="588" width="90" height="9" rx="4" fill="#2E2A26" opacity="0.22"/>
+    <rect x="678" y="588" width="90" height="9" rx="4" fill="#2E2A26" opacity="0.22"/>
+    <rect x="964" y="588" width="86" height="9" rx="4" fill="#2E2A26" opacity="0.22"/>
   </g>
+
   <!-- footer -->
-  <rect x="0" y="690" width="1200" height="60" fill="#5E6B52"/>
-  <text x="56" y="727" font-family="Georgia, serif" font-size="17" fill="#FAF6F0">Lumière Aesthetics</text>
+  <rect x="0" y="694" width="1200" height="56" fill="#5E6B52"/>
+  <text x="40" y="728" font-family="Georgia, serif" font-size="16" fill="#FAF6F0">Aurelia Med Spa</text>
+  <text x="1160" y="728" font-family="Arial" font-size="12" fill="#FAF6F0" opacity="0.75" text-anchor="end">hello@aurelia.clinic · (555) 010-0192</text>
 </svg>

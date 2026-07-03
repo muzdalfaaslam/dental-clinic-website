@@ -1,19 +1,34 @@
+'use client';
+
+import { useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { SectionLabel } from '@/components/ui/SectionLabel';
-import { StatBlock } from '@/components/ui/StatBlock';
-import { ScrollReveal, StaggerGroup, StaggerItem } from '@/components/layout/ScrollReveal';
+import { GoldRule } from '@/components/ui/GoldRule';
+import { ScrollReveal } from '@/components/layout/ScrollReveal';
 import { math } from '@/config/content';
 
+const currency = (n: number) =>
+  n.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
 /**
- * Section 5 — The math. Elegant, not a spreadsheet: large airy stat blocks with
- * sage numbers + gold underlines. Figures live in config (// CLIENT: confirm),
- * ranges kept defensible — no "double your revenue" claims. Brief §6/Section 5.
+ * Section 5 — The math. A live slider drives two recalculated dollar figures
+ * in real time — elegant, not a spreadsheet. Figures live in config
+ * (// CLIENT: confirm), ranges kept defensible — no "double your revenue"
+ * claims. Brief §6/Section 5.
  */
 export function TheMath() {
+  const { calculator: c } = math;
+  const [patients, setPatients] = useState(c.default);
+  const reduce = useReducedMotion();
+
+  const monthly = patients * c.valuePerPatient;
+  const annual = monthly * 12;
+
   return (
     <section className="bg-cream-deep py-12 lg:py-16">
-      <Container className="max-w-5xl">
+      <Container className="max-w-3xl">
         <div className="mx-auto max-w-2xl text-center">
           <ScrollReveal>
             <SectionLabel className="justify-center">{math.eyebrow}</SectionLabel>
@@ -26,19 +41,77 @@ export function TheMath() {
           </ScrollReveal>
         </div>
 
-        <StaggerGroup className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
-          {math.stats.map((s) => (
-            <StaggerItem key={s.caption} className="h-full">
-              {/* Accent cards — compact, each fully contained so nothing overlaps. */}
-              <div className="group flex h-full items-center justify-center rounded-lg border border-line bg-cream px-4 py-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-champagne/40 hover:shadow-card">
-                <StatBlock value={s.value} suffix={s.suffix} caption={s.caption} centered compact />
+        <ScrollReveal delay={0.1}>
+          <div className="mt-10 rounded-lg border border-line bg-cream p-6 shadow-card sm:p-9">
+            {/* the slider */}
+            <div>
+              <div className="flex items-baseline justify-between gap-4">
+                <label htmlFor="patients-slider" className="text-sm font-medium text-charcoal">
+                  {c.label}
+                </label>
+                <span className="font-display text-2xl font-semibold text-sage-deep">{patients}</span>
               </div>
-            </StaggerItem>
-          ))}
-        </StaggerGroup>
+              <input
+                id="patients-slider"
+                type="range"
+                min={c.min}
+                max={c.max}
+                step={c.step}
+                value={patients}
+                onChange={(e) => setPatients(Number(e.target.value))}
+                aria-valuetext={`${patients} new patients a month`}
+                className="mt-4 h-2 w-full cursor-ew-resize appearance-none rounded-full bg-cream-deep accent-[rgb(94_107_82)]"
+              />
+              <div className="mt-1.5 flex justify-between text-xs text-charcoal/45">
+                <span>{c.min}/mo</span>
+                <span>{c.max}/mo</span>
+              </div>
+            </div>
+
+            {/* live-recomputed results */}
+            <div className="mt-8 grid grid-cols-2 gap-4 border-t border-line pt-8">
+              {[
+                { key: 'monthly', label: 'Revenue walking out the door, per month', value: monthly },
+                { key: 'annual', label: 'That adds up to, per year', value: annual },
+              ].map((stat) => (
+                <div key={stat.key} className="flex flex-col items-center gap-2 text-center">
+                  <div className="font-display text-[clamp(1.75rem,4vw,2.5rem)] font-semibold leading-none text-sage-deep">
+                    {reduce ? (
+                      currency(stat.value)
+                    ) : (
+                      <AnimatePresence mode="popLayout">
+                        <motion.span
+                          key={stat.value}
+                          className="inline-block"
+                          initial={{ opacity: 0, y: 6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -6 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {currency(stat.value)}
+                        </motion.span>
+                      </AnimatePresence>
+                    )}
+                  </div>
+                  <GoldRule width="w-8" />
+                  <p className="max-w-[20ch] text-[0.8rem] leading-relaxed text-charcoal/65">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* the one static fact */}
+            <div className="mx-auto mt-6 flex w-fit items-center gap-2 rounded-full bg-cream-deep px-4 py-2 text-xs text-charcoal/60">
+              <span className="font-display font-semibold text-sage-deep">
+                {math.fact.value}
+                {math.fact.suffix}
+              </span>
+              {math.fact.caption}
+            </div>
+          </div>
+        </ScrollReveal>
 
         <ScrollReveal delay={0.05}>
-          <p className="mx-auto mt-10 max-w-2xl text-center text-[0.95rem] leading-relaxed text-charcoal/75">
+          <p className="mx-auto mt-8 max-w-2xl text-center text-[0.95rem] leading-relaxed text-charcoal/75">
             {math.closing}
           </p>
         </ScrollReveal>

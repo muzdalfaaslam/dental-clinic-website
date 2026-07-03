@@ -135,7 +135,8 @@
     to { transform: translateX(-50%); }
   }
   .animate-marquee { animation: marquee var(--marquee-duration, 40s) linear infinite; }
-  .marquee-paused:hover .animate-marquee { animation-play-state: paused; }
+  .marquee-paused:hover .animate-marquee,
+  .marquee-paused:focus-within .animate-marquee { animation-play-state: paused; }
 
   /* 3D phone perspective container + tilted phones that straighten on hover. */
   .perspective-1000 { perspective: 1200px; }
