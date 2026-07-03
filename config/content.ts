@@ -19,10 +19,7 @@ import type { IconKey } from '@/components/ui/icon-registry';
 export const ctas = {
   hero: 'See What We’d Build For Your Clinic',
   nav: 'See What We’d Build',
-  video: 'See What We’d Build For Your Clinic',
-  whatWeBuild: 'Get My Free Website Preview',
   math: 'Book My 15-Minute Call',
-  socialProof: 'See What We’d Build For Your Clinic',
   stickyMobile: 'See What We’d Build',
   formSubmit: 'Show Me My New Website', // the form's own button — never "Submit"
   footer: 'Book My 15-Minute Call',
@@ -83,7 +80,6 @@ export const video = {
   // Wired to a single config constant; drop the real file in /public/video/ and point here.
   src: '', // e.g. '/video/medspa-demo.mp4' — empty until supplied; UI shows poster + play affordance
   captionsSrc: '', // e.g. '/video/medspa-demo.en.vtt'
-  cta: ctas.video,
 };
 
 /* ── Section 3 — "Sound familiar?" problem block. ─────────────────────────── */
@@ -192,7 +188,6 @@ export const whatWeBuild = {
     upsellSeed: 'One platform. One login. Everything connected.',
     upsellHighlight: 'Start with your new site; grow into the rest.',
   },
-  cta: ctas.whatWeBuild,
 };
 
 /* ── New section — theme showcase ("try it live"). ────────────────────────── */
@@ -211,12 +206,21 @@ export const math = {
   intro: 'Drag the slider to see what a slow site could quietly be costing your clinic.',
   // CLIENT: confirm figures — keep ranges defensible, no "double your revenue" claims.
   calculator: {
-    label: 'New patients a slow site costs you, per month',
-    min: 5,
-    max: 30,
-    step: 1,
-    default: 12,
-    valuePerPatient: 500, // CLIENT: confirm figures — value of one new patient up front
+    patients: {
+      label: 'New patients a slow site costs you, per month',
+      min: 5,
+      max: 30,
+      step: 1,
+      default: 12,
+    },
+    // CLIENT: confirm figures — value of one new patient up front
+    valuePerPatient: {
+      label: 'Average value of one new patient',
+      min: 200,
+      max: 1500,
+      step: 50,
+      default: 500,
+    },
   },
   fact: { value: '~3', suffix: ' days', caption: 'From kickoff to a site built to convert' },
   closing:
@@ -245,7 +249,6 @@ export const socialProof = {
       after: { src: '/images/after-site.svg', alt: 'The same med spa website on mobile, rebuilt by TechxServe' },
     },
   },
-  cta: ctas.socialProof,
 };
 
 /* ── Section 7 — Qualification form. ──────────────────────────────────────── */
@@ -344,18 +347,13 @@ export const quiz = {
       options: form.fields.timeline.options,
     },
   ],
-  // Maps a frustration answer to the whatWeBuild.features index it resolves —
-  // powers the personalized "here's what we'd build for you" results step.
-  frustrationFeatureMap: {
-    'It looks dated': 0,
-    'It’s slow or clumsy on mobile': 1,
-    'No easy online booking': 2,
-    'Before/afters & reviews are buried': 3,
-    'It doesn’t reflect our brand': 0,
-    'New patients can’t find us': 5,
-  } as Record<string, number>,
-  resultsHeading: 'Here’s what we’d build for you',
-  resultsCta: 'Continue',
+  companyStep: {
+    heading: 'A couple more details',
+    body: 'Tell us about your clinic.',
+    clinicName: { label: 'Company name', placeholder: 'Glow Aesthetic Studio' },
+    website: { label: 'Existing website (if any)', placeholder: 'glowaesthetic.com', optional: true },
+    cta: 'Continue',
+  },
   contact: {
     heading: 'Almost there',
     body: 'Where should we send it?',

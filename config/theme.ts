@@ -66,7 +66,7 @@ export function themeToCss(t: NicheTheme = theme): string {
 
 /**
  * ─────────────────────────────────────────────────────────────────────────────
- * THEME VARIANTS  (visitor-facing "try it" showcase only — see ThemeShowcase)
+ * THEME VARIANTS  (visitor-facing "try it" showcase only — see PlatformThemeShowcase)
  * ─────────────────────────────────────────────────────────────────────────────
  * These are NOT part of the re-skin contract above (only `theme` is what ships
  * server-side). They power a client-side demo that live-swaps the `--color-*`

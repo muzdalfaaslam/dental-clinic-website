@@ -4,7 +4,7 @@ import { Hero } from '@/components/sections/Hero';
 import { Video } from '@/components/sections/Video';
 import { ProblemBlock } from '@/components/sections/ProblemBlock';
 import { WhatWeBuild } from '@/components/sections/WhatWeBuild';
-import { ThemeShowcase } from '@/components/sections/ThemeShowcase';
+import { PlatformThemeShowcase } from '@/components/sections/PlatformThemeShowcase';
 import { TheMath } from '@/components/sections/TheMath';
 import { SocialProof } from '@/components/sections/SocialProof';
 import { QualificationForm } from '@/components/sections/QualificationForm';
@@ -24,7 +24,7 @@ export default function Page() {
         {/* 2 */} <Video />
         {/* 3 */} <ProblemBlock />
         {/* 4 */} <WhatWeBuild />
-        {/* 5 */} <ThemeShowcase />
+        {/* 5 */} <PlatformThemeShowcase />
         {/* 6 */} <TheMath />
         {/* 7 */} <SocialProof />
         {/* 8 */} <QualificationForm />

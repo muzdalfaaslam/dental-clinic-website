@@ -8,10 +8,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { ChevronLeft, X, CheckCircle2 } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Logo } from '@/components/ui/Logo';
-import { FeatureTile } from '@/components/ui/FeatureTile';
 import { TextField } from '@/components/form/FormField';
 import { QuizOptionCard } from './QuizOptionCard';
-import { quiz, whatWeBuild } from '@/config/content';
+import { quiz } from '@/config/content';
 import { quizLeadSchema } from '@/lib/quizValidation';
 import { track } from '@/lib/analytics';
 import { cn } from '@/lib/utils';
@@ -23,15 +22,20 @@ interface Answers {
   patientsPerMonth: string;
   frustration: string[];
   timeline: string;
+  clinicName: string;
+  website: string;
 }
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 const AUTO_ADVANCE_MS = 260;
 
+const companySchema = quizLeadSchema.pick({ clinicName: true, website: true });
+type CompanyValues = { clinicName: string; website: string };
+
 const contactSchema = quizLeadSchema.pick({ fullName: true, email: true, company: true });
 type ContactValues = { fullName: string; email: string; company: string };
 
-const TOTAL_STEPS = quiz.steps.length + 2; // + results + contact
+const TOTAL_STEPS = quiz.steps.length + 2; // + company details + contact
 
 function ProgressBar({ pct }: { pct: number }) {
   return (
@@ -64,6 +68,8 @@ export function QuizFlow() {
     patientsPerMonth: '',
     frustration: [],
     timeline: '',
+    clinicName: '',
+    website: '',
   });
   const [status, setStatus] = useState<'active' | 'submitting' | 'success' | 'error'>('active');
 
@@ -76,6 +82,15 @@ export function QuizFlow() {
       track('quiz_start');
     }
   }, []);
+
+  const {
+    register: registerCompany,
+    handleSubmit: handleCompanySubmit,
+    formState: { errors: companyErrors },
+  } = useForm<CompanyValues>({
+    resolver: zodResolver(companySchema),
+    defaultValues: { clinicName: '', website: '' },
+  });
 
   const {
     register,
@@ -102,6 +117,12 @@ export function QuizFlow() {
 
   const back = () => setStepIndex((i) => Math.max(0, i - 1));
 
+  const onCompanySubmit = handleCompanySubmit((vals) => {
+    markStarted();
+    setAnswers((a) => ({ ...a, clinicName: vals.clinicName, website: vals.website ?? '' }));
+    setStepIndex((i) => i + 1);
+  });
+
   const onContactSubmit = handleSubmit(async (vals) => {
     setStatus('submitting');
     try {
@@ -112,6 +133,8 @@ export function QuizFlow() {
           fullName: vals.fullName,
           email: vals.email,
           company: vals.company,
+          clinicName: answers.clinicName,
+          website: answers.website,
           role: answers.role,
           patientsPerMonth: answers.patientsPerMonth,
           frustration: answers.frustration,
@@ -135,20 +158,9 @@ export function QuizFlow() {
     }
   });
 
-  const resultFeatures = Array.from(
-    new Set(
-      answers.frustration
-        .map((f) => quiz.frustrationFeatureMap[f])
-        .filter((n): n is number => n !== undefined),
-    ),
-  )
-    .slice(0, 3)
-    .map((i) => whatWeBuild.features[i])
-    .filter((f): f is (typeof whatWeBuild.features)[number] => Boolean(f));
-
   const progressPct = status === 'success' ? 100 : ((stepIndex + 1) / TOTAL_STEPS) * 100;
   const currentQuestion = stepIndex < quiz.steps.length ? quiz.steps[stepIndex] : undefined;
-  const isResultsStep = stepIndex === quiz.steps.length;
+  const isCompanyStep = stepIndex === quiz.steps.length;
   const isContactStep = stepIndex === quiz.steps.length + 1;
 
   const transition = reduce
@@ -273,30 +285,44 @@ export function QuizFlow() {
                 </div>
               )}
             </motion.div>
-          ) : isResultsStep ? (
+          ) : isCompanyStep ? (
             <motion.div
-              key="results"
+              key="company"
               initial={variants.initial}
               animate={variants.animate}
               exit={variants.exit}
               transition={transition}
             >
               <BackButton onClick={back} />
-              <h1 className="text-h3 text-sage-deep sm:text-h2">{quiz.resultsHeading}</h1>
-              <div className="mt-7 flex flex-col gap-5">
-                {resultFeatures.map((f) => (
-                  <FeatureTile key={f.label} icon={f.icon} label={f.label} desc={f.desc} />
-                ))}
-              </div>
-              <div className="mt-8 flex justify-end">
-                <button
-                  type="button"
-                  onClick={() => setStepIndex((i) => i + 1)}
-                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-sage-deep px-6 py-3 text-[0.95rem] font-medium text-cream shadow-soft ring-1 ring-inset ring-champagne/40 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[rgb(82_94_72)] hover:shadow-card"
-                >
-                  {quiz.resultsCta}
-                </button>
-              </div>
+              <h1 className="text-h3 text-sage-deep sm:text-h2">{quiz.companyStep.heading}</h1>
+              <p className="mt-2 text-sm text-charcoal/60">{quiz.companyStep.body}</p>
+
+              <form noValidate onSubmit={onCompanySubmit} className="mt-7 flex flex-col gap-5">
+                <TextField
+                  label={quiz.companyStep.clinicName.label}
+                  placeholder={quiz.companyStep.clinicName.placeholder}
+                  autoComplete="organization"
+                  error={companyErrors.clinicName?.message}
+                  {...registerCompany('clinicName')}
+                />
+                <TextField
+                  label={quiz.companyStep.website.label}
+                  placeholder={quiz.companyStep.website.placeholder}
+                  optional={quiz.companyStep.website.optional}
+                  inputMode="url"
+                  autoComplete="url"
+                  error={companyErrors.website?.message}
+                  {...registerCompany('website')}
+                />
+                <div className="mt-1 flex justify-end">
+                  <button
+                    type="submit"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-sage-deep px-6 py-3 text-[0.95rem] font-medium text-cream shadow-soft ring-1 ring-inset ring-champagne/40 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[rgb(82_94_72)] hover:shadow-card"
+                  >
+                    {quiz.companyStep.cta}
+                  </button>
+                </div>
+              </form>
             </motion.div>
           ) : isContactStep ? (
             <motion.div

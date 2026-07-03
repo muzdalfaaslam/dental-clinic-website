@@ -33,7 +33,7 @@ export function normalizeUrl(value: string): string {
   return `https://${trimmed}`;
 }
 
-const looseUrl = z
+export const looseUrl = z
   .string()
   .trim()
   .max(2048)

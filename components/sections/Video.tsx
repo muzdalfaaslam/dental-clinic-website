@@ -1,14 +1,15 @@
 import { Container } from '@/components/ui/Container';
-import { Button } from '@/components/ui/Button';
+import { InlineTextCta } from '@/components/ui/InlineTextCta';
 import { VideoFrame } from '@/components/ui/VideoFrame';
 import { AnimatedDemo } from '@/components/ui/AnimatedDemo';
 import { ScrollReveal } from '@/components/layout/ScrollReveal';
-import { video } from '@/config/content';
+import { video, quiz } from '@/config/content';
 
 /**
  * Section 2 — Video. Pulled up so most of it sits within the first screen, right
  * under the (compact) hero — no heading text above it; the video speaks for itself.
- * A single CTA sits directly below for people ready to act before scrolling.
+ * The bold CTA directly below is the fast path into the one-question-at-a-time
+ * /quiz funnel, for people who don't want to scroll to the long form.
  * Real video when supplied (config-driven); the animated demo fills the gap until
  * then. Brief §6/Section 2.
  */
@@ -30,9 +31,9 @@ export function Video() {
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
           <div className="mt-5">
-            <Button source="video" size="lg">
-              {video.cta}
-            </Button>
+            <InlineTextCta href="/quiz" source="video" variant="bold">
+              {quiz.entryCta}
+            </InlineTextCta>
           </div>
         </ScrollReveal>
       </Container>

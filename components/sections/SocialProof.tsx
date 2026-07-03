@@ -1,5 +1,4 @@
 import { Container } from '@/components/ui/Container';
-import { Button } from '@/components/ui/Button';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { PhoneMockup } from '@/components/ui/PhoneMockup';
 import { DesktopMockup } from '@/components/ui/DesktopMockup';
@@ -53,14 +52,6 @@ export function SocialProof() {
             </PhoneMockup>
           </ScrollReveal>
         </div>
-
-        <ScrollReveal delay={0.05}>
-          <div className="mt-14 flex justify-center">
-            <Button source="social_proof" size="lg">
-              {socialProof.cta}
-            </Button>
-          </div>
-        </ScrollReveal>
       </Container>
     </section>
   );

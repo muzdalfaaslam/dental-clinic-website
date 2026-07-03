@@ -43,7 +43,14 @@ export function ProblemBlock() {
         type="button"
         tabIndex={ariaHidden ? -1 : 0}
         aria-hidden={ariaHidden || undefined}
-        onClick={() => select(originalIndex)}
+        onClick={(e) => {
+          select(originalIndex);
+          // Release focus after a real mouse/touch click (detail > 0) so
+          // :focus-within doesn't hold the marquee paused once deselected.
+          // Keyboard activation (detail === 0) keeps focus, so tab-pausing
+          // for a11y still works as intended.
+          if (e.detail > 0) e.currentTarget.blur();
+        }}
         aria-pressed={isActive}
         className={cardClasses(isActive)}
       >
@@ -109,8 +116,14 @@ export function ProblemBlock() {
             className="marquee-paused relative overflow-hidden"
             aria-label="Common frustrations"
             style={{
-              maskImage: 'linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)',
-              WebkitMaskImage: 'linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent)',
+              maskImage:
+                'linear-gradient(90deg, transparent, #000 5rem, #000 calc(100% - 5rem), transparent)',
+              WebkitMaskImage:
+                'linear-gradient(90deg, transparent, #000 5rem, #000 calc(100% - 5rem), transparent)',
+              maskSize: '100% 100%',
+              WebkitMaskSize: '100% 100%',
+              maskRepeat: 'no-repeat',
+              WebkitMaskRepeat: 'no-repeat',
             }}
           >
             <ul

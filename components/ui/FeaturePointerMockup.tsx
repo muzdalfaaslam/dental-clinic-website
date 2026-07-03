@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { DesktopMockup } from './DesktopMockup';
 import { getIcon, type IconKey } from './icon-registry';
 import { cn } from '@/lib/utils';
@@ -88,6 +88,47 @@ function Wireframe({ features, active }: { features: PointerFeature[]; active: n
           </div>
         );
       })}
+
+      {/* in-screen callout — shows one feature's label, right next to its pin */}
+      <AnimatePresence mode="wait">
+        {active >= 0 &&
+          features[active] &&
+          (() => {
+            const f = features[active]!;
+            const Icon = getIcon(f.icon);
+            const above = f.hotspot.y > 25;
+            const alignLeft = f.hotspot.x < 25;
+            const alignRight = f.hotspot.x > 75;
+            return (
+              <motion.div
+                key={f.label}
+                aria-hidden
+                className="pointer-events-none absolute z-10"
+                style={{
+                  left: `${f.hotspot.x}%`,
+                  top: `${f.hotspot.y}%`,
+                }}
+                initial={{ opacity: 0, scale: 0.9, y: above ? 6 : -6 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.25 }}
+              >
+                <div
+                  className={cn(
+                    'absolute flex max-w-[8.5rem] items-center gap-1.5 rounded-md bg-cream/95 px-2 py-1.5 shadow-card ring-1 ring-champagne/50 backdrop-blur-sm sm:max-w-[10rem]',
+                    above ? 'bottom-[calc(100%+0.75rem)]' : 'top-[calc(100%+0.75rem)]',
+                    alignLeft ? 'left-0' : alignRight ? 'right-0' : 'left-1/2 -translate-x-1/2',
+                  )}
+                >
+                  <Icon className="size-3 shrink-0 text-sage-deep" strokeWidth={2} />
+                  <span className="text-[0.6rem] font-medium leading-snug text-sage-deep sm:text-[0.68rem]">
+                    {f.label}
+                  </span>
+                </div>
+              </motion.div>
+            );
+          })()}
+      </AnimatePresence>
     </div>
   );
 }

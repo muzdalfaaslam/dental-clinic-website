@@ -12,18 +12,67 @@ import { math } from '@/config/content';
 const currency = (n: number) =>
   n.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
 
+function SliderRow({
+  id,
+  label,
+  min,
+  max,
+  step,
+  value,
+  onChange,
+  formatValue,
+  unit,
+}: {
+  id: string;
+  label: string;
+  min: number;
+  max: number;
+  step: number;
+  value: number;
+  onChange: (v: number) => void;
+  formatValue: (v: number) => string;
+  unit: string;
+}) {
+  return (
+    <div>
+      <div className="flex items-baseline justify-between gap-4">
+        <label htmlFor={id} className="text-sm font-medium text-charcoal">
+          {label}
+        </label>
+        <span className="font-display text-2xl font-semibold text-sage-deep">{formatValue(value)}</span>
+      </div>
+      <input
+        id={id}
+        type="range"
+        min={min}
+        max={max}
+        step={step}
+        value={value}
+        onChange={(e) => onChange(Number(e.target.value))}
+        aria-valuetext={`${formatValue(value)} ${unit}`}
+        className="mt-4 h-2 w-full cursor-ew-resize appearance-none rounded-full bg-cream-deep accent-[rgb(94_107_82)]"
+      />
+      <div className="mt-1.5 flex justify-between text-xs text-charcoal/45">
+        <span>{formatValue(min)}</span>
+        <span>{formatValue(max)}</span>
+      </div>
+    </div>
+  );
+}
+
 /**
- * Section 5 — The math. A live slider drives two recalculated dollar figures
- * in real time — elegant, not a spreadsheet. Figures live in config
- * (// CLIENT: confirm), ranges kept defensible — no "double your revenue"
- * claims. Brief §6/Section 5.
+ * Section 5 — The math. Two live sliders (patients lost per month, and value
+ * per patient) drive two recalculated dollar figures in real time — elegant,
+ * not a spreadsheet. Figures live in config (// CLIENT: confirm), ranges kept
+ * defensible — no "double your revenue" claims. Brief §6/Section 5.
  */
 export function TheMath() {
   const { calculator: c } = math;
-  const [patients, setPatients] = useState(c.default);
+  const [patients, setPatients] = useState(c.patients.default);
+  const [valuePerPatient, setValuePerPatient] = useState(c.valuePerPatient.default);
   const reduce = useReducedMotion();
 
-  const monthly = patients * c.valuePerPatient;
+  const monthly = patients * valuePerPatient;
   const annual = monthly * 12;
 
   return (
@@ -43,29 +92,30 @@ export function TheMath() {
 
         <ScrollReveal delay={0.1}>
           <div className="mt-10 rounded-lg border border-line bg-cream p-6 shadow-card sm:p-9">
-            {/* the slider */}
-            <div>
-              <div className="flex items-baseline justify-between gap-4">
-                <label htmlFor="patients-slider" className="text-sm font-medium text-charcoal">
-                  {c.label}
-                </label>
-                <span className="font-display text-2xl font-semibold text-sage-deep">{patients}</span>
-              </div>
-              <input
+            {/* the sliders */}
+            <div className="grid gap-8 sm:grid-cols-2">
+              <SliderRow
                 id="patients-slider"
-                type="range"
-                min={c.min}
-                max={c.max}
-                step={c.step}
+                label={c.patients.label}
+                min={c.patients.min}
+                max={c.patients.max}
+                step={c.patients.step}
                 value={patients}
-                onChange={(e) => setPatients(Number(e.target.value))}
-                aria-valuetext={`${patients} new patients a month`}
-                className="mt-4 h-2 w-full cursor-ew-resize appearance-none rounded-full bg-cream-deep accent-[rgb(94_107_82)]"
+                onChange={setPatients}
+                formatValue={(v) => `${v}/mo`}
+                unit="new patients a month"
               />
-              <div className="mt-1.5 flex justify-between text-xs text-charcoal/45">
-                <span>{c.min}/mo</span>
-                <span>{c.max}/mo</span>
-              </div>
+              <SliderRow
+                id="value-slider"
+                label={c.valuePerPatient.label}
+                min={c.valuePerPatient.min}
+                max={c.valuePerPatient.max}
+                step={c.valuePerPatient.step}
+                value={valuePerPatient}
+                onChange={setValuePerPatient}
+                formatValue={(v) => currency(v)}
+                unit="per patient"
+              />
             </div>
 
             {/* live-recomputed results */}
