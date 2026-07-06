@@ -13,7 +13,7 @@ export interface PointerFeature {
   hotspot: { x: number; y: number };
 }
 
-const TICK_MS = 3500;
+const TICK_MS = 2200;
 
 /**
  * A wireframe "site" inside a DesktopMockup with pulsing numbered pins over
@@ -71,13 +71,13 @@ function Wireframe({ features, active }: { features: PointerFeature[]; active: n
                 aria-hidden
                 className="absolute inset-0 rounded-full bg-sage-deep/40"
                 animate={{ scale: [1, 2.1], opacity: [0.55, 0] }}
-                transition={{ duration: 1.4, repeat: Infinity, ease: 'easeOut' }}
+                transition={{ duration: 1, repeat: Infinity, ease: 'easeOut' }}
               />
             )}
             <span
               aria-hidden
               className={cn(
-                'relative flex items-center justify-center rounded-full shadow-soft ring-2 transition-all duration-300',
+                'relative flex items-center justify-center rounded-full shadow-soft ring-2 transition-all duration-200',
                 isActive
                   ? 'size-7 bg-sage-deep text-cream ring-cream'
                   : 'size-5 bg-cream/90 text-sage-deep ring-champagne/50',
@@ -111,11 +111,11 @@ function Wireframe({ features, active }: { features: PointerFeature[]; active: n
                 initial={{ opacity: 0, scale: 0.9, y: above ? 6 : -6 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.25 }}
+                transition={{ duration: 0.18 }}
               >
                 <div
                   className={cn(
-                    'absolute flex max-w-[8.5rem] items-center gap-1.5 rounded-md bg-cream/95 px-2 py-1.5 shadow-card ring-1 ring-champagne/50 backdrop-blur-sm sm:max-w-[10rem]',
+                    'absolute flex w-max max-w-[12rem] items-center gap-1.5 rounded-md bg-cream/95 px-2.5 py-1.5 shadow-card ring-1 ring-champagne/50 backdrop-blur-sm sm:max-w-[14rem]',
                     above ? 'bottom-[calc(100%+0.75rem)]' : 'top-[calc(100%+0.75rem)]',
                     alignLeft ? 'left-0' : alignRight ? 'right-0' : 'left-1/2 -translate-x-1/2',
                   )}
@@ -185,7 +185,7 @@ export function FeaturePointerMockup({ features }: { features: PointerFeature[] 
                 onClick={() => select(i)}
                 aria-pressed={isActive}
                 className={cn(
-                  'group flex w-full items-start gap-3 rounded-md border p-3.5 text-left transition-all duration-300',
+                  'group flex w-full items-start gap-3 rounded-md border p-3.5 text-left transition-all duration-200',
                   isActive
                     ? 'border-sage-deep/40 bg-sage-deep/6 shadow-soft'
                     : 'border-transparent hover:border-line hover:bg-cream-deep/60',
@@ -194,7 +194,7 @@ export function FeaturePointerMockup({ features }: { features: PointerFeature[] 
                 <span
                   aria-hidden
                   className={cn(
-                    'mt-0.5 inline-flex size-8 shrink-0 items-center justify-center rounded-full transition-colors duration-300',
+                    'mt-0.5 inline-flex size-8 shrink-0 items-center justify-center rounded-full transition-colors duration-200',
                     isActive
                       ? 'bg-sage-deep text-cream'
                       : 'bg-sage-deep/8 text-sage-deep ring-1 ring-inset ring-sage-deep/15',

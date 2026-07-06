@@ -141,6 +141,39 @@ export function PlatformThemeShowcase() {
                   </button>
                 </div>
               </ScrollReveal>
+
+              {/* live preview card — pure CSS-variable classes, so it repaints
+                  along with the rest of the page when a swatch is picked. */}
+              <ScrollReveal delay={0.14}>
+                <div className="mt-8 overflow-hidden rounded-lg border border-line bg-cream shadow-soft transition-colors duration-300">
+                  <div className="flex items-center gap-1.5 border-b border-line bg-cream-deep/60 px-3.5 py-2.5">
+                    <span aria-hidden className="size-2 rounded-full bg-rose/70" />
+                    <span aria-hidden className="size-2 rounded-full bg-champagne/70" />
+                    <span aria-hidden className="size-2 rounded-full bg-sage-soft/70" />
+                    <span className="ml-auto text-[0.65rem] uppercase tracking-wider text-charcoal/40">
+                      Live preview
+                    </span>
+                  </div>
+                  <div className="space-y-3.5 p-5">
+                    <div className="h-3 w-2/3 rounded-full bg-sage-deep transition-colors duration-300" />
+                    <div className="h-2 w-1/2 rounded-full bg-charcoal/20 transition-colors duration-300" />
+                    <div className="flex items-center gap-2 pt-1">
+                      <span className="inline-flex items-center rounded-full bg-sage-deep px-3.5 py-1.5 text-xs font-medium text-cream transition-colors duration-300">
+                        Book Now
+                      </span>
+                      <span
+                        aria-hidden
+                        className="inline-flex size-7 items-center justify-center rounded-full bg-champagne/70 transition-colors duration-300"
+                      />
+                    </div>
+                    <div className="flex gap-2 pt-2">
+                      <div className="h-10 flex-1 rounded-md bg-cream-deep transition-colors duration-300" />
+                      <div className="h-10 flex-1 rounded-md bg-rose/30 transition-colors duration-300" />
+                      <div className="h-10 flex-1 rounded-md bg-sage-soft/25 transition-colors duration-300" />
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
             </div>
           </div>
         </div>
