@@ -159,10 +159,13 @@ export function AnimatedDemo({ className }: { className?: string }) {
             </AnimatePresence>
           )}
 
-          {/* persistent CTA the cursor clicks */}
-          <div className="absolute bottom-[20%] left-1/2 z-20 -translate-x-1/2">
+          {/* persistent CTA the cursor clicks — hidden on the smallest
+              screens, where the shrunk phone mockup doesn't have room for
+              it (the button text wraps and the ripple/cursor overlap the
+              site content beneath it). */}
+          <div className="absolute bottom-[20%] left-1/2 z-20 hidden -translate-x-1/2 sm:block">
             <motion.div
-              className="rounded-full bg-sage-deep px-4 py-1.5 text-[0.6rem] font-medium text-cream shadow-card ring-1 ring-champagne/40"
+              className="whitespace-nowrap rounded-full bg-sage-deep px-4 py-1.5 text-[0.6rem] font-medium text-cream shadow-card ring-1 ring-champagne/40"
               animate={reduce ? undefined : { scale: [1, 1, 0.92, 1, 1] }}
               transition={{ duration: TICK_MS / 1000, times: [0, 0.42, 0.5, 0.58, 1], repeat: Infinity }}
             >
