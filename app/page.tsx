@@ -1,5 +1,4 @@
 import { StickyNav } from '@/components/layout/StickyNav';
-import { StickyMobileCTA } from '@/components/layout/StickyMobileCTA';
 import { Hero } from '@/components/sections/Hero';
 import { Video } from '@/components/sections/Video';
 import { ProblemBlock } from '@/components/sections/ProblemBlock';
@@ -31,7 +30,6 @@ export default function Page() {
         {/* 9 */} <ReassuranceStrip />
       </main>
       {/* 10 */} <Footer />
-      <StickyMobileCTA />
     </>
   );
 }

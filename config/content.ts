@@ -20,7 +20,6 @@ export const ctas = {
   hero: 'See What We’d Build For Your Clinic',
   nav: 'See What We’d Build',
   math: 'Book My 15-Minute Call',
-  stickyMobile: 'See What We’d Build',
   formSubmit: 'Show Me My New Website', // the form's own button — never "Submit"
   footer: 'Book My 15-Minute Call',
 } as const;

@@ -106,7 +106,7 @@ export function AnimatedDemo({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        'relative mx-auto aspect-video w-full max-w-3xl overflow-hidden rounded-lg border border-champagne/40 bg-gradient-to-br from-cream-deep to-cream shadow-card ring-1 ring-inset ring-sage-soft/20',
+        'relative mx-auto aspect-[4/3] w-full max-w-3xl overflow-hidden rounded-lg border border-champagne/40 bg-gradient-to-br from-cream-deep to-cream shadow-card ring-1 ring-inset ring-sage-soft/20 sm:aspect-video',
         className,
       )}
       role="img"
@@ -212,8 +212,10 @@ export function AnimatedDemo({ className }: { className?: string }) {
         )}
       </div>
 
-      {/* rolling notification stack (top-right) */}
-      <div className="absolute right-4 top-12 z-20 flex w-[min(58%,15rem)] flex-col gap-2">
+      {/* rolling notification stack (top-right) — hidden on the smallest
+          screens, where there isn't enough room for it beside the phone
+          without overlapping (it's decorative, not essential). */}
+      <div className="absolute right-4 top-12 z-20 hidden w-[min(58%,15rem)] flex-col gap-2 sm:flex">
         <AnimatePresence initial={false} mode="popLayout">
           {stack.map((n) => {
             const NotifIcon = n.icon;
@@ -242,12 +244,12 @@ export function AnimatedDemo({ className }: { className?: string }) {
       </div>
 
       {/* bookings counter (bottom-left) with pop + "+1" flyup */}
-      <div className="absolute bottom-4 left-4 z-20 flex items-center gap-2.5 rounded-lg bg-cream/85 px-3.5 py-2.5 shadow-soft backdrop-blur-sm">
-        <span className="inline-flex size-7 items-center justify-center rounded-full bg-sage-deep/10 text-sage-deep">
-          <TrendingUp className="size-4" strokeWidth={1.75} />
+      <div className="absolute bottom-3 left-3 z-20 flex items-center gap-2 rounded-lg bg-cream/85 px-2.5 py-2 shadow-soft backdrop-blur-sm sm:bottom-4 sm:left-4 sm:gap-2.5 sm:px-3.5 sm:py-2.5">
+        <span className="inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-sage-deep/10 text-sage-deep sm:size-7">
+          <TrendingUp className="size-3.5 sm:size-4" strokeWidth={1.75} />
         </span>
         <div className="relative leading-tight">
-          <div className="flex items-baseline gap-1 font-display text-lg font-semibold text-sage-deep">
+          <div className="flex items-baseline gap-1 font-display text-base font-semibold text-sage-deep sm:text-lg">
             {reduce ? (
               <span>{bookings}</span>
             ) : (
