@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useReducedMotion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
@@ -20,8 +20,22 @@ import { problem } from '@/config/content';
  */
 export function ProblemBlock() {
   const [active, setActive] = useState<number | null>(null);
+  const [inView, setInView] = useState(true);
+  const marqueeRef = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
   const { points } = problem;
+
+  // Stop the continuous auto-scroll while scrolled out of view — saves
+  // battery/CPU on mobile instead of animating an off-screen carousel.
+  useEffect(() => {
+    const el = marqueeRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([entry]) => setInView(Boolean(entry?.isIntersecting)), {
+      threshold: 0.1,
+    });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   const select = (i: number) => setActive((prev) => (prev === i ? null : i));
 
@@ -113,6 +127,7 @@ export function ProblemBlock() {
           </Container>
         ) : (
           <div
+            ref={marqueeRef}
             className="marquee-paused relative overflow-hidden"
             aria-label="Common frustrations"
             style={{
@@ -131,7 +146,7 @@ export function ProblemBlock() {
               style={
                 {
                   '--marquee-duration': `${duration}s`,
-                  animationPlayState: active !== null ? 'paused' : undefined,
+                  animationPlayState: active !== null || !inView ? 'paused' : undefined,
                 } as React.CSSProperties
               }
             >

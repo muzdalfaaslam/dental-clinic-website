@@ -8,6 +8,7 @@ import { ScrollReveal, StaggerGroup, StaggerItem } from '@/components/layout/Scr
 import { applyThemeVars, resetThemeVars } from '@/lib/theme-runtime';
 import { themeVariants } from '@/config/theme';
 import { whatWeBuild, themeShowcase, platformCatalog } from '@/config/content';
+import { cn } from '@/lib/utils';
 
 const swatchKeys = ['--color-sage-deep', '--color-champagne', '--color-rose'] as const;
 
@@ -20,6 +21,7 @@ const swatchKeys = ['--color-sage-deep', '--color-champagne', '--color-rose'] as
  */
 export function PlatformThemeShowcase() {
   const [active, setActive] = useState(0);
+  const [revealed, setRevealed] = useState<number | null>(null);
 
   const select = (i: number) => {
     setActive(i);
@@ -49,14 +51,31 @@ export function PlatformThemeShowcase() {
               </ScrollReveal>
 
               <ul className="mt-6 border-t border-line/60">
-                {platformCatalog.map((group) => (
+                {platformCatalog.map((group, i) => (
                   <li key={group.title} className="group relative h-11 overflow-hidden border-b border-line/60">
-                    <span className="absolute inset-0 flex items-center text-[0.95rem] text-charcoal/80 transition-transform duration-300 ease-out group-hover:-translate-y-full">
-                      {group.title}
-                    </span>
-                    <span className="absolute inset-0 flex translate-y-full items-center text-[0.95rem] font-medium text-sage-deep transition-transform duration-300 ease-out group-hover:translate-y-0">
-                      {group.tagline}
-                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setRevealed((r) => (r === i ? null : i))}
+                      aria-expanded={revealed === i}
+                      className="absolute inset-0 flex w-full items-center text-left"
+                    >
+                      <span
+                        className={cn(
+                          'absolute inset-0 flex items-center text-[0.95rem] text-charcoal/80 transition-transform duration-300 ease-out group-hover:-translate-y-full',
+                          revealed === i && '-translate-y-full',
+                        )}
+                      >
+                        {group.title}
+                      </span>
+                      <span
+                        className={cn(
+                          'absolute inset-0 flex translate-y-full items-center text-[0.95rem] font-medium text-sage-deep transition-transform duration-300 ease-out group-hover:translate-y-0',
+                          revealed === i && 'translate-y-0',
+                        )}
+                      >
+                        {group.tagline}
+                      </span>
+                    </button>
                   </li>
                 ))}
               </ul>

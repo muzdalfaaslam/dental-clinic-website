@@ -25,7 +25,9 @@ export type AnalyticsEvent =
   | 'form_start'
   | 'lead_submit'
   | 'quiz_start'
-  | 'quiz_complete';
+  | 'quiz_complete'
+  | 'qualify_start'
+  | 'qualify_submit';
 
 export type EventPayload = Record<string, string | number | boolean | undefined>;
 
@@ -39,7 +41,7 @@ export function track(event: AnalyticsEvent, payload: EventPayload = {}): void {
 
   // Meta Pixel — map our conversions to the standard `Lead` event.
   if (META_PIXEL_ID && typeof window.fbq === 'function') {
-    if (event === 'lead_submit' || event === 'quiz_complete') {
+    if (event === 'lead_submit' || event === 'quiz_complete' || event === 'qualify_submit') {
       window.fbq('track', 'Lead', payload);
     } else {
       window.fbq('trackCustom', event, payload);

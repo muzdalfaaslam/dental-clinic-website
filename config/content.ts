@@ -28,6 +28,24 @@ export const ctas = {
 /** Single conversion target — every CTA scrolls here. */
 export const FORM_ANCHOR = 'qualify';
 
+/** Shared qualifier option lists — used by both the qualify flow and /quiz. */
+export const qualifierOptions = {
+  role: ['Owner', 'Manager', 'Other'], // QUALIFIER: owner/decision-maker must be on the call.
+  patientsPerMonth: ['Under 20', '20-50', '50-100', '100+'], // CLIENT: confirm qualifier bands
+  frustration: [
+    'It looks dated',
+    'It’s slow or clumsy on mobile',
+    'No easy online booking',
+    'Before/afters & reviews are buried',
+    'It doesn’t reflect our brand',
+    'New patients can’t find us',
+  ],
+  timeline: ['As soon as possible', 'Within a month', '1-3 months', 'Just exploring'], // gauges urgency
+};
+
+export const genericFormError =
+  'Something went wrong on our end. Please try again, or email us and we’ll take care of it.';
+
 /* ── Site / SEO metadata (brief §10). ─────────────────────────────────────── */
 export const meta = {
   title: 'Beautiful Med Spa Websites That Book More Treatments | TechxServe',
@@ -251,100 +269,93 @@ export const socialProof = {
   },
 };
 
-/* ── Section 7 — Qualification form. ──────────────────────────────────────── */
-export const form = {
+/* ── Section 7 — Qualify flow. Short taps → business info → book a call. ──── */
+export const qualify = {
   eyebrow: 'FREE, NO OBLIGATION',
   headline: 'See What We’d Build For Your Clinic',
-  subline:
-    'Tell us a little about your clinic and we’ll show you exactly what your new site could look like. Limited spots each month.',
-  fields: {
-    fullName: { label: 'Full name', placeholder: 'Jordan Avery' },
-    clinicName: { label: 'Clinic / business name', placeholder: 'Glow Aesthetic Studio' },
+  subline: 'A few quick taps, then pick a time. Limited spots each month.',
+  steps: [
+    { key: 'role' as const, question: 'Which best describes you?', options: qualifierOptions.role },
+    {
+      key: 'patientsPerMonth' as const,
+      question: 'Roughly how many new patients a month?',
+      options: qualifierOptions.patientsPerMonth,
+    },
+    {
+      key: 'timeline' as const,
+      question: 'When would you want a new site live?',
+      options: qualifierOptions.timeline,
+    },
+  ],
+  business: {
+    heading: 'Tell us about your clinic',
+    body: 'So we know who we’re building for.',
+    clinicName: { label: 'Business name', placeholder: 'Glow Aesthetic Studio' },
     email: { label: 'Email', placeholder: 'you@glowaesthetic.com' },
-    website: { label: 'Clinic website', placeholder: 'glowaesthetic.com', optional: true },
-    phone: { label: 'Phone number', placeholder: '(555) 123-4567' },
-    cityState: { label: 'City / State', placeholder: 'Austin, TX' },
-    role: {
-      label: 'Which best describes you?',
-      placeholder: 'Select one',
-      // QUALIFIER: owner / decision-maker must be on the call.
-      options: ['Owner', 'Manager', 'Other'],
-    },
-    patientsPerMonth: {
-      label: 'Roughly how many new patients a month?',
-      placeholder: 'Select a range',
-      // QUALIFIER: filters clinics too small to benefit yet.
-      options: ['Under 20', '20-50', '50-100', '100+'], // CLIENT: confirm qualifier bands
-    },
-    frustration: {
-      label: 'What’s your biggest frustration with your current site?',
-      helper: 'Choose all that apply.',
-      // Multi-select — mirrors the Site Issue Note; uses their words to open the call.
-      options: [
-        'It looks dated',
-        'It’s slow or clumsy on mobile',
-        'No easy online booking',
-        'Before/afters & reviews are buried',
-        'It doesn’t reflect our brand',
-        'New patients can’t find us',
-      ],
-    },
-    timeline: {
-      label: 'When would you want a new site live?',
-      placeholder: 'Select a timeline',
-      // Gauges urgency / readiness.
-      options: ['As soon as possible', 'Within a month', '1-3 months', 'Just exploring'],
-    },
+    website: { label: 'Existing website (if any)', placeholder: 'glowaesthetic.com', optional: true },
+    cta: 'Continue',
   },
-  // ⚠ Required SMS consent (US / TCPA). Exact mandated text — do not alter.
-  consent: {
-    text: 'I agree to receive call/text messages from TechxServe about my request. Msg & data rates may apply.',
-    version: 'tcpa-2026-06', // recorded with every lead for compliance audit trail
+  scheduling: {
+    heading: 'Pick a time for your 15-minute call',
+    body: 'Whatever’s easiest for you.',
+    selfOption: { label: 'Pick a time that works for me', desc: 'Open the calendar and grab a slot' },
+    proposeOption: {
+      label: 'Propose a time for me',
+      desc: 'We’ll text or email a couple of times that work',
+    },
+    // CLIENT: add your Cal.com booking link (e.g. "techxserve/15min").
+    calcomLink: '',
+    calcomFallback: 'Calendar booking will appear here once connected.',
+    proposedNote: 'We’ll reach out within one business day with a couple of times that work for us.',
+  },
+  whatToExpect: {
+    heading: 'What to expect on the call',
+    body: '15 minutes, no pressure.',
+    bookedNote: 'You’re booked — we’ll see you then!',
+    items: [
+      { icon: 'search' as IconKey, label: 'A quick audit', desc: 'What your current site is costing you' },
+      {
+        icon: 'sparkles' as IconKey,
+        label: 'A brainstorm',
+        desc: 'Your aesthetic, your treatments, your patients',
+      },
+      { icon: 'globe' as IconKey, label: 'Packages', desc: 'Website-only, or the full platform' },
+      { icon: 'barChart' as IconKey, label: 'The value', desc: 'Exactly what it’s worth to your clinic' },
+    ],
   },
   submit: ctas.formSubmit,
-  // Shayan to confirm — soft budget filter intentionally OFF the inline form to
-  // protect submit rate. Extension point lives in the form component, disabled.
-  success: {
-    heading: 'You’re on the list.',
-    body: 'We’ll review your clinic and reach out shortly to show you exactly what your new site could look like. Keep an eye on your phone. We may text to confirm a time.',
-    // Slot for the later "thank-you" no-show-reducer video (brief §2).
-    thankYouVideoSrc: '', // CLIENT: add 60–90s thank-you video later
-  },
-  error:
-    'Something went wrong on our end. Please try again, or email us and we’ll take care of it.',
+  error: genericFormError,
 };
 
 /* ── Standalone quiz funnel — linked from Hero's secondary CTA (/quiz). ───── */
 export const quiz = {
   entryCta: 'Don’t have the time? It takes 1 minute.',
   metaTitle: 'Quick Start — See What We’d Build For Your Clinic | TechxServe',
-  // Reuses the SAME option data as the long form (no duplication) — just a
-  // faster, one-question-at-a-time path to the same qualifiers.
   steps: [
     {
       key: 'role' as const,
       question: 'Which best describes you?',
       type: 'single' as const,
-      options: form.fields.role.options,
+      options: qualifierOptions.role,
     },
     {
       key: 'patientsPerMonth' as const,
       question: 'Roughly how many new patients a month?',
       type: 'single' as const,
-      options: form.fields.patientsPerMonth.options,
+      options: qualifierOptions.patientsPerMonth,
     },
     {
       key: 'frustration' as const,
       question: 'What’s your biggest frustration with your current site?',
       helper: 'Choose all that apply.',
       type: 'multi' as const,
-      options: form.fields.frustration.options,
+      options: qualifierOptions.frustration,
     },
     {
       key: 'timeline' as const,
       question: 'When would you want a new site live?',
       type: 'single' as const,
-      options: form.fields.timeline.options,
+      options: qualifierOptions.timeline,
     },
   ],
   companyStep: {
@@ -369,7 +380,7 @@ export const quiz = {
     fallbackNote: 'Prefer to tell us more first?',
     fallbackLinkLabel: 'Fill out the full form',
   },
-  error: form.error,
+  error: genericFormError,
 };
 
 /* ── Section 8 — Reassurance strip. ───────────────────────────────────────── */

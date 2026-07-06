@@ -1,22 +1,19 @@
 import { NextResponse } from 'next/server';
-import { leadSchema } from '@/lib/validation';
-import { form } from '@/config/content';
+import { qualifyLeadSchema } from '@/lib/qualifyValidation';
 
 export const runtime = 'edge';
 
 /**
- * Lead handler (Edge). Re-validates with the SAME Zod schema (never trust the
- * client), enforces honeypot + min-fill-time, rate-limits by IP, records consent
- * + timestamp for the TCPA audit trail, and forwards to LEAD_WEBHOOK_URL. If the
- * webhook env var is unset it logs and returns success so the UI flow is testable
- * in dev. Never throws an unhandled error to the user. Brief §7.
+ * Qualify-flow lead handler (Edge) — the site's single conversion target
+ * (id="qualify"). Same shape as the other lead routes (honeypot +
+ * min-fill-time + IP rate limit, re-validates server-side, forwards to
+ * LEAD_WEBHOOK_URL), tagged `source: 'qualify'` and carrying the visitor's
+ * scheduling preference so the CRM knows whether to expect a Cal.com booking
+ * or needs to propose a time itself.
  */
 
-// Minimum seconds a real human takes to fill the form (timing spam guard).
-const MIN_FILL_SECONDS = 3;
+const MIN_FILL_SECONDS = 2;
 
-// Simple in-memory IP rate limit. Edge isolates are short-lived, so this is a
-// best-effort guard; swap for Edge KV / Upstash for durable limits across regions.
 const WINDOW_MS = 60_000;
 const MAX_PER_WINDOW = 5;
 const hits = new Map<string, number[]>();
@@ -49,7 +46,6 @@ export async function POST(req: Request): Promise<Response> {
     return NextResponse.json({ ok: false, error: 'Invalid request.' }, { status: 400 });
   }
 
-  // Honeypot: a filled "company" field means a bot. Pretend success, drop silently.
   if (typeof body === 'object' && body !== null && 'company' in body) {
     const company = (body as Record<string, unknown>).company;
     if (typeof company === 'string' && company.trim() !== '') {
@@ -57,7 +53,6 @@ export async function POST(req: Request): Promise<Response> {
     }
   }
 
-  // Timing guard: submitted implausibly fast → treat as spam, drop silently.
   if (typeof body === 'object' && body !== null && 'renderedAt' in body) {
     const renderedAt = Number((body as Record<string, unknown>).renderedAt);
     if (Number.isFinite(renderedAt)) {
@@ -68,7 +63,7 @@ export async function POST(req: Request): Promise<Response> {
     }
   }
 
-  const parsed = leadSchema.safeParse(body);
+  const parsed = qualifyLeadSchema.safeParse(body);
   if (!parsed.success) {
     return NextResponse.json(
       { ok: false, error: 'Some details look off. Please review and try again.' },
@@ -76,16 +71,13 @@ export async function POST(req: Request): Promise<Response> {
     );
   }
 
-  // Strip spam-control fields; assemble the durable lead record.
   const { company: _company, renderedAt: _renderedAt, ...lead } = parsed.data;
   void _company;
   void _renderedAt;
 
   const record = {
     ...lead,
-    consent: true as const,
-    consentText: form.consent.text, // exact text the user agreed to
-    consentVersion: form.consent.version, // version stamp for the audit trail
+    source: 'qualify' as const,
     submittedAt: new Date().toISOString(),
     sourceIp: ip,
     niche: 'med-spa',
@@ -93,8 +85,7 @@ export async function POST(req: Request): Promise<Response> {
 
   const webhook = process.env.LEAD_WEBHOOK_URL;
   if (!webhook) {
-    // Dev fallback: no webhook configured. Log so the flow is testable; return ok.
-    console.info('[lead] LEAD_WEBHOOK_URL unset — lead captured locally:', record);
+    console.info('[qualify-lead] LEAD_WEBHOOK_URL unset — lead captured locally:', record);
     return NextResponse.json({ ok: true });
   }
 
@@ -105,14 +96,14 @@ export async function POST(req: Request): Promise<Response> {
       body: JSON.stringify(record),
     });
     if (!res.ok) {
-      console.error('[lead] webhook responded', res.status);
+      console.error('[qualify-lead] webhook responded', res.status);
       return NextResponse.json(
         { ok: false, error: 'We couldn’t save your request. Please try again.' },
         { status: 502 },
       );
     }
   } catch (err) {
-    console.error('[lead] webhook error', err);
+    console.error('[qualify-lead] webhook error', err);
     return NextResponse.json(
       { ok: false, error: 'We couldn’t reach our servers. Please try again.' },
       { status: 502 },

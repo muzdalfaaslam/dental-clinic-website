@@ -14,7 +14,7 @@ export const metadata: Metadata = {
  */
 export default function TermsPage() {
   return (
-    <LegalPage title="Terms of Service" updated="June 2026">
+    <LegalPage title="Terms of Service" updated="July 2026">
       <p>
         {/* CLIENT: replace with counsel-reviewed terms before launch. */}
         These Terms govern your use of this website and your request for a discovery call with
@@ -28,10 +28,10 @@ export default function TermsPage() {
         services we agree to perform will be governed by a separate written agreement.
       </p>
 
-      <h2 className="font-display text-h3 text-sage-deep">Messaging</h2>
+      <h2 className="font-display text-h3 text-sage-deep">Scheduling</h2>
       <p>
-        If you opt in to calls and texts, standard message and data rates may apply. You can opt out
-        at any time by replying STOP.
+        If you choose to pick your own time, scheduling is handled by Cal.com, a third-party
+        booking service embedded on this page and subject to its own terms.
       </p>
 
       <h2 className="font-display text-h3 text-sage-deep">No guarantees</h2>

@@ -8,6 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { ChevronLeft, X, CheckCircle2 } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Logo } from '@/components/ui/Logo';
+import { StepProgressBar } from '@/components/ui/StepProgressBar';
 import { TextField } from '@/components/form/FormField';
 import { QuizOptionCard } from './QuizOptionCard';
 import { quiz } from '@/config/content';
@@ -36,17 +37,6 @@ const contactSchema = quizLeadSchema.pick({ fullName: true, email: true, company
 type ContactValues = { fullName: string; email: string; company: string };
 
 const TOTAL_STEPS = quiz.steps.length + 2; // + company details + contact
-
-function ProgressBar({ pct }: { pct: number }) {
-  return (
-    <div className="h-1 w-full bg-cream-deep">
-      <div
-        className="h-full bg-sage-deep transition-all duration-500 ease-out"
-        style={{ width: `${pct}%` }}
-      />
-    </div>
-  );
-}
 
 function BackButton({ onClick }: { onClick: () => void }) {
   return (
@@ -192,7 +182,7 @@ export function QuizFlow() {
         </Container>
       </header>
 
-      {status !== 'success' && <ProgressBar pct={progressPct} />}
+      {status !== 'success' && <StepProgressBar pct={progressPct} />}
 
       <Container className="max-w-xl py-14 sm:py-20">
         <AnimatePresence mode="wait">

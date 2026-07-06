@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { DesktopMockup } from './DesktopMockup';
 import { getIcon, type IconKey } from './icon-registry';
@@ -137,12 +137,26 @@ export function FeaturePointerMockup({ features }: { features: PointerFeature[] 
   const reduce = useReducedMotion();
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [inView, setInView] = useState(true);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Stop the auto-cycling pins while scrolled out of view — saves
+  // battery/CPU on mobile instead of animating an off-screen mockup.
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([entry]) => setInView(Boolean(entry?.isIntersecting)), {
+      threshold: 0.1,
+    });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
-    if (reduce || paused) return;
+    if (reduce || paused || !inView) return;
     const id = setInterval(() => setActive((a) => (a + 1) % features.length), TICK_MS);
     return () => clearInterval(id);
-  }, [reduce, paused, features.length]);
+  }, [reduce, paused, inView, features.length]);
 
   const select = (i: number) => {
     setActive(i);
@@ -151,6 +165,7 @@ export function FeaturePointerMockup({ features }: { features: PointerFeature[] 
 
   return (
     <div
+      ref={containerRef}
       className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}

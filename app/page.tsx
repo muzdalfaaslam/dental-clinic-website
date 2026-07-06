@@ -7,7 +7,7 @@ import { WhatWeBuild } from '@/components/sections/WhatWeBuild';
 import { PlatformThemeShowcase } from '@/components/sections/PlatformThemeShowcase';
 import { TheMath } from '@/components/sections/TheMath';
 import { SocialProof } from '@/components/sections/SocialProof';
-import { QualificationForm } from '@/components/sections/QualificationForm';
+import { QualifyFlow } from '@/components/sections/QualifyFlow';
 import { ReassuranceStrip } from '@/components/sections/ReassuranceStrip';
 import { Footer } from '@/components/sections/Footer';
 
@@ -27,7 +27,7 @@ export default function Page() {
         {/* 5 */} <PlatformThemeShowcase />
         {/* 6 */} <TheMath />
         {/* 7 */} <SocialProof />
-        {/* 8 */} <QualificationForm />
+        {/* 8 */} <QualifyFlow />
         {/* 9 */} <ReassuranceStrip />
       </main>
       {/* 10 */} <Footer />
