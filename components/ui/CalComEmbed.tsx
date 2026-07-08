@@ -60,13 +60,25 @@ function loadCalScript() {
  * once a real booking completes. `calLink` empty (not yet configured by the
  * client) renders a graceful placeholder instead of a broken embed.
  */
+/** Values pushed into the Cal.com booking form so the visitor doesn't re-type
+ *  what they already told us. `name`/`email`/`notes` map to the default booking
+ *  fields; anything else is treated as a custom-field prefill keyed by slug. */
+export interface CalPrefill {
+  name?: string;
+  email?: string;
+  notes?: string;
+  [customFieldSlug: string]: string | undefined;
+}
+
 export function CalComEmbed({
   calLink,
   fallbackText,
+  prefill,
   onBooked,
 }: {
   calLink: string;
   fallbackText: string;
+  prefill?: CalPrefill;
   onBooked?: () => void;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -80,6 +92,8 @@ export function CalComEmbed({
       elementOrSelector: containerRef.current,
       calLink,
       layout: 'month_view',
+      // Drops the collected answers straight into the booking form fields.
+      ...(prefill ? { config: prefill } : {}),
     });
     Cal('ui', {
       styles: { branding: { brandColor: '#5E6B52' } },
@@ -89,7 +103,7 @@ export function CalComEmbed({
     if (onBooked) {
       Cal('on', { action: 'bookingSuccessful', callback: onBooked });
     }
-  }, [calLink, onBooked]);
+  }, [calLink, prefill, onBooked]);
 
   if (!calLink) {
     return (

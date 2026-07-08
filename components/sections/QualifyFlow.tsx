@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
@@ -127,6 +127,24 @@ export function QualifyFlow() {
       setSubmitStatus('error');
     }
   };
+
+  // Prefill the Cal.com booking form with what the visitor already told us, so
+  // they land on the calendar with everything filled in. Each key maps to a
+  // Cal.com booking-question Identifier (set on the event's Advanced tab):
+  // name/email are Cal's defaults; the rest are custom questions whose slugs
+  // must match these keys exactly, or the value is silently dropped.
+  const calPrefill = useMemo(
+    () => ({
+      name: answers.clinicName || undefined,
+      email: answers.email || undefined,
+      clinicName: answers.clinicName || undefined,
+      website: answers.website || undefined,
+      role: answers.role || undefined,
+      patientsPerMonth: answers.patientsPerMonth || undefined,
+      timeline: answers.timeline || undefined,
+    }),
+    [answers],
+  );
 
   const progressPct = showExpect ? 100 : ((stepIndex + 1) / TOTAL_STEPS) * 100;
   const currentQuestion = stepIndex < qualify.steps.length ? qualify.steps[stepIndex] : undefined;
@@ -344,6 +362,7 @@ export function QualifyFlow() {
                           <CalComEmbed
                             calLink={qualify.scheduling.calcomLink}
                             fallbackText={qualify.scheduling.calcomFallback}
+                            prefill={calPrefill}
                             onBooked={() => setShowExpect(true)}
                           />
                           <div className="mt-4 flex justify-center">
