@@ -5,12 +5,11 @@ import Link from 'next/link';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { CheckCircle2, MessageCircleMore } from 'lucide-react';
+import { CalendarClock, CheckCircle2, MessageCircleMore } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { StepProgressBar } from '@/components/ui/StepProgressBar';
 import { FeatureTile } from '@/components/ui/FeatureTile';
-import { CalComEmbed } from '@/components/ui/CalComEmbed';
 import { TextField } from '@/components/form/FormField';
 import { QuizOptionCard } from '@/components/quiz/QuizOptionCard';
 import { qualify, FORM_ANCHOR } from '@/config/content';
@@ -128,23 +127,24 @@ export function QualifyFlow() {
     }
   };
 
-  // Prefill the Cal.com booking form with what the visitor already told us, so
-  // they land on the calendar with everything filled in. Each key maps to a
-  // Cal.com booking-question Identifier (set on the event's Advanced tab):
-  // name/email are Cal's defaults; the rest are custom questions whose slugs
-  // must match these keys exactly, or the value is silently dropped.
-  const calPrefill = useMemo(
-    () => ({
-      name: answers.clinicName || undefined,
-      email: answers.email || undefined,
-      clinicName: answers.clinicName || undefined,
-      website: answers.website || undefined,
-      role: answers.role || undefined,
-      patientsPerMonth: answers.patientsPerMonth || undefined,
-      timeline: answers.timeline || undefined,
-    }),
-    [answers],
-  );
+  // Build the Cal.com booking URL with every answer passed as a prefill query
+  // param, so the booking page opens (new tab) with the form already filled.
+  // Each param maps to a Cal.com booking-question Identifier (set on the event's
+  // Advanced tab): name/email are Cal's defaults; the rest are custom questions
+  // whose slugs must match these keys exactly, or the value is silently dropped.
+  const calHref = useMemo(() => {
+    const params = new URLSearchParams();
+    const add = (key: string, value: string) => value && params.set(key, value);
+    add('name', answers.clinicName);
+    add('email', answers.email);
+    add('clinicName', answers.clinicName);
+    add('website', answers.website);
+    add('role', answers.role);
+    add('patientsPerMonth', answers.patientsPerMonth);
+    add('timeline', answers.timeline);
+    const query = params.toString();
+    return `https://cal.com/${qualify.scheduling.calcomLink}${query ? `?${query}` : ''}`;
+  }, [answers]);
 
   const progressPct = showExpect ? 100 : ((stepIndex + 1) / TOTAL_STEPS) * 100;
   const currentQuestion = stepIndex < qualify.steps.length ? qualify.steps[stepIndex] : undefined;
@@ -358,23 +358,22 @@ export function QualifyFlow() {
                           </button>
                         </div>
                       ) : (
-                        <>
-                          <CalComEmbed
-                            calLink={qualify.scheduling.calcomLink}
-                            fallbackText={qualify.scheduling.calcomFallback}
-                            prefill={calPrefill}
-                            onBooked={() => setShowExpect(true)}
-                          />
-                          <div className="mt-4 flex justify-center">
-                            <button
-                              type="button"
-                              onClick={() => setShowExpect(true)}
-                              className="text-sm text-charcoal/50 underline decoration-champagne/60 underline-offset-4 transition-colors duration-200 hover:text-sage-deep"
-                            >
-                              Already booked? Continue
-                            </button>
-                          </div>
-                        </>
+                        <div className="mt-6 flex flex-col items-center gap-4 rounded-lg border border-line bg-cream-deep/40 p-8 text-center">
+                          <CalendarClock className="size-8 text-sage-soft" strokeWidth={1.5} />
+                          <p className="max-w-xs text-sm text-charcoal/70">
+                            {qualify.scheduling.calcomFallback}
+                          </p>
+                          <a
+                            href={calHref}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setShowExpect(true)}
+                            className="inline-flex items-center justify-center gap-2 rounded-lg bg-sage-deep px-6 py-3 text-[0.95rem] font-medium text-cream shadow-soft ring-1 ring-inset ring-champagne/40 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[rgb(82_94_72)] hover:shadow-card"
+                          >
+                            <CalendarClock className="size-4" strokeWidth={1.75} />
+                            {qualify.scheduling.selfOption.label}
+                          </a>
+                        </div>
                       )}
                     </div>
                   ) : null}

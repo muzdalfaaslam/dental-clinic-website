@@ -304,7 +304,7 @@ export const qualify = {
     },
     // CLIENT: add your Cal.com booking link (e.g. "techxserve/15min").
     calcomLink: 'hamnanoor/15-min-meeting',
-    calcomFallback: 'Calendar booking will appear here once connected.',
+    calcomFallback: 'Opens our calendar in a new tab with your details already filled in — just pick a time.',
     proposedNote: 'We’ll reach out within one business day with a couple of times that work for us.',
   },
   whatToExpect: {
