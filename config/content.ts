@@ -303,7 +303,7 @@ export const qualify = {
       desc: 'We’ll text or email a couple of times that work',
     },
     // CLIENT: add your Cal.com booking link (e.g. "techxserve/15min").
-    calcomLink: '',
+    calcomLink: 'hamnanoor/15-min-meeting',
     calcomFallback: 'Calendar booking will appear here once connected.',
     proposedNote: 'We’ll reach out within one business day with a couple of times that work for us.',
   },
