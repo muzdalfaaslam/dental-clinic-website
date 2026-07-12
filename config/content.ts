@@ -399,8 +399,8 @@ export const footer = {
   companyLine: 'A US-registered software company with a full design team.',
   // CLIENT: replace with real contact details.
   contact: {
-    email: 'hello@techxserve.co',
-    phone: '(555) 000-0000',
+    email: 'info@techxserve.com',
+    phone: '+1 (307) 293-9151',
   },
   cta: ctas.footer,
   legal: [
@@ -425,7 +425,6 @@ export interface PlatformGroup {
   icon: IconKey;
   title: string;
   tagline: string;
-  phrases?: string[];
   items: PlatformItem[];
 }
 
@@ -447,11 +446,6 @@ export const platformCatalog: PlatformGroup[] = [
     icon: 'users',
     title: 'Client Management',
     tagline: "Every client's history in one click",
-    phrases: [
-      "Full patient history, one tap, any device",
-      "Paperless intake, signed before they arrive",
-      "Photos, notes, and preferences auto-stored",
-    ],
     items: [
       { name: 'Med spa CRM', desc: 'Full client history (treatments, notes, photos, preferences, visit history) in a single click' },
       { name: 'Digital intake & consent forms', desc: 'Paperless, e-signed, stored automatically against the client record' },
@@ -464,11 +458,6 @@ export const platformCatalog: PlatformGroup[] = [
     icon: 'messageSquare',
     title: 'Communication & Reminders',
     tagline: 'Always in touch',
-    phrases: [
-      "Cut no-shows. Dramatically. Automatically.",
-      "Clients confirm with a single reply",
-      "Set once. Runs forever in the background",
-    ],
     items: [
       { name: 'Automated appointment reminders', desc: 'SMS + email reminders that cut no-shows dramatically' },
       { name: 'Confirmations & rescheduling', desc: 'Clients confirm or rebook with a single tap' },
@@ -477,33 +466,11 @@ export const platformCatalog: PlatformGroup[] = [
     ],
   },
   {
-    icon: 'repeat',
-    title: 'Retention & Marketing',
-    tagline: 'Keep them coming back',
-    phrases: [
-      "Win back lapsed patients, automatically",
-      "Promos and campaigns sent without lifting a finger",
-      "Turn your happiest patients into referrers",
-    ],
-    items: [
-      { name: 'Patient reactivation', desc: 'Win back lapsed clients automatically for fast, high-margin revenue' },
-      { name: 'Rebooking automations', desc: 'Treatment-cycle nudges (e.g. time-to-rebook reminders for injectables)' },
-      { name: 'Email & SMS campaigns', desc: 'Promotions, new treatments, and seasonal offers, sent for them' },
-      { name: 'Review automation', desc: 'Ask happy clients for reviews automatically for more 5-star ratings' },
-      { name: 'Loyalty & referral programs', desc: 'Reward repeat clients and turn them into referrers' },
-    ],
-  },
-  {
     icon: 'search',
     title: 'SEO & Get Found',
     tagline: 'Local growth',
-    phrases: [
-      "Rank for 'med spa near me' in your city",
-      "Show up before the clinic down the street",
-      "More visibility, more bookings, less ad spend",
-    ],
     items: [
-      { name: 'Local SEO', desc: 'Rank for “med spa near me” in your city' },
+      { name: 'Local SEO', desc: 'Rank for "med spa near me" in your city' },
       { name: 'Google Business Profile', desc: 'Optimized so you show up on the map and in search' },
       { name: 'Social media & content', desc: 'On-brand Instagram content that keeps the calendar full' },
       { name: 'Paid ads', desc: "Meta & Google campaigns when you're ready to scale" },
@@ -513,11 +480,6 @@ export const platformCatalog: PlatformGroup[] = [
     icon: 'bot',
     title: 'AI Chatbot & 24/7 Support',
     tagline: 'Always available',
-    phrases: [
-      "Books appointments while you sleep",
-      "Every after-hours inquiry answered instantly",
-      "No missed leads. Ever.",
-    ],
     items: [
       { name: 'AI receptionist chatbot', desc: 'Answers questions and books appointments around the clock, even after hours' },
       { name: '24/7 customer service', desc: 'No missed inquiries. Every lead gets an instant, intelligent response' },
@@ -529,11 +491,6 @@ export const platformCatalog: PlatformGroup[] = [
     icon: 'smartphone',
     title: 'Mobile Application',
     tagline: 'For consistent customers',
-    phrases: [
-      "Your clinic in their pocket, always",
-      "Rebook a favourite treatment in one tap",
-      "Loyalty and rewards that keep them returning",
-    ],
     items: [
       { name: 'Branded client app', desc: 'Your own app so returning patients book, track history, and earn loyalty points easily' },
       { name: 'Push notifications', desc: 'Re-engage clients with offers, reminders, and new treatment announcements' },
@@ -544,11 +501,6 @@ export const platformCatalog: PlatformGroup[] = [
     icon: 'wrench',
     title: 'Maintenance',
     tagline: 'Whenever you need it',
-    phrases: [
-      "Changes done the same day you ask",
-      "Security and hosting handled, always",
-      "Zero tech headaches on your end",
-    ],
     items: [
       { name: 'Hosting & uptime monitoring', desc: 'Your site stays fast, live, and secure 24/7 with no effort on your end' },
       { name: 'Updates on demand', desc: "New offers, photos, pages, or copy. Just ask and it's done" },
@@ -560,11 +512,6 @@ export const platformCatalog: PlatformGroup[] = [
     icon: 'palette',
     title: 'Brand Refreshment',
     tagline: 'Look the part',
-    phrases: [
-      "Look as polished as your results",
-      "A brand patients trust on sight",
-      "Consistent across every touchpoint",
-    ],
     items: [
       { name: 'Logo & identity refresh', desc: 'Modernize your brand without starting from scratch' },
       { name: 'Color, typography & style guide', desc: 'A consistent look across every touchpoint, online and offline' },
@@ -575,15 +522,34 @@ export const platformCatalog: PlatformGroup[] = [
     icon: 'barChart',
     title: 'Management System',
     tagline: 'Your business, in one view',
-    phrases: [
-      "Revenue, staff, clients in one screen",
-      "Real-time numbers, no spreadsheets",
-      "Run your whole clinic from anywhere",
-    ],
     items: [
       { name: 'Revenue tracking', desc: 'Real-time revenue reports across services, providers, and locations' },
       { name: 'Client management', desc: 'Full client records, history, spend, and communication all in one place' },
       { name: 'Employee management', desc: 'Schedules, roles, commissions, and performance in one system' },
+    ],
+  },
+  {
+    icon: 'star',
+    title: 'Review Generation',
+    tagline: 'More 5-stars, automatically',
+    items: [
+      { name: 'In-clinic review prompts', desc: 'At checkout, clients are prompted on a tablet or their phone to rate their experience before they leave' },
+      { name: 'Smart review routing', desc: 'Happy clients (4–5 stars) are sent straight to Google Reviews; unhappy ones go to a private internal panel — not Google' },
+      { name: 'Private feedback panel', desc: 'Negative feedback is captured and managed internally by the med spa team before it can go public' },
+      { name: 'Google Reviews growth', desc: 'A steady, automated flow of verified 5-star reviews that lifts your local SEO ranking over time' },
+      { name: 'Review performance dashboard', desc: 'Track average rating, volume, and response rate across all locations in one view' },
+    ],
+  },
+  {
+    icon: 'refreshCw',
+    title: 'Database Reactivation',
+    tagline: 'Win back lost clients',
+    items: [
+      { name: 'Dormant client detection', desc: "Automatically identifies clients who haven't visited in 60, 90, or 120+ days and flags them for reactivation" },
+      { name: 'Personalised win-back messages', desc: 'Each client receives a tailored SMS or email — referencing their last treatment and asking why they left' },
+      { name: 'Curated comeback offers', desc: "Discounts, special packages, or complimentary add-ons generated specifically for each client's history and preferences" },
+      { name: 'Multi-channel outreach', desc: 'Reach lapsed clients via SMS, email, or WhatsApp — whichever channel gets the best response rate' },
+      { name: 'Reactivation revenue tracking', desc: 'See exactly how much revenue each win-back campaign brings back, tracked in your dashboard' },
     ],
   },
 ];

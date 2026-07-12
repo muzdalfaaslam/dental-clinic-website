@@ -8,20 +8,17 @@ import { ScrollReveal, StaggerGroup, StaggerItem } from '@/components/layout/Scr
 import { applyThemeVars, resetThemeVars } from '@/lib/theme-runtime';
 import { themeVariants } from '@/config/theme';
 import { whatWeBuild, themeShowcase, platformCatalog } from '@/config/content';
+import { getIcon } from '@/components/ui/icon-registry';
 import { cn } from '@/lib/utils';
 
 const swatchKeys = ['--color-sage-deep', '--color-champagne', '--color-rose'] as const;
 
 /**
- * Combined section — replaces the old separate "platform showcase" box and
- * the standalone theme-switcher section with one smaller, two-column block:
- * left is a quiet, minimal service list (no pill chips — hover swaps the
- * label for its one-line description); right is the live color-theme
- * switcher. Brief §6/Section 4 follow-up + new theme-showcase feature.
+ * Combined section — left: hover-only service list showing all services without
+ * scrolling; right: live color-theme switcher.
  */
 export function PlatformThemeShowcase() {
   const [active, setActive] = useState(0);
-  const [revealed, setRevealed] = useState<number | null>(null);
 
   const select = (i: number) => {
     setActive(i);
@@ -38,7 +35,8 @@ export function PlatformThemeShowcase() {
       <Container>
         <div className="rounded-lg border border-line bg-cream-deep/50 p-6 sm:p-9">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
-            {/* left — minimal service list */}
+
+            {/* left — hover-only service list, no scrolling */}
             <div>
               <ScrollReveal>
                 <SectionLabel>{whatWeBuild.platform.eyebrow}</SectionLabel>
@@ -50,38 +48,43 @@ export function PlatformThemeShowcase() {
                 <p className="mt-3 text-[0.95rem] text-charcoal/70">{whatWeBuild.platform.blurb}</p>
               </ScrollReveal>
 
-              <ul className="mt-6 border-t border-line/60">
-                {platformCatalog.map((group, i) => (
-                  <li key={group.title} className="group relative h-11 overflow-hidden border-b border-line/60">
-                    <button
-                      type="button"
-                      onClick={() => setRevealed((r) => (r === i ? null : i))}
-                      aria-expanded={revealed === i}
-                      className="absolute inset-0 flex w-full items-center text-left"
+              <ul className="mt-5 border-t border-line/60">
+                {platformCatalog.map((group) => {
+                  const Icon = getIcon(group.icon);
+                  return (
+                    <li
+                      key={group.title}
+                      className="group relative overflow-hidden border-b border-line/60"
                     >
-                      <span
-                        className={cn(
-                          'absolute inset-0 flex items-center text-[0.95rem] text-charcoal/80 transition-transform duration-300 ease-out group-hover:-translate-y-full',
-                          revealed === i && '-translate-y-full',
-                        )}
-                      >
-                        {group.title}
-                      </span>
-                      <span
-                        className={cn(
-                          'absolute inset-0 flex translate-y-full items-center text-[0.95rem] font-medium text-sage-deep transition-transform duration-300 ease-out group-hover:translate-y-0',
-                          revealed === i && 'translate-y-0',
-                        )}
-                      >
-                        {group.tagline}
-                      </span>
-                    </button>
-                  </li>
-                ))}
+                      {/* fixed-height row so all 11 fit without scrolling */}
+                      <div className="flex h-9 items-center gap-2.5 px-0.5">
+                        <Icon
+                          className="size-3.5 shrink-0 text-charcoal/35 transition-colors duration-200 group-hover:text-sage-deep"
+                          strokeWidth={1.75}
+                        />
+                        {/* title slides up on hover, tagline slides in from below */}
+                        <span className="relative flex-1 overflow-hidden h-5">
+                          <span className={cn(
+                            'absolute inset-0 flex items-center text-[0.88rem] text-charcoal/75',
+                            'transition-transform duration-300 ease-out group-hover:-translate-y-full',
+                          )}>
+                            {group.title}
+                          </span>
+                          <span className={cn(
+                            'absolute inset-0 flex items-center text-[0.88rem] font-medium text-sage-deep',
+                            'translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0',
+                          )}>
+                            {group.tagline}
+                          </span>
+                        </span>
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
 
               <ScrollReveal delay={0.05}>
-                <p className="mt-5 text-sm italic text-charcoal/60">
+                <p className="mt-4 text-sm italic text-charcoal/60">
                   {whatWeBuild.platform.upsellSeed} {whatWeBuild.platform.upsellHighlight}
                 </p>
               </ScrollReveal>
@@ -142,8 +145,7 @@ export function PlatformThemeShowcase() {
                 </div>
               </ScrollReveal>
 
-              {/* live preview card — pure CSS-variable classes, so it repaints
-                  along with the rest of the page when a swatch is picked. */}
+              {/* live preview card */}
               <ScrollReveal delay={0.14}>
                 <div className="mt-8 overflow-hidden rounded-lg border border-line bg-cream shadow-soft transition-colors duration-300">
                   <div className="flex items-center gap-1.5 border-b border-line bg-cream-deep/60 px-3.5 py-2.5">
@@ -175,6 +177,7 @@ export function PlatformThemeShowcase() {
                 </div>
               </ScrollReveal>
             </div>
+
           </div>
         </div>
       </Container>
