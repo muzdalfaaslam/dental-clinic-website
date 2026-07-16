@@ -17,7 +17,7 @@ import { cn } from '@/lib/utils';
 /**
  * A self-contained, looping "video" — a lively motion graphic standing in for the
  * real 45–90s visual demo until it's produced (brief §2; fills the gap with no
- * external asset). It cycles through different med spa websites (each a distinct
+ * external asset). It cycles through different dental clinic websites (each a distinct
  * clinic + style), an animated cursor "books" an appointment, a rolling stack of
  * live notifications streams in (bookings, 5-star reviews, payments, reminders),
  * and a bookings counter pops upward. Autoplays, loops, muted; respects
@@ -29,20 +29,20 @@ const TICK_MS = 2100;
 
 /* Different clinics, each with its own name + style. */
 const SITES = [
-  { name: 'Lumière', tag: 'Aesthetics', bg: '#FAF6F0', bar: '#5E6B52', accent: '#C5A572', block: '#8C9A7E', text: '#5E6B52' },
-  { name: 'Maison Belle', tag: 'Skin Studio', bg: '#FBF3EF', bar: '#A6736B', accent: '#C9A24B', block: '#D9B8B0', text: '#7A4E47' },
-  { name: 'Aurelia', tag: 'Med Spa', bg: '#F3F1ED', bar: '#2E2A26', accent: '#C5A572', block: '#8C9A7E', text: '#2E2A26' },
-  { name: 'Glow & Co.', tag: 'Beauty Bar', bg: '#F7F4EC', bar: '#7C8A6B', accent: '#C5A572', block: '#B9C2A7', text: '#52603F' },
-  { name: 'Velvet & Vine', tag: 'Aesthetics', bg: '#F6F1F0', bar: '#6E5A63', accent: '#BE8F5A', block: '#C9AEB6', text: '#574752' },
+  { name: 'Lumière', tag: 'Dental Care', bg: '#FAF6F0', bar: '#145A6E', accent: '#3C8296', block: '#5AA0AF', text: '#145A6E' },
+  { name: 'Bright Smile', tag: 'Family Dentistry', bg: '#F0F6F8', bar: '#2C6E8C', accent: '#4A90A4', block: '#A9CFDA', text: '#1F4E63' },
+  { name: 'Aurelia', tag: 'Dental Studio', bg: '#F3F1ED', bar: '#22323F', accent: '#3C8296', block: '#7FA8B8', text: '#22323F' },
+  { name: 'True North', tag: 'Dental Group', bg: '#F0F5F4', bar: '#1F5C66', accent: '#3C8296', block: '#9FC7CB', text: '#204A52' },
+  { name: 'Willow Dental', tag: 'Orthodontics', bg: '#F1F2F6', bar: '#3A4A6B', accent: '#5E77A8', block: '#AAB8D9', text: '#2E3A56' },
 ];
 
 const NOTIFS = [
-  { icon: CalendarCheck, title: 'New booking', body: 'Botox · 2:30pm', tint: 'bg-sage-deep' },
-  { icon: Star, title: 'New 5-star review', body: '“Booked in 30 seconds.”', tint: 'bg-champagne' },
-  { icon: MessageSquare, title: 'New client booked online', body: 'Hydrafacial · Fri', tint: 'bg-rose' },
+  { icon: CalendarCheck, title: 'New booking', body: 'Cleaning · 2:30pm', tint: 'bg-sage-deep' },
+  { icon: Star, title: 'New 5-star review', body: '"Booked in 30 seconds."', tint: 'bg-champagne' },
+  { icon: MessageSquare, title: 'New client booked online', body: 'Whitening · Fri', tint: 'bg-rose' },
   { icon: CreditCard, title: 'Payment received', body: 'Deposit · $240', tint: 'bg-sage-soft' },
-  { icon: BellRing, title: 'Reminders sent', body: '14 clients · today', tint: 'bg-sage-deep' },
-  { icon: CalendarCheck, title: 'Rebooking confirmed', body: 'Filler touch-up', tint: 'bg-champagne' },
+  { icon: BellRing, title: 'Reminders sent', body: '14 patients · today', tint: 'bg-sage-deep' },
+  { icon: CalendarCheck, title: 'Rebooking confirmed', body: 'Crown fitting', tint: 'bg-champagne' },
 ];
 
 const BOOK_MIN = 12;
@@ -110,7 +110,7 @@ export function AnimatedDemo({ className }: { className?: string }) {
         className,
       )}
       role="img"
-      aria-label="Animated demo: med spa websites in different styles, with an appointment being booked, live notifications, and a rising bookings counter."
+      aria-label="Animated demo: dental clinic websites in different styles, with an appointment being booked, live notifications, and a rising bookings counter."
     >
       {/* top progress shimmer — implies the site building itself */}
       {!reduce && (
