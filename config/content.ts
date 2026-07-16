@@ -1,6 +1,6 @@
 /**
  * ─────────────────────────────────────────────────────────────────────────────
- * ALL PAGE COPY + STRUCTURED CONTENT  (med spa niche)
+ * ALL PAGE COPY + STRUCTURED CONTENT  (dental clinic niche)
  * ─────────────────────────────────────────────────────────────────────────────
  * Every word the visitor reads lives here — laid in verbatim from the brief.
  * Components contain NO hardcoded copy. To re-skin for the next niche, copy this
@@ -47,10 +47,10 @@ export const genericFormError =
 
 /* ── Site / SEO metadata (brief §10). ─────────────────────────────────────── */
 export const meta = {
-  title: 'Beautiful Med Spa Websites That Book More Treatments | TechxServe',
+  title: 'Beautiful Dental Clinic Websites That Book More Patients | TechxServe',
   description:
-    'We design and build modern, fast, mobile-first websites made specifically for med spas, so more of the people finding you online actually book. Live in about 3 days.',
-  ogImageAlt: 'A beautiful med spa website on a phone, built by TechxServe',
+    'We design and build modern, fast, mobile-first websites made specifically for dental clinics, so more of the people finding you online actually book. Live in about 3 days.',
+  ogImageAlt: 'A beautiful dental clinic website on a phone, built by TechxServe',
   // One-line toggle for paid-only traffic that wants the page kept out of search.
   indexable: true, // set false to emit <meta name="robots" content="noindex">
 };
@@ -63,40 +63,40 @@ export const nav = {
 
 /* ── Section 1 — Hero. ────────────────────────────────────────────────────── */
 export const hero = {
-  eyebrow: 'FOR US MED SPAS & AESTHETIC CLINICS',
+  eyebrow: 'FOR US DENTAL CLINICS & PRACTICES',
   // Rendered as exactly two lines. Line 1 is sage; line 2 is charcoal with
   // "Booked Treatments" sage-marked and "3 Days" gold-underlined.
   headline: {
     line1: 'A Beautiful New Website That Turns Visitors',
     line2: {
       pre: 'Into',
-      mark: 'Booked Treatments',
+      mark: 'Booked Patients',
       mid: 'in About',
       underline: '3 Days',
     },
   },
   subhead:
-    'We design and build modern, fast, mobile-first websites made specifically for med spas, so more of the people finding you online actually book.',
+    'We design and build modern, fast, mobile-first websites made specifically for dental clinics, so more of the people finding you online actually book.',
   cta: ctas.hero,
   trustLine: 'A US-registered software company. Built by TechxServe.',
-  // CLIENT: replace asset — hero phone mockup of a finished med spa site.
+  // CLIENT: replace asset — hero phone mockup of a finished dental clinic site.
   mockup: {
     src: '/images/hero-site-mockup.svg',
-    alt: 'Preview of a modern med spa website on a phone, designed by TechxServe',
+    alt: 'Preview of a modern dental clinic website on a phone, designed by TechxServe',
   },
 };
 
 /* ── Section 2 — Video. ───────────────────────────────────────────────────── */
 export const video = {
   eyebrow: 'A 60-SECOND LOOK',
-  heading: 'Watch a Med Spa Site Come to Life',
+  heading: 'Watch a Dental Clinic Site Come to Life',
   blurb:
-    'A quick visual demo: real before/after med spa sites animating on a phone. See the transformation, then book your 15-minute call.',
+    'A quick visual demo: real before/after dental clinic sites animating on a phone. See the transformation, then book your 15-minute call.',
   // CLIENT: replace asset — real 45–90s visual demo + poster supplied later.
   poster: '/images/video-poster.svg',
   // Wired to a single config constant; drop the real file in /public/video/ and point here.
-  src: '', // e.g. '/video/medspa-demo.mp4' — empty until supplied; UI shows poster + play affordance
-  captionsSrc: '', // e.g. '/video/medspa-demo.en.vtt'
+  src: '', // e.g. '/video/dentalclinic-demo.mp4' — empty until supplied; UI shows poster + play affordance
+  captionsSrc: '', // e.g. '/video/dentalclinic-demo.en.vtt'
 };
 
 /* ── Section 3 — "Sound familiar?" problem block. ─────────────────────────── */
@@ -108,7 +108,7 @@ export const problem = {
       text: 'Your site looks dated next to the clinic down the street',
       response: {
         headline: 'A dated site signals an outdated practice.',
-        body: 'First impressions happen in under 3 seconds online. We rebuild your site to look as premium as the work you do inside.',
+        body: 'First impressions happen in under 3 seconds online. We rebuild your site to look as premium as the care you provide inside.',
       },
     },
     {
@@ -139,7 +139,7 @@ export const problem = {
       icon: 'sparkles' as IconKey,
       text: 'You\'re proud of your work, but the website doesn\'t reflect your brand',
       response: {
-        headline: 'Your in-room experience deserves a site that matches it.',
+        headline: 'Your in-chair experience deserves a site that matches it.',
         body: 'We design to your aesthetic, not a template. Custom colors, fonts, and layouts that feel like you.',
       },
     },
@@ -148,7 +148,7 @@ export const problem = {
       text: 'New patients can\'t find you, and the ones who do don\'t convert',
       response: {
         headline: 'Visibility and conversion are two different problems.',
-        body: 'We fix both: SEO so the right patients find you, and a site designed to turn those visitors into booked treatments.',
+        body: 'We fix both: SEO so the right patients find you, and a site designed to turn those visitors into booked appointments.',
       },
     },
   ],
@@ -247,23 +247,23 @@ export const math = {
 
 /* ── Section 6 — Social proof. ────────────────────────────────────────────── */
 export const socialProof = {
-  eyebrow: 'BUILT FOR MED SPAS ONLY',
-  headline: 'Built exclusively for med spas',
+  eyebrow: 'BUILT FOR DENTAL CLINICS ONLY',
+  headline: 'Built exclusively for dental clinics',
   // Credibility + scarcity (brief §6).
   credibility:
-    'We build websites exclusively for med spas. We’re currently taking on a small number of US clinics. If accepted, you’ll have a site that puts you ahead of the clinic down the street.',
+    'We build websites exclusively for dental clinics. We’re currently taking on a small number of US clinics. If accepted, you’ll have a site that puts you ahead of the clinic down the street.',
   beforeAfterHeading: 'Before & after, on every screen',
   beforeAfterNote: 'Drag either one to compare the same rebuild, on desktop and on mobile.',
   // Same rebuild, shown big on both a desktop screen and a phone.
   // CLIENT: replace asset — real before/after screenshots of an actual rebuild.
   beforeAfter: {
     desktop: {
-      before: { src: '/images/desktop-before.svg', alt: 'A dated med spa website, before the rebuild' },
-      after: { src: '/images/desktop-after.svg', alt: 'The same med spa website, rebuilt by TechxServe' },
+      before: { src: '/images/desktop-before.svg', alt: 'A dated dental clinic website, before the rebuild' },
+      after: { src: '/images/desktop-after.svg', alt: 'The same dental clinic website, rebuilt by TechxServe' },
     },
     mobile: {
-      before: { src: '/images/before-site.svg', alt: 'A dated med spa website on mobile, before the rebuild' },
-      after: { src: '/images/after-site.svg', alt: 'The same med spa website on mobile, rebuilt by TechxServe' },
+      before: { src: '/images/before-site.svg', alt: 'A dated dental clinic website on mobile, before the rebuild' },
+      after: { src: '/images/after-site.svg', alt: 'The same dental clinic website on mobile, rebuilt by TechxServe' },
     },
   },
 };
@@ -289,9 +289,9 @@ export const qualify = {
   business: {
     heading: 'Tell us about your clinic',
     body: 'So we know who we’re building for.',
-    clinicName: { label: 'Business name', placeholder: 'Glow Aesthetic Studio' },
-    email: { label: 'Email', placeholder: 'you@glowaesthetic.com' },
-    website: { label: 'Existing website (if any)', placeholder: 'glowaesthetic.com', optional: true },
+    clinicName: { label: 'Business name', placeholder: 'Bright Smile Dental' },
+    email: { label: 'Email', placeholder: 'you@brightsmiledental.com' },
+    website: { label: 'Existing website (if any)', placeholder: 'brightsmiledental.com', optional: true },
     cta: 'Continue',
   },
   scheduling: {
@@ -316,7 +316,7 @@ export const qualify = {
       {
         icon: 'sparkles' as IconKey,
         label: 'A brainstorm',
-        desc: 'Your aesthetic, your treatments, your patients',
+        desc: 'Your brand, your treatments, your patients',
       },
       { icon: 'globe' as IconKey, label: 'Packages', desc: 'Website-only, or the full platform' },
       { icon: 'barChart' as IconKey, label: 'The value', desc: 'Exactly what it’s worth to your clinic' },
@@ -360,15 +360,15 @@ export const quiz = {
   companyStep: {
     heading: 'A couple more details',
     body: 'Tell us about your clinic.',
-    clinicName: { label: 'Company name', placeholder: 'Glow Aesthetic Studio' },
-    website: { label: 'Existing website (if any)', placeholder: 'glowaesthetic.com', optional: true },
+    clinicName: { label: 'Company name', placeholder: 'Bright Smile Dental' },
+    website: { label: 'Existing website (if any)', placeholder: 'brightsmiledental.com', optional: true },
     cta: 'Continue',
   },
   contact: {
     heading: 'Almost there',
     body: 'Where should we send it?',
     fullName: { label: 'Full name', placeholder: 'Jordan Avery' },
-    email: { label: 'Email', placeholder: 'you@glowaesthetic.com' },
+    email: { label: 'Email', placeholder: 'you@brightsmiledental.com' },
   },
   submit: 'Show Me My New Website',
   success: {
@@ -387,7 +387,7 @@ export const reassurance = {
   items: [
     'No long-term contracts',
     'Done for you, zero extra work on your end',
-    'We build for med spas only, so we know your patients',
+    'We build for dental clinics only, so we know your patients',
     'Your new site, ready in about 3 days',
   ],
 };
@@ -434,7 +434,7 @@ export const platformCatalog: PlatformGroup[] = [
     title: 'Website & Online Booking',
     tagline: 'The front door',
     items: [
-      { name: 'Custom med spa website', desc: 'On-brand, fast, mobile-first, built to turn visitors into booked treatments, live in ~3 days' },
+      { name: 'Custom dental clinic website', desc: 'On-brand, fast, mobile-first, built to turn visitors into booked appointments, live in ~3 days' },
       { name: 'Online booking platform', desc: '24/7 self-service scheduling with real-time availability, deposits, and instant confirmations' },
       { name: 'Treatment & service pages', desc: 'Each treatment given its own page, designed to sell and drive bookings' },
       { name: 'Before / after galleries', desc: 'Showcase real results that turn browsers into patients' },
@@ -445,11 +445,11 @@ export const platformCatalog: PlatformGroup[] = [
   {
     icon: 'users',
     title: 'Client Management',
-    tagline: "Every client's history in one click",
+    tagline: "Every patient's history in one click",
     items: [
-      { name: 'Med spa CRM', desc: 'Full client history (treatments, notes, photos, preferences, visit history) in a single click' },
-      { name: 'Digital intake & consent forms', desc: 'Paperless, e-signed, stored automatically against the client record' },
-      { name: 'Treatment & photo records', desc: 'Before/after photos and chart notes tied to each client' },
+      { name: 'Dental CRM', desc: 'Full patient history (treatments, notes, photos, preferences, visit history) in a single click' },
+      { name: 'Digital intake & consent forms', desc: 'Paperless, e-signed, stored automatically against the patient record' },
+      { name: 'Treatment & photo records', desc: 'Before/after photos and chart notes tied to each patient' },
       { name: 'Memberships & loyalty tracking', desc: 'Packages, points, and recurring members managed automatically' },
       { name: 'Payments & invoicing', desc: 'Take payment, track revenue, multi-currency ready' },
     ],
@@ -460,7 +460,7 @@ export const platformCatalog: PlatformGroup[] = [
     tagline: 'Always in touch',
     items: [
       { name: 'Automated appointment reminders', desc: 'SMS + email reminders that cut no-shows dramatically' },
-      { name: 'Confirmations & rescheduling', desc: 'Clients confirm or rebook with a single tap' },
+      { name: 'Confirmations & rescheduling', desc: 'Patients confirm or rebook with a single tap' },
       { name: 'Aftercare & follow-up messages', desc: 'Automatic post-treatment check-ins that build loyalty' },
       { name: 'Internal clinic messaging', desc: 'Staff coordination inside the same app' },
     ],
@@ -470,7 +470,7 @@ export const platformCatalog: PlatformGroup[] = [
     title: 'SEO & Get Found',
     tagline: 'Local growth',
     items: [
-      { name: 'Local SEO', desc: 'Rank for "med spa near me" in your city' },
+      { name: 'Local SEO', desc: 'Rank for "dentist near me" in your city' },
       { name: 'Google Business Profile', desc: 'Optimized so you show up on the map and in search' },
       { name: 'Social media & content', desc: 'On-brand Instagram content that keeps the calendar full' },
       { name: 'Paid ads', desc: "Meta & Google campaigns when you're ready to scale" },
@@ -490,10 +490,10 @@ export const platformCatalog: PlatformGroup[] = [
   {
     icon: 'smartphone',
     title: 'Mobile Application',
-    tagline: 'For consistent customers',
+    tagline: 'For consistent patients',
     items: [
       { name: 'Branded client app', desc: 'Your own app so returning patients book, track history, and earn loyalty points easily' },
-      { name: 'Push notifications', desc: 'Re-engage clients with offers, reminders, and new treatment announcements' },
+      { name: 'Push notifications', desc: 'Re-engage patients with offers, reminders, and new treatment announcements' },
       { name: 'In-app booking & history', desc: 'One tap to rebook a favourite treatment, view past visits, or redeem rewards' },
     ],
   },
@@ -524,7 +524,7 @@ export const platformCatalog: PlatformGroup[] = [
     tagline: 'Your business, in one view',
     items: [
       { name: 'Revenue tracking', desc: 'Real-time revenue reports across services, providers, and locations' },
-      { name: 'Client management', desc: 'Full client records, history, spend, and communication all in one place' },
+      { name: 'Client management', desc: 'Full patient records, history, spend, and communication all in one place' },
       { name: 'Employee management', desc: 'Schedules, roles, commissions, and performance in one system' },
     ],
   },
@@ -533,9 +533,9 @@ export const platformCatalog: PlatformGroup[] = [
     title: 'Review Generation',
     tagline: 'More 5-stars, automatically',
     items: [
-      { name: 'In-clinic review prompts', desc: 'At checkout, clients are prompted on a tablet or their phone to rate their experience before they leave' },
-      { name: 'Smart review routing', desc: 'Happy clients (4–5 stars) are sent straight to Google Reviews; unhappy ones go to a private internal panel — not Google' },
-      { name: 'Private feedback panel', desc: 'Negative feedback is captured and managed internally by the med spa team before it can go public' },
+      { name: 'In-clinic review prompts', desc: 'At checkout, patients are prompted on a tablet or their phone to rate their experience before they leave' },
+      { name: 'Smart review routing', desc: 'Happy patients (4–5 stars) are sent straight to Google Reviews; unhappy ones go to a private internal panel — not Google' },
+      { name: 'Private feedback panel', desc: 'Negative feedback is captured and managed internally by the dental clinic team before it can go public' },
       { name: 'Google Reviews growth', desc: 'A steady, automated flow of verified 5-star reviews that lifts your local SEO ranking over time' },
       { name: 'Review performance dashboard', desc: 'Track average rating, volume, and response rate across all locations in one view' },
     ],
@@ -543,12 +543,12 @@ export const platformCatalog: PlatformGroup[] = [
   {
     icon: 'refreshCw',
     title: 'Database Reactivation',
-    tagline: 'Win back lost clients',
+    tagline: 'Win back lost patients',
     items: [
-      { name: 'Dormant client detection', desc: "Automatically identifies clients who haven't visited in 60, 90, or 120+ days and flags them for reactivation" },
-      { name: 'Personalised win-back messages', desc: 'Each client receives a tailored SMS or email — referencing their last treatment and asking why they left' },
-      { name: 'Curated comeback offers', desc: "Discounts, special packages, or complimentary add-ons generated specifically for each client's history and preferences" },
-      { name: 'Multi-channel outreach', desc: 'Reach lapsed clients via SMS, email, or WhatsApp — whichever channel gets the best response rate' },
+      { name: 'Dormant patient detection', desc: "Automatically identifies patients who haven't visited in 60, 90, or 120+ days and flags them for reactivation" },
+      { name: 'Personalised win-back messages', desc: 'Each patient receives a tailored SMS or email — referencing their last treatment and asking why they left' },
+      { name: 'Curated comeback offers', desc: "Discounts, special packages, or complimentary add-ons generated specifically for each patient's history and preferences" },
+      { name: 'Multi-channel outreach', desc: 'Reach lapsed patients via SMS, email, or WhatsApp — whichever channel gets the best response rate' },
       { name: 'Reactivation revenue tracking', desc: 'See exactly how much revenue each win-back campaign brings back, tracked in your dashboard' },
     ],
   },
