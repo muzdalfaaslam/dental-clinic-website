@@ -1,49 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 760" width="360" height="760" role="img" aria-label="Med spa website preview">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 760" width="360" height="760" role="img" aria-label="Dental clinic website preview">
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#EDE3D6"/>
+      <stop offset="0" stop-color="#DCEAF0"/>
       <stop offset="1" stop-color="#FAF6F0"/>
     </linearGradient>
     <linearGradient id="sage" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#8C9A7E"/>
-      <stop offset="1" stop-color="#5E6B52"/>
+      <stop offset="0" stop-color="#5AA0AF"/>
+      <stop offset="1" stop-color="#145A6E"/>
     </linearGradient>
   </defs>
   <rect width="360" height="760" fill="#FAF6F0"/>
   <!-- top bar -->
   <rect x="0" y="0" width="360" height="56" fill="#FAF6F0"/>
-  <text x="24" y="35" font-family="Georgia, serif" font-size="18" fill="#5E6B52" font-weight="600">Lumière</text>
-  <rect x="250" y="20" width="86" height="22" rx="11" fill="#5E6B52"/>
+  <text x="24" y="35" font-family="Georgia, serif" font-size="18" fill="#145A6E" font-weight="600">Lumière</text>
+  <rect x="250" y="20" width="86" height="22" rx="11" fill="#145A6E"/>
   <text x="293" y="35" font-family="Arial, sans-serif" font-size="10" fill="#FAF6F0" text-anchor="middle">Book Now</text>
   <!-- hero image -->
   <rect x="0" y="56" width="360" height="300" fill="url(#sage)"/>
   <circle cx="300" cy="110" r="60" fill="#FAF6F0" opacity="0.08"/>
   <circle cx="60" cy="320" r="80" fill="#FAF6F0" opacity="0.06"/>
-  <text x="24" y="170" font-family="Georgia, serif" font-size="26" fill="#FAF6F0" font-weight="600">Glow that</text>
-  <text x="24" y="202" font-family="Georgia, serif" font-size="26" fill="#FAF6F0" font-weight="600">lasts.</text>
+  <text x="24" y="170" font-family="Georgia, serif" font-size="26" fill="#FAF6F0" font-weight="600">Smiles that</text>
+  <text x="24" y="202" font-family="Georgia, serif" font-size="26" fill="#FAF6F0" font-weight="600">last.</text>
   <rect x="24" y="228" width="120" height="18" rx="2" fill="#FAF6F0" opacity="0.5"/>
-  <rect x="24" y="280" width="130" height="34" rx="17" fill="#C5A572"/>
+  <rect x="24" y="280" width="130" height="34" rx="17" fill="#3C8296"/>
   <text x="89" y="302" font-family="Arial, sans-serif" font-size="11" fill="#2E2A26" text-anchor="middle" font-weight="600">Reserve a visit</text>
   <!-- service tiles -->
   <rect x="24" y="384" width="98" height="120" rx="12" fill="#F2EBE0"/>
   <rect x="131" y="384" width="98" height="120" rx="12" fill="#F2EBE0"/>
   <rect x="238" y="384" width="98" height="120" rx="12" fill="#F2EBE0"/>
-  <circle cx="73" cy="424" r="16" fill="#8C9A7E" opacity="0.4"/>
-  <circle cx="180" cy="424" r="16" fill="#8C9A7E" opacity="0.4"/>
-  <circle cx="287" cy="424" r="16" fill="#8C9A7E" opacity="0.4"/>
-  <rect x="49" y="452" width="48" height="8" rx="4" fill="#5E6B52" opacity="0.5"/>
-  <rect x="156" y="452" width="48" height="8" rx="4" fill="#5E6B52" opacity="0.5"/>
-  <rect x="263" y="452" width="48" height="8" rx="4" fill="#5E6B52" opacity="0.5"/>
+  <circle cx="73" cy="424" r="16" fill="#5AA0AF" opacity="0.4"/>
+  <circle cx="180" cy="424" r="16" fill="#5AA0AF" opacity="0.4"/>
+  <circle cx="287" cy="424" r="16" fill="#5AA0AF" opacity="0.4"/>
+  <rect x="49" y="452" width="48" height="8" rx="4" fill="#145A6E" opacity="0.5"/>
+  <rect x="156" y="452" width="48" height="8" rx="4" fill="#145A6E" opacity="0.5"/>
+  <rect x="263" y="452" width="48" height="8" rx="4" fill="#145A6E" opacity="0.5"/>
   <rect x="49" y="470" width="40" height="6" rx="3" fill="#2E2A26" opacity="0.2"/>
   <rect x="156" y="470" width="40" height="6" rx="3" fill="#2E2A26" opacity="0.2"/>
   <rect x="263" y="470" width="40" height="6" rx="3" fill="#2E2A26" opacity="0.2"/>
   <!-- before/after band -->
   <rect x="24" y="528" width="312" height="150" rx="12" fill="url(#sky)"/>
-  <rect x="24" y="528" width="156" height="150" rx="12" fill="#D9B8B0" opacity="0.5"/>
+  <rect x="24" y="528" width="156" height="150" rx="12" fill="#B4DCE1" opacity="0.5"/>
   <line x1="180" y1="528" x2="180" y2="678" stroke="#FAF6F0" stroke-width="3"/>
   <text x="40" y="556" font-family="Arial, sans-serif" font-size="9" fill="#2E2A26" opacity="0.6">BEFORE</text>
-  <text x="300" y="556" font-family="Arial, sans-serif" font-size="9" fill="#5E6B52" text-anchor="end">AFTER</text>
+  <text x="300" y="556" font-family="Arial, sans-serif" font-size="9" fill="#145A6E" text-anchor="end">AFTER</text>
   <!-- footer -->
-  <rect x="0" y="700" width="360" height="60" fill="#5E6B52"/>
-  <text x="24" y="736" font-family="Georgia, serif" font-size="13" fill="#FAF6F0">Lumière Aesthetics</text>
+  <rect x="0" y="700" width="360" height="60" fill="#145A6E"/>
+  <text x="24" y="736" font-family="Georgia, serif" font-size="13" fill="#FAF6F0">Lumière Dental</text>
 </svg>
