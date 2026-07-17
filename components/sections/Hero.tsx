@@ -6,8 +6,8 @@ import { hero } from '@/config/content';
 /**
  * Section 1 — Hero (above the fold). Centered layout matching the reference:
  * a bordered pill eyebrow, an oversized Playfair headline, a constrained subhead,
- * one big CTA with a leading arrow, and a fine-print trust line — all on a clean
- * cream field with a thin line motif. CTA visible without scrolling on mobile.
+ * one big CTA with a leading arrow — all on a clean cream field with a thin
+ * line motif. CTA visible without scrolling on mobile.
  * Med spa skin (sage/champagne), not roofing's terracotta/condensed type.
  */
 export function Hero() {
@@ -57,13 +57,6 @@ export function Hero() {
           <ScrollReveal delay={0.1}>
             <p className="mt-4 max-w-lg text-[1.05rem] leading-relaxed text-charcoal/80">
               {hero.subhead}
-            </p>
-          </ScrollReveal>
-
-          {/* trust line — the single CTA lives below the live preview, in Video */}
-          <ScrollReveal delay={0.15}>
-            <p className="mt-3 text-xs uppercase tracking-[0.16em] text-charcoal/45">
-              {hero.trustLine}
             </p>
           </ScrollReveal>
         </div>

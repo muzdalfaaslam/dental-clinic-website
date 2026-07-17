@@ -9,7 +9,6 @@ import {
   TrendingUp,
   CreditCard,
   BellRing,
-  Sparkles,
   MousePointer2,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -124,14 +123,6 @@ export function AnimatedDemo({ className }: { className?: string }) {
       {/* ambient backdrop */}
       <div aria-hidden className="absolute -left-16 -top-16 size-56 rounded-full bg-sage-soft/15 blur-3xl" />
       <div aria-hidden className="absolute -bottom-16 -right-10 size-56 rounded-full bg-rose/20 blur-3xl" />
-
-      {/* floating sparkles */}
-      {!reduce && (
-        <>
-          <Sparkles className="absolute left-[8%] top-[26%] size-4 text-champagne/60 animate-float-slow" strokeWidth={1.5} />
-          <Sparkles className="absolute left-[12%] bottom-[20%] size-3 text-sage-soft/60 animate-float-slower" strokeWidth={1.5} />
-        </>
-      )}
 
       {/* live badge */}
       <div className="absolute left-4 top-4 z-20 flex items-center gap-2 rounded-full bg-charcoal/80 px-3 py-1 text-[0.65rem] font-medium uppercase tracking-wider text-cream">
