@@ -86,6 +86,16 @@ export const hero = {
   },
 };
 
+/* ── New section — trust badges (sits right under the hero). ─────────────── */
+   export const trustBadges = {
+     items: [
+       { icon: 'shieldCheck' as IconKey, label: 'Insurance accepted' },
+       { icon: 'calendarCheck' as IconKey, label: 'Same-day appointments' },
+       { icon: 'siren' as IconKey, label: 'Emergency care' },
+       { icon: 'star' as IconKey, label: '5.0 Google rating' },
+     ],
+   };
+   
 /* ── Section 2 — Video. ───────────────────────────────────────────────────── */
 export const video = {
   eyebrow: 'A 60-SECOND LOOK',

@@ -1,5 +1,6 @@
 import { StickyNav } from '@/components/layout/StickyNav';
 import { Hero } from '@/components/sections/Hero';
+import { TrustBadges } from '@/components/sections/TrustBadges';
 import { Video } from '@/components/sections/Video';
 import { ProblemBlock } from '@/components/sections/ProblemBlock';
 import { WhatWeBuild } from '@/components/sections/WhatWeBuild';
@@ -20,6 +21,7 @@ export default function Page() {
       <StickyNav />
       <main>
         {/* 1 */} <Hero />
+        {/* 1b */} <TrustBadges />
         {/* 2 */} <Video />
         {/* 3 */} <ProblemBlock />
         {/* 4 */} <WhatWeBuild />
