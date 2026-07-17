@@ -21,8 +21,8 @@ export const theme: NicheTheme = {
   name: 'Clinical Blue (Dental Clinic)',
   cssVars: {
     // ── Color: surfaces ──────────────────────────────────────────────────────
-    '--color-cream': '250 246 240', //        #FAF6F0  page background (never pure white)
-    '--color-cream-deep': '242 235 224', //   #F2EBE0  alternating section bg / card surface
+    '--color-cream': '247 250 252', //        #F7FAFC  page background (clean, cool near-white)
+    '--color-cream-deep': '237 244 248', //   #EDF4F8  alternating section bg / card surface
     // ── Color: brand ─────────────────────────────────────────────────────────
     '--color-sage-deep': '20 90 110', //      #145A6E  headings, primary buttons, footer
     '--color-sage-soft': '90 160 175', //     #5AA0AF  secondary accents, icons, hover, tints
