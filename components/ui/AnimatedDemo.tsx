@@ -2,25 +2,16 @@
 
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import {
-  CalendarCheck,
-  Star,
-  MessageSquare,
-  TrendingUp,
-  CreditCard,
-  BellRing,
-  MousePointer2,
-} from 'lucide-react';
+import { TrendingUp, Star, MousePointer2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 /**
  * A self-contained, looping "video" — a lively motion graphic standing in for the
  * real 45–90s visual demo until it's produced (brief §2; fills the gap with no
  * external asset). It cycles through different dental clinic websites (each a distinct
- * clinic + style), an animated cursor "books" an appointment, a rolling stack of
- * live notifications streams in (bookings, 5-star reviews, payments, reminders),
- * and a bookings counter pops upward. Autoplays, loops, muted; respects
- * prefers-reduced-motion (renders a single composed still).
+ * clinic + style), an animated cursor "books" an appointment, and a bookings counter
+ * pops upward. Autoplays, loops, muted; respects prefers-reduced-motion (renders a
+ * single composed still).
  */
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -33,15 +24,6 @@ const SITES = [
   { name: 'Aurelia', tag: 'Dental Studio', bg: '#F3F1ED', bar: '#22323F', accent: '#3C8296', block: '#7FA8B8', text: '#22323F' },
   { name: 'True North', tag: 'Dental Group', bg: '#F0F5F4', bar: '#1F5C66', accent: '#3C8296', block: '#9FC7CB', text: '#204A52' },
   { name: 'Willow Dental', tag: 'Orthodontics', bg: '#F1F2F6', bar: '#3A4A6B', accent: '#5E77A8', block: '#AAB8D9', text: '#2E3A56' },
-];
-
-const NOTIFS = [
-  { icon: CalendarCheck, title: 'New booking', body: 'Cleaning · 2:30pm', tint: 'bg-sage-deep' },
-  { icon: Star, title: 'New 5-star review', body: '"Booked in 30 seconds."', tint: 'bg-champagne' },
-  { icon: MessageSquare, title: 'New client booked online', body: 'Whitening · Fri', tint: 'bg-rose' },
-  { icon: CreditCard, title: 'Payment received', body: 'Deposit · $240', tint: 'bg-sage-soft' },
-  { icon: BellRing, title: 'Reminders sent', body: '14 patients · today', tint: 'bg-sage-deep' },
-  { icon: CalendarCheck, title: 'Rebooking confirmed', body: 'Crown fitting', tint: 'bg-champagne' },
 ];
 
 const BOOK_MIN = 12;
@@ -97,11 +79,6 @@ export function AnimatedDemo({ className }: { className?: string }) {
   const site = SITES[siteIndex] ?? SITES[0]!;
   const bookings = reduce ? BOOK_MAX : BOOK_MIN + (tick % (BOOK_MAX - BOOK_MIN + 1));
 
-  // Rolling stack: newest + previous notification.
-  const stack = (reduce ? [tick] : [tick, tick - 1])
-    .filter((i) => i >= 0)
-    .map((i) => ({ key: i, ...(NOTIFS[i % NOTIFS.length] ?? NOTIFS[0]!) }));
-
   return (
     <div
       className={cn(
@@ -109,7 +86,7 @@ export function AnimatedDemo({ className }: { className?: string }) {
         className,
       )}
       role="img"
-      aria-label="Animated demo: dental clinic websites in different styles, with an appointment being booked, live notifications, and a rising bookings counter."
+      aria-label="Animated demo: dental clinic websites in different styles, with an appointment being booked and a rising bookings counter."
     >
       {/* top progress shimmer — implies the site building itself */}
       {!reduce && (
@@ -204,37 +181,6 @@ export function AnimatedDemo({ className }: { className?: string }) {
             </motion.span>
           </AnimatePresence>
         )}
-      </div>
-
-      {/* rolling notification stack (top-right) — hidden on the smallest
-          screens, where there isn't enough room for it beside the phone
-          without overlapping (it's decorative, not essential). */}
-      <div className="absolute right-4 top-12 z-20 hidden w-[min(58%,15rem)] flex-col gap-2 sm:flex">
-        <AnimatePresence initial={false} mode="popLayout">
-          {stack.map((n) => {
-            const NotifIcon = n.icon;
-            return (
-              <motion.div
-                key={n.key}
-                layout
-                initial={reduce ? false : { opacity: 0, x: 48, scale: 0.9 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: 48, scale: 0.9 }}
-                transition={{ duration: 0.4, ease: EASE }}
-              >
-                <div className="flex items-center gap-3 rounded-lg bg-cream/95 p-2.5 shadow-card ring-1 ring-line backdrop-blur-sm">
-                  <span className={cn('inline-flex size-8 shrink-0 items-center justify-center rounded-full text-cream', n.tint)}>
-                    <NotifIcon className="size-4" strokeWidth={1.75} />
-                  </span>
-                  <div className="leading-tight">
-                    <div className="text-[0.72rem] font-semibold text-charcoal">{n.title}</div>
-                    <div className="text-[0.66rem] text-charcoal/60">{n.body}</div>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </AnimatePresence>
       </div>
 
       {/* bookings counter (bottom-left) with pop + "+1" flyup */}
