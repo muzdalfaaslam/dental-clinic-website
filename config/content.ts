@@ -122,6 +122,14 @@ export const whyFamilies = {
   ],
 };
 
+/* ── New section — bold CTA band (full-color, breaks up the white page). ── */
+export const boldCta = {
+  eyebrow: 'READY WHEN YOU ARE',
+  headline: 'Your new site could be live by next week',
+  blurb: 'A free 15-minute call is all it takes to see exactly what we\'d build for your clinic.',
+  cta: ctas.math,
+};
+
 /* ── Section 2 — Video. ───────────────────────────────────────────────────── */
 export const video = {
   eyebrow: 'A 60-SECOND LOOK',

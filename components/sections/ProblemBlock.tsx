@@ -25,8 +25,6 @@ export function ProblemBlock() {
   const reduce = useReducedMotion();
   const { points } = problem;
 
-  // Stop the continuous auto-scroll while scrolled out of view — saves
-  // battery/CPU on mobile instead of animating an off-screen carousel.
   useEffect(() => {
     const el = marqueeRef.current;
     if (!el) return;
@@ -44,8 +42,8 @@ export function ProblemBlock() {
       'group flex h-full w-[19rem] shrink-0 cursor-pointer items-start gap-4 rounded-md border p-5 text-left backdrop-blur-md',
       'transition-all duration-200',
       isActive
-        ? 'border-sage-deep/50 bg-cream/70 shadow-card'
-        : 'border-white/40 bg-cream/35 shadow-soft hover:border-champagne/50 hover:bg-cream/55',
+        ? 'border-warm/50 bg-cream/70 shadow-card'
+        : 'border-white/40 bg-cream/35 shadow-soft hover:border-warm/40 hover:bg-cream/55',
     ].join(' ');
 
   const renderCard = (point: (typeof points)[number], originalIndex: number, key: string, ariaHidden = false) => {
@@ -59,10 +57,6 @@ export function ProblemBlock() {
         aria-hidden={ariaHidden || undefined}
         onClick={(e) => {
           select(originalIndex);
-          // Release focus after a real mouse/touch click (detail > 0) so
-          // :focus-within doesn't hold the marquee paused once deselected.
-          // Keyboard activation (detail === 0) keeps focus, so tab-pausing
-          // for a11y still works as intended.
           if (e.detail > 0) e.currentTarget.blur();
         }}
         aria-pressed={isActive}
@@ -73,8 +67,8 @@ export function ProblemBlock() {
           className={[
             'mt-0.5 inline-flex size-9 shrink-0 items-center justify-center rounded-full transition-colors duration-200',
             isActive
-              ? 'bg-sage-deep text-cream'
-              : 'bg-cream-deep/60 ring-1 ring-inset ring-champagne/40 text-sage-soft group-hover:bg-sage-soft/20 group-hover:text-sage-deep',
+              ? 'bg-warm text-cream'
+              : 'bg-cream-deep/60 ring-1 ring-inset ring-champagne/40 text-sage-soft group-hover:bg-warm/15 group-hover:text-warm',
           ].join(' ')}
         >
           {isActive ? <Check className="size-4" strokeWidth={2} /> : <Icon className="size-4" strokeWidth={1.5} />}
@@ -160,7 +154,6 @@ export function ProblemBlock() {
       </ScrollReveal>
 
       <Container>
-        {/* Response callout — reveal shell animates height+opacity only */}
         <div
           className={[
             'mx-auto mt-8 max-w-xl overflow-hidden rounded-lg border shadow-card',
