@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import { Container } from '@/components/ui/Container';
 import { ScrollReveal } from '@/components/layout/ScrollReveal';
 import { getIcon } from '@/components/ui/icon-registry';
@@ -5,11 +8,12 @@ import { whyFamilies } from '@/config/content';
 
 /**
  * "Why families choose us" — a warm, trust-building feature grid sitting right
- * after the Live Preview. This is the section that carries most of the new
- * "warm & approachable" direction: rounded cards, a soft warm-accent icon on
- * the first card, gentle copy aimed at nervous or first-time patients.
+ * after the Live Preview. Cards are clickable: tapping one outlines it in red,
+ * tapping again clears it.
  */
 export function WhyFamilies() {
+  const [active, setActive] = useState<number | null>(null);
+
   return (
     <section className="bg-cream-deep/40 py-section">
       <Container>
@@ -33,9 +37,18 @@ export function WhyFamilies() {
           {whyFamilies.items.map((item, i) => {
             const Icon = getIcon(item.icon);
             const isWarm = i === 0;
+            const isActive = active === i;
             return (
               <ScrollReveal key={item.title} delay={0.05 * i}>
-                <div className="h-full rounded-lg bg-cream p-6 text-left shadow-soft ring-1 ring-inset ring-line">
+                <button
+                  type="button"
+                  onClick={() => setActive((prev) => (prev === i ? null : i))}
+                  aria-pressed={isActive}
+                  className={
+                    'h-full w-full rounded-lg bg-cream p-6 text-left shadow-soft ring-1 ring-inset transition-all duration-200 ' +
+                    (isActive ? 'ring-2 ring-accent-brand' : 'ring-line hover:ring-accent-brand/40')
+                  }
+                >
                   <span
                     className={
                       'inline-flex size-11 items-center justify-center rounded-md ' +
@@ -48,7 +61,7 @@ export function WhyFamilies() {
                     {item.title}
                   </h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-charcoal/70">{item.desc}</p>
-                </div>
+                </button>
               </ScrollReveal>
             );
           })}
