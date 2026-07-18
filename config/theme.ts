@@ -28,6 +28,8 @@ export const theme: NicheTheme = {
     '--color-sage-soft': '90 160 175', //     #5AA0AF  secondary accents, icons, hover, tints
     '--color-champagne': '60 130 150', //     #3C8296  thin rules, icon strokes, underlines ONLY
     '--color-rose': '180 220 225', //         #B4DCE1  optional soft accent: testimonials, before/after
+    // ── Color: warm accent (new — used sparingly: highlight badges, one CTA, icons) ─
+    '--color-warm-accent': '224 122 95', // #E07A5F  warm coral/terracotta, used sparingly for warmth
     // ── Color: text ──────────────────────────────────────────────────────────
     '--color-charcoal': '46 42 38', //        #2E2A26  body text
     // ── Color: footer-only brand accent (TechxServe red, used as a small touch) ─
@@ -36,10 +38,10 @@ export const theme: NicheTheme = {
     // ── Hairlines ────────────────────────────────────────────────────────────
     '--color-line': 'rgba(20,90,110,0.18)',
 
-    // ── Radius ───────────────────────────────────────────────────────────────
-    '--radius-sm': '10px',
-    '--radius-md': '16px',
-    '--radius-lg': '24px',
+    // ── Radius (rounder + friendlier — was 10/16/24) ─────────────────────────
+    '--radius-sm': '12px',
+    '--radius-md': '20px',
+    '--radius-lg': '28px',
 
     // ── Shadow (soft, warm, low-opacity — never harsh black) ─────────────────
     '--shadow-soft':
@@ -73,9 +75,10 @@ export function themeToCss(t: NicheTheme = theme): string {
  * only color changes.
  */
 const sharedTokens = {
-  '--radius-sm': '10px',
-  '--radius-md': '16px',
-  '--radius-lg': '24px',
+  '--radius-sm': '12px',
+  '--radius-md': '20px',
+  '--radius-lg': '28px',
+  '--color-warm-accent': '224 122 95',
   '--shadow-soft': '0 2px 8px rgba(46,42,38,0.04), 0 12px 32px rgba(46,42,38,0.06)',
   '--shadow-card': '0 1px 2px rgba(46,42,38,0.04), 0 18px 40px rgba(94,107,82,0.08)',
   '--section-py': 'clamp(2.75rem, 6vw, 5rem)',

@@ -23,6 +23,7 @@ const config: Config = {
         'sage-soft': 'rgb(var(--color-sage-soft) / <alpha-value>)',
         champagne: 'rgb(var(--color-champagne) / <alpha-value>)',
         rose: 'rgb(var(--color-rose) / <alpha-value>)',
+        warm: 'rgb(var(--color-warm-accent) / <alpha-value>)',
         // Text
         charcoal: 'rgb(var(--color-charcoal) / <alpha-value>)',
         // The footer's single permitted accent (kept out of the page body).
@@ -35,7 +36,7 @@ const config: Config = {
         line: 'var(--color-line)',
       },
       fontFamily: {
-        display: ['var(--font-display)', 'Georgia', 'serif'],
+        display: ['var(--font-display)', 'system-ui', 'sans-serif'],
         sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
       },
       fontSize: {

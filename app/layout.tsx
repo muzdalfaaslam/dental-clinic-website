@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
-import { Playfair_Display, Inter } from 'next/font/google';
+import { Nunito, Inter } from 'next/font/google';
 import './globals.css';
 import { themeToCss } from '@/config/theme';
 import { meta } from '@/config/content';
@@ -8,12 +8,13 @@ import { GA_ID, META_PIXEL_ID } from '@/lib/analytics';
 
 /**
  * Self-hosted via next/font (no third-party request, no layout shift, display:swap).
- * Only two families are ever loaded — Playfair Display (display) + Inter (body/UI).
- * Brief §4.2, §10.
+ * Only two families are ever loaded — Nunito (display: warm, rounded, friendly —
+ * chosen for a family dental practice over the old boutique-spa serif) + Inter
+ * (body/UI, keeps the clean/clinical trust factor). Brief §4.2, §10.
  */
-const playfair = Playfair_Display({
+const nunito = Nunito({
   subsets: ['latin'],
-  weight: ['500', '600', '700'],
+  weight: ['600', '700', '800'],
   variable: '--font-display',
   display: 'swap',
 });
@@ -60,7 +61,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="en" className={`${nunito.variable} ${inter.variable}`}>
       <head>
         {/* Brand tokens injected once from config/theme.ts — single source of truth. */}
         <style dangerouslySetInnerHTML={{ __html: themeToCss() }} />
