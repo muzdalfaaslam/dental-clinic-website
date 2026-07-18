@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { CalendarClock, CheckCircle2, MessageCircleMore } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
+import { ScrollReveal } from '@/components/layout/ScrollReveal';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { StepProgressBar } from '@/components/ui/StepProgressBar';
 import { FeatureTile } from '@/components/ui/FeatureTile';
@@ -163,12 +164,15 @@ export function QualifyFlow() {
   return (
     <section id={FORM_ANCHOR} className="scroll-mt-24 bg-cream-deep py-section">
       <Container className="max-w-2xl">
-        <div className="text-center">
-          <SectionLabel className="justify-center">{qualify.eyebrow}</SectionLabel>
-          <h2 className="mt-4 text-h2 text-sage-deep text-balance">{qualify.headline}</h2>
-          <p className="mx-auto mt-4 max-w-md text-body-lg text-charcoal/75">{qualify.subline}</p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center">
+            <SectionLabel className="justify-center">{qualify.eyebrow}</SectionLabel>
+            <h2 className="mt-4 text-h2 text-sage-deep text-balance">{qualify.headline}</h2>
+            <p className="mx-auto mt-4 max-w-md text-body-lg text-charcoal/75">{qualify.subline}</p>
+          </div>
+        </ScrollReveal>
 
+        <ScrollReveal delay={0.1}>
         <div className="mt-10 overflow-hidden rounded-lg border border-line bg-cream shadow-card">
           {!showExpect && <StepProgressBar pct={progressPct} />}
 
@@ -363,7 +367,7 @@ export function QualifyFlow() {
                           <p className="max-w-xs text-sm text-charcoal/70">
                             {qualify.scheduling.calcomFallback}
                           </p>
-                          <a
+                          
                             href={calHref}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -392,13 +396,16 @@ export function QualifyFlow() {
             </AnimatePresence>
           </div>
         </div>
+        </ScrollReveal>
 
-        <p className="mt-6 text-center text-xs text-charcoal/45">
-          Prefer email?{' '}
-          <Link href="/quiz" className="underline decoration-champagne/60 underline-offset-4 hover:text-sage-deep">
-            Try the 1-minute quiz instead
-          </Link>
-        </p>
+        <ScrollReveal delay={0.15}>
+          <p className="mt-6 text-center text-xs text-charcoal/45">
+            Prefer email?{' '}
+            <Link href="/quiz" className="underline decoration-champagne/60 underline-offset-4 hover:text-sage-deep">
+              Try the 1-minute quiz instead
+            </Link>
+          </p>
+        </ScrollReveal>
       </Container>
     </section>
   );
