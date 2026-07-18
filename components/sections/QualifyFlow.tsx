@@ -128,11 +128,6 @@ export function QualifyFlow() {
     }
   };
 
-  // Build the Cal.com booking URL with every answer passed as a prefill query
-  // param, so the booking page opens (new tab) with the form already filled.
-  // Each param maps to a Cal.com booking-question Identifier (set on the event's
-  // Advanced tab): name/email are Cal's defaults; the rest are custom questions
-  // whose slugs must match these keys exactly, or the value is silently dropped.
   const calHref = useMemo(() => {
     const params = new URLSearchParams();
     const add = (key: string, value: string) => value && params.set(key, value);
@@ -251,7 +246,6 @@ export function QualifyFlow() {
                   <p className="mt-2 text-sm text-charcoal/60">{qualify.business.body}</p>
 
                   <form noValidate onSubmit={onBusinessSubmit} className="mt-6 flex flex-col gap-5">
-                    {/* honeypot */}
                     <div aria-hidden className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden">
                       <label htmlFor="qualify-company">Company (leave blank)</label>
                       <input
