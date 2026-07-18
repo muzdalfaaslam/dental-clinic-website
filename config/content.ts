@@ -130,6 +130,17 @@ export const boldCta = {
   cta: ctas.math,
 };
 
+/* ── New section — "Meet the dentist" (adds a real face + warmth). ───────── */
+export const meetDentist = {
+  eyebrow: 'MEET YOUR DENTIST',
+  name: 'Dr. Sarah Bennett, DDS',
+  credentials: 'General & Family Dentistry · 12 years in practice',
+  quote:
+    'I got into dentistry because I love the moment a nervous patient realizes there was nothing to worry about. That\'s the experience we build every visit around.',
+  // CLIENT: replace with a real headshot of the dentist. Placeholder avatar until then.
+  photo: null as string | null,
+};
+
 /* ── Section 2 — Video. ───────────────────────────────────────────────────── */
 export const video = {
   eyebrow: 'A 60-SECOND LOOK',

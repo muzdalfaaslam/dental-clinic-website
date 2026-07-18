@@ -12,6 +12,7 @@ import {
   MessageSquare,
   Palette,
   PhoneCall,
+  Quote,
   RefreshCw,
   Repeat,
   Search,
@@ -21,6 +22,7 @@ import {
   Sparkles,
   Star,
   Users,
+  UserRound,
   Wrench,
   type LucideIcon,
 } from 'lucide-react';
@@ -45,6 +47,7 @@ export const ICONS = {
   messageSquare: MessageSquare,
   palette: Palette,
   phoneCall: PhoneCall,
+  quote: Quote,
   refreshCw: RefreshCw,
   repeat: Repeat,
   search: Search,
@@ -54,6 +57,7 @@ export const ICONS = {
   sparkles: Sparkles,
   star: Star,
   users: Users,
+  userRound: UserRound,
   wrench: Wrench,
 } satisfies Record<string, LucideIcon>;
 
