@@ -1,44 +1,44 @@
 import { Container } from '@/components/ui/Container';
 import { HeroBackground } from '@/components/ui/HeroBackground';
+import { Button } from '@/components/ui/Button';
 import { ScrollReveal } from '@/components/layout/ScrollReveal';
 import { hero } from '@/config/content';
 
 /**
- * Section 1 — Hero (above the fold). Centered layout matching the reference:
- * a bordered pill eyebrow, an oversized Playfair headline, a constrained subhead,
- * one big CTA with a leading arrow — all on a clean cream field with a thin
- * line motif. CTA visible without scrolling on mobile.
- * Med spa skin (sage/champagne), not roofing's terracotta/condensed type.
+ * Section 1 — Hero (above the fold). Redesigned for warmth: a rounded pill
+ * eyebrow (not thin gradient rules), a warm-accent highlight + underline on the
+ * headline, and a real primary CTA button living directly in the hero instead
+ * of only appearing further down the page. Clean cream field, softer corners
+ * throughout (brief: clean & clinical + warm & approachable).
  */
 export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-cream pb-8 pt-24 sm:pt-24 lg:pb-10 lg:pt-28"
+      className="relative overflow-hidden bg-cream pb-10 pt-24 sm:pt-24 lg:pb-14 lg:pt-28"
     >
       <HeroBackground />
       <Container>
         <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
-          {/* eyebrow — editorial label flanked by fading gold rules (no pill) */}
+          {/* eyebrow — a rounded pill badge, friendlier than thin flanking rules */}
           <ScrollReveal>
-            <div className="flex items-center justify-center gap-3 sm:gap-4">
-              <span aria-hidden className="h-px w-8 bg-gradient-to-r from-transparent to-champagne sm:w-12" />
-              <span className="text-eyebrow font-medium uppercase tracking-[0.2em] text-sage-deep/80">
+            <div className="inline-flex items-center gap-2 rounded-full border border-line bg-cream-deep px-4 py-1.5">
+              <span aria-hidden className="size-1.5 rounded-full bg-warm" />
+              <span className="text-eyebrow font-medium uppercase tracking-[0.16em] text-sage-deep/80">
                 {hero.eyebrow}
               </span>
-              <span aria-hidden className="h-px w-8 bg-gradient-to-l from-transparent to-champagne sm:w-12" />
             </div>
           </ScrollReveal>
 
-          {/* headline — two lines: sage line 1, charcoal line 2 with a sage marker
-              on "Booked Treatments" and a gold underline on "3 Days" */}
+          {/* headline — two lines: sage line 1, charcoal line 2 with a warm-tinted
+              mark on "Booked Patients" and a warm underline on "3 Days" */}
           <ScrollReveal delay={0.05}>
-            <h1 className="mt-5 font-display text-[clamp(1.9rem,4.4vw,2.85rem)] font-semibold leading-[1.28] tracking-[-0.01em] text-sage-deep">
+            <h1 className="mt-6 font-display text-[clamp(1.9rem,4.4vw,2.85rem)] font-extrabold leading-[1.28] tracking-[-0.01em] text-sage-deep">
               {hero.headline.line1}
               <br />
               <span className="text-charcoal">
                 {hero.headline.line2.pre}{' '}
-                <mark className="rounded-[3px] bg-sage-soft/30 px-1.5 py-0.5 text-charcoal">
+                <mark className="rounded-md bg-warm/15 px-1.5 py-0.5 text-charcoal">
                   {hero.headline.line2.mark}
                 </mark>{' '}
                 {hero.headline.line2.mid}{' '}
@@ -46,7 +46,7 @@ export function Hero() {
                   {hero.headline.line2.underline}
                   <span
                     aria-hidden
-                    className="absolute -bottom-1 left-0 h-[0.14em] w-full rounded-full bg-champagne"
+                    className="absolute -bottom-1 left-0 h-[0.14em] w-full rounded-full bg-warm"
                   />
                 </span>
               </span>
@@ -58,6 +58,15 @@ export function Hero() {
             <p className="mt-4 max-w-lg text-[1.05rem] leading-relaxed text-charcoal/80">
               {hero.subhead}
             </p>
+          </ScrollReveal>
+
+          {/* primary CTA — now lives directly in the hero */}
+          <ScrollReveal delay={0.15}>
+            <div className="mt-7">
+              <Button source="hero" size="lg">
+                {hero.cta}
+              </Button>
+            </div>
           </ScrollReveal>
         </div>
       </Container>
