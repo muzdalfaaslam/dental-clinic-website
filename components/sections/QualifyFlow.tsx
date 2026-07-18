@@ -361,7 +361,7 @@ export function QualifyFlow() {
                           <p className="max-w-xs text-sm text-charcoal/70">
                             {qualify.scheduling.calcomFallback}
                           </p>
-                          
+                          <Link
                             href={calHref}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -370,7 +370,7 @@ export function QualifyFlow() {
                           >
                             <CalendarClock className="size-4" strokeWidth={1.75} />
                             {qualify.scheduling.selfOption.label}
-                          </a>
+                          </Link>
                         </div>
                       )}
                     </div>
