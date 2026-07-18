@@ -2,6 +2,7 @@ import { StickyNav } from '@/components/layout/StickyNav';
 import { Hero } from '@/components/sections/Hero';
 import { TrustBadges } from '@/components/sections/TrustBadges';
 import { Video } from '@/components/sections/Video';
+import { WhyFamilies } from '@/components/sections/WhyFamilies';
 import { ProblemBlock } from '@/components/sections/ProblemBlock';
 import { WhatWeBuild } from '@/components/sections/WhatWeBuild';
 import { PlatformThemeShowcase } from '@/components/sections/PlatformThemeShowcase';
@@ -23,6 +24,7 @@ export default function Page() {
         {/* 1 */} <Hero />
         {/* 1b */} <TrustBadges />
         {/* 2 */} <Video />
+        {/* 2b */} <WhyFamilies />
         {/* 3 */} <ProblemBlock />
         {/* 4 */} <WhatWeBuild />
         {/* 5 */} <PlatformThemeShowcase />
