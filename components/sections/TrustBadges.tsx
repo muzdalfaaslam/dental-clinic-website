@@ -10,7 +10,7 @@ import { trustBadges } from '@/config/content';
  */
 export function TrustBadges() {
   return (
-    <section className="border-y border-line bg-cream-deep/40 py-4">
+    <section className="border-y border-line bg-cream-deep/40 py-4 mb-8 lg:mb-12">
       <Container>
         <ScrollReveal>
           <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 sm:gap-x-10">
