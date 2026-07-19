@@ -45,8 +45,8 @@ export function WhyFamilies() {
                   onClick={() => setActive((prev) => (prev === i ? null : i))}
                   aria-pressed={isActive}
                   className={
-                    'h-full w-full rounded-lg bg-cream p-6 text-left shadow-soft ring-1 ring-inset transition-all duration-200 ' +
-                    (isActive ? 'ring-2 ring-accent-brand' : 'ring-line hover:ring-accent-brand/40')
+                    'group h-full w-full rounded-lg bg-cream p-6 text-left shadow-soft ring-1 ring-inset transition-all duration-200 ' +
+                    (isActive ? 'ring-2 ring-accent-brand' : 'ring-line hover:ring-2 hover:ring-accent-brand')
                   }
                 >
                   <span
@@ -55,8 +55,8 @@ export function WhyFamilies() {
                       (isActive
                         ? 'bg-accent-brand/15 text-accent-brand'
                         : isWarm
-                          ? 'bg-warm/15 text-warm'
-                          : 'bg-sage-deep/10 text-sage-deep')
+                          ? 'bg-warm/15 text-warm group-hover:bg-accent-brand/15 group-hover:text-accent-brand'
+                          : 'bg-sage-deep/10 text-sage-deep group-hover:bg-accent-brand/15 group-hover:text-accent-brand')
                     }
                   >
                     <Icon className="size-5" strokeWidth={1.75} />

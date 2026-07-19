@@ -248,7 +248,7 @@ export const whatWeBuild = {
     {
       icon: 'palette' as IconKey,
       label: 'Custom, on-brand design',
-      desc: 'Matched to your clinic’s aesthetic',
+      desc: 'Matched to your practice’s look and feel',
       hotspot: { x: 50, y: 27 },
     },
     {
@@ -265,20 +265,20 @@ export const whatWeBuild = {
     },
     {
       icon: 'images' as IconKey,
-      label: 'Before/after galleries & reviews',
-      desc: 'Proof that sells for you',
+      label: 'Smile gallery & patient reviews',
+      desc: 'Real results and reviews that build trust',
       hotspot: { x: 24, y: 80 },
     },
     {
       icon: 'fileText' as IconKey,
-      label: 'Treatment & service pages',
-      desc: 'Built to convert browsers into bookings',
+      label: 'A page for every treatment',
+      desc: 'Cleanings, whitening, ortho & more — each explained clearly',
       hotspot: { x: 62, y: 65 },
     },
     {
       icon: 'phoneCall' as IconKey,
       label: 'Click-to-call, maps & contact',
-      desc: 'Instant ways to reach you',
+      desc: 'Instant ways for patients to reach the office',
       hotspot: { x: 50, y: 93 },
     },
   ],
