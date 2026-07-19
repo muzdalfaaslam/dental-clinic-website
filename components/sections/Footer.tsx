@@ -13,7 +13,8 @@ import { footer } from '@/config/content';
  */
 export function Footer() {
   return (
-    <footer className="bg-sage-deep text-cream">
+    <footer className="rounded-t-lg bg-sage-deep text-cream">
+      <div aria-hidden className="h-1 w-full rounded-t-lg bg-warm" />
       <Container className="py-16">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
           {/* Brand */}
@@ -26,13 +27,17 @@ export function Footer() {
             <p className="mt-3 font-display text-lg text-cream/90">{footer.tagline}</p>
             <p className="mt-4 max-w-sm text-sm text-cream/70">{footer.companyLine}</p>
 
-            <div className="mt-6 flex flex-col gap-2 text-sm text-cream/80">
-              <a href={`mailto:${footer.contact.email}`} className="inline-flex items-center gap-2 hover:text-cream">
-                <Mail className="size-4" strokeWidth={1.5} />
+            <div className="mt-6 flex flex-col gap-3 text-sm text-cream/80">
+              <a href={`mailto:${footer.contact.email}`} className="inline-flex items-center gap-2.5 hover:text-cream">
+                <span className="inline-flex size-7 items-center justify-center rounded-full bg-warm/20 text-warm">
+                  <Mail className="size-3.5" strokeWidth={1.75} />
+                </span>
                 {footer.contact.email}
               </a>
-              <a href={`tel:${footer.contact.phone.replace(/[^\d+]/g, '')}`} className="inline-flex items-center gap-2 hover:text-cream">
-                <Phone className="size-4" strokeWidth={1.5} />
+              <a href={`tel:${footer.contact.phone.replace(/[^\d+]/g, '')}`} className="inline-flex items-center gap-2.5 hover:text-cream">
+                <span className="inline-flex size-7 items-center justify-center rounded-full bg-warm/20 text-warm">
+                  <Phone className="size-3.5" strokeWidth={1.75} />
+                </span>
                 {footer.contact.phone}
               </a>
             </div>
