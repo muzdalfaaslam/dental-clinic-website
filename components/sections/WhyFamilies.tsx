@@ -51,8 +51,12 @@ export function WhyFamilies() {
                 >
                   <span
                     className={
-                      'inline-flex size-11 items-center justify-center rounded-md ' +
-                      (isWarm ? 'bg-warm/15 text-warm' : 'bg-sage-deep/10 text-sage-deep')
+                      'inline-flex size-11 items-center justify-center rounded-md transition-colors duration-200 ' +
+                      (isActive
+                        ? 'bg-accent-brand/15 text-accent-brand'
+                        : isWarm
+                          ? 'bg-warm/15 text-warm'
+                          : 'bg-sage-deep/10 text-sage-deep')
                     }
                   >
                     <Icon className="size-5" strokeWidth={1.75} />

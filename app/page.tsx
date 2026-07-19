@@ -8,8 +8,8 @@ import { WhatWeBuild } from '@/components/sections/WhatWeBuild';
 import { PlatformThemeShowcase } from '@/components/sections/PlatformThemeShowcase';
 import { TheMath } from '@/components/sections/TheMath';
 import { MeetDentist } from '@/components/sections/MeetDentist';
-import { SocialProof } from '@/components/sections/SocialProof';
 import { BoldCta } from '@/components/sections/BoldCta';
+import { FAQ } from '@/components/sections/FAQ';
 import { QualifyFlow } from '@/components/sections/QualifyFlow';
 import { ReassuranceStrip } from '@/components/sections/ReassuranceStrip';
 import { Footer } from '@/components/sections/Footer';
@@ -32,8 +32,8 @@ export default function Page() {
         {/* 5 */} <PlatformThemeShowcase />
         {/* 6 */} <TheMath />
         {/* 6b */} <MeetDentist />
-        {/* 7 */} <SocialProof />
         {/* 7b */} <BoldCta />
+        {/* 7c */} <FAQ />
         {/* 8 */} <QualifyFlow />
         {/* 9 */} <ReassuranceStrip />
       </main>

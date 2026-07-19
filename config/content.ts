@@ -141,6 +141,39 @@ export const meetDentist = {
   photo: null as string | null,
 };
 
+/* ── New section — FAQ (common patient questions). ────────────────────────── */
+export const faq = {
+  eyebrow: 'QUESTIONS & ANSWERS',
+  headline: 'Answers before you even have to ask',
+  items: [
+    {
+      question: 'Do you accept my insurance?',
+      answer:
+        'We work with most major insurance providers. If you\'re not sure yours is covered, call the office and our team will check for you before you book anything.',
+    },
+    {
+      question: 'I\'m nervous about the dentist. Is that okay?',
+      answer:
+        'Completely normal, and very common. We take extra time with nervous patients, explain every step before we do it, and never rush.',
+    },
+    {
+      question: 'What happens at my first visit?',
+      answer:
+        'A gentle exam, a full cleaning if needed, and a clear walkthrough of anything we find, with no pressure to decide on treatment on the spot.',
+    },
+    {
+      question: 'Do you see kids?',
+      answer:
+        'Yes, we welcome patients of all ages and keep the whole experience friendly and low-stress for younger visitors.',
+    },
+    {
+      question: 'What if I have a dental emergency?',
+      answer:
+        'Call us right away. We hold same-day slots for emergencies like sudden pain, a broken tooth, or a lost filling.',
+    },
+  ],
+};
+
 /* ── Section 2 — Video. ───────────────────────────────────────────────────── */
 export const video = {
   eyebrow: 'A 60-SECOND LOOK',
