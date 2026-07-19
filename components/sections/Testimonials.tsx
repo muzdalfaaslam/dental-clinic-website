@@ -35,7 +35,7 @@ export function Testimonials() {
                   ))}
                 </div>
                 <p className="mt-3 flex-1 text-[0.95rem] italic leading-relaxed text-charcoal/80">
-                  "{t.quote}"
+                  “{t.quote}”
                 </p>
                 <div className="mt-5 flex items-center gap-3">
                   <span className="inline-flex size-10 items-center justify-center rounded-full bg-sage-deep/10 text-sage-deep">
