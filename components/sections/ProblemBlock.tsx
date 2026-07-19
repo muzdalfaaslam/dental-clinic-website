@@ -39,7 +39,7 @@ export function ProblemBlock() {
 
   const cardClasses = (isActive: boolean) =>
     [
-      'group flex h-full w-[19rem] shrink-0 cursor-pointer items-start gap-4 rounded-md border p-5 text-left backdrop-blur-md',
+      'group flex h-40 w-[19rem] shrink-0 cursor-pointer items-start gap-4 rounded-md border p-5 text-left backdrop-blur-md',
       'transition-all duration-200',
       isActive
         ? 'border-warm/50 bg-cream/70 shadow-card'
@@ -75,7 +75,7 @@ export function ProblemBlock() {
         </span>
         <p
           className={[
-            'text-[0.92rem] leading-snug transition-colors duration-200',
+            'line-clamp-3 text-[0.92rem] leading-snug transition-colors duration-200',
             isActive ? 'font-medium text-sage-deep' : 'text-charcoal/80',
           ].join(' ')}
         >
@@ -92,18 +92,23 @@ export function ProblemBlock() {
     <section className="relative overflow-hidden bg-cream-deep py-section">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[26rem] bg-gradient-to-br from-sage-soft/10 via-transparent to-champagne/10"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[26rem] bg-cover bg-center opacity-[0.14]"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1704455306251-b4634215d98f?fm=jpg&q=60&w=1600&auto=format&fit=crop')" }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[26rem] bg-gradient-to-b from-cream-deep/40 via-cream-deep/70 to-cream-deep"
       />
       <Container className="relative">
         <div className="mx-auto max-w-2xl text-center">
           <ScrollReveal>
-            <SectionLabel className="justify-center">A GENTLE GUT-CHECK</SectionLabel>
+            <SectionLabel className="justify-center">A QUICK CHECKUP</SectionLabel>
           </ScrollReveal>
           <ScrollReveal delay={0.05}>
             <h2 className="mt-4 text-h2 text-sage-deep">{problem.headline}</h2>
           </ScrollReveal>
           <ScrollReveal delay={0.08}>
-            <p className="mt-3 text-sm text-charcoal/50">Tap anything that applies to you.</p>
+            <p className="mt-3 text-sm text-charcoal/50">Tap anything that sounds like your practice.</p>
           </ScrollReveal>
         </div>
       </Container>

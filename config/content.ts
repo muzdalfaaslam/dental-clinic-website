@@ -215,12 +215,13 @@ export const problem = {
     },
     {
       icon: 'images' as IconKey,
-      text: 'Your before/afters and reviews are buried instead of selling for you',
+      text: 'Your smile gallery and reviews are buried instead of building trust',
       response: {
         headline: 'Your results are your best salesperson.',
-        body: 'We design before/after galleries and review sections right into the page where they actually convert browsers into bookings.',
+        body: 'We design smile galleries and review sections right into the page where they actually convert browsers into bookings.',
       },
     },
+    
     {
       icon: 'sparkles' as IconKey,
       text: 'You\'re proud of your work, but the website doesn\'t reflect your brand',
