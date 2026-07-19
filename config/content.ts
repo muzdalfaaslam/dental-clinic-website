@@ -174,6 +174,35 @@ export const faq = {
   ],
 };
 
+/* ── New section — patient testimonials. ──────────────────────────────────── */
+export const testimonials = {
+  eyebrow: 'WHAT PATIENTS SAY',
+  headline: 'Trusted by patients like yours',
+  items: [
+    {
+      name: 'Amanda R.',
+      detail: 'New patient, cleaning & checkup',
+      quote:
+        'I found this clinic through their website and booked same-day. The whole visit was calm and clearly explained, no surprises at all.',
+      rating: 5,
+    },
+    {
+      name: 'Marcus T.',
+      detail: 'Parent of two, family checkups',
+      quote:
+        'Both my kids actually look forward to going now. The staff is patient with them and the online booking makes scheduling around school easy.',
+      rating: 5,
+    },
+    {
+      name: 'Priya K.',
+      detail: 'Emergency visit, cracked tooth',
+      quote:
+        'Called in pain on a Saturday and they got me in same day. Genuinely grateful for how fast and reassuring the whole team was.',
+      rating: 5,
+    },
+  ],
+};
+
 /* ── Section 2 — Video. ───────────────────────────────────────────────────── */
 export const video = {
   eyebrow: 'A 60-SECOND LOOK',
@@ -221,7 +250,7 @@ export const problem = {
         body: 'We design smile galleries and review sections right into the page where they actually convert browsers into bookings.',
       },
     },
-    
+
     {
       icon: 'sparkles' as IconKey,
       text: 'You\'re proud of your work, but the website doesn\'t reflect your brand',
