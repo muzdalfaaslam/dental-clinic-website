@@ -19,7 +19,7 @@ const variants: Record<Variant, string> = {
   // Sage fill, cream text, subtle gold ring edge (brief §5).
   primary:
     'bg-sage-deep text-cream shadow-soft ring-1 ring-inset ring-champagne/40 ' +
-    'hover:bg-[rgb(82_94_72)] hover:shadow-card',
+    'hover:bg-[rgb(15_70_87)] hover:shadow-card',
   ghost:
     'bg-transparent text-sage-deep ring-1 ring-inset ring-line hover:bg-cream-deep',
   // For placement on dark/sage backgrounds (footer): cream fill, sage text.
@@ -134,7 +134,7 @@ export const Button = forwardRef<HTMLElement, ButtonProps>(function Button(props
   };
 
   return (
-    <a
+    
       ref={ref as React.Ref<HTMLAnchorElement>}
       href={`#${targetId}`}
       onClick={handleClick}

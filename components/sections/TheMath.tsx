@@ -50,7 +50,7 @@ function SliderRow({
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
         aria-valuetext={`${formatValue(value)} ${unit}`}
-        className="mt-4 h-2 w-full cursor-ew-resize appearance-none rounded-full bg-cream-deep accent-[rgb(94_107_82)]"
+        className="mt-4 h-2 w-full cursor-ew-resize appearance-none rounded-full bg-cream-deep accent-sage-deep"
       />
       <div className="mt-1.5 flex justify-between text-xs text-charcoal/45">
         <span>{formatValue(min)}</span>
@@ -76,17 +76,17 @@ export function TheMath() {
   const annual = monthly * 12;
 
   return (
-    <section className="bg-cream-deep py-12 lg:py-16">
+    <section className="bg-sage-deep py-12 lg:py-16">
       <Container className="max-w-3xl">
         <div className="mx-auto max-w-2xl text-center">
           <ScrollReveal>
-            <SectionLabel className="justify-center">{math.eyebrow}</SectionLabel>
+            <SectionLabel className="justify-center" tone="invert">{math.eyebrow}</SectionLabel>
           </ScrollReveal>
           <ScrollReveal delay={0.05}>
-            <h2 className="mt-3 text-h2 text-sage-deep">{math.headline}</h2>
+            <h2 className="mt-3 text-h2 text-cream">{math.headline}</h2>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <p className="mx-auto mt-3 max-w-md text-[0.95rem] text-charcoal/70">{math.intro}</p>
+            <p className="mx-auto mt-3 max-w-md text-[0.95rem] text-cream/70">{math.intro}</p>
           </ScrollReveal>
         </div>
 
@@ -161,14 +161,14 @@ export function TheMath() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.05}>
-          <p className="mx-auto mt-8 max-w-2xl text-center text-[0.95rem] leading-relaxed text-charcoal/75">
+          <p className="mx-auto mt-8 max-w-2xl text-center text-[0.95rem] leading-relaxed text-cream/80">
             {math.closing}
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={0.08}>
           <div className="mt-8 flex justify-center">
-            <Button source="the_math" size="md">
+            <Button source="the_math" variant="invert" size="md">
               {math.cta}
             </Button>
           </div>

@@ -8,8 +8,8 @@ import { whyFamilies } from '@/config/content';
 
 /**
  * "Why families choose us" — a warm, trust-building feature grid sitting right
- * after the Live Preview. Cards are clickable: tapping one outlines it in red,
- * tapping again clears it.
+ * after the Live Preview. Cards are clickable: tapping one outlines it in a
+ * calm teal glow, tapping again clears it.
  */
 export function WhyFamilies() {
   const [active, setActive] = useState<number | null>(null);
@@ -46,17 +46,17 @@ export function WhyFamilies() {
                   aria-pressed={isActive}
                   className={
                     'group h-full w-full rounded-lg bg-cream p-6 text-left shadow-soft ring-1 ring-inset transition-all duration-200 ' +
-                    (isActive ? 'ring-2 ring-accent-brand' : 'ring-line hover:ring-2 hover:ring-accent-brand')
+                    (isActive ? 'ring-2 ring-champagne' : 'ring-line hover:ring-2 hover:ring-champagne')
                   }
                 >
                   <span
                     className={
                       'inline-flex size-11 items-center justify-center rounded-md transition-colors duration-200 ' +
                       (isActive
-                        ? 'bg-accent-brand/15 text-accent-brand'
+                        ? 'bg-champagne/15 text-champagne'
                         : isWarm
-                          ? 'bg-warm/15 text-warm group-hover:bg-accent-brand/15 group-hover:text-accent-brand'
-                          : 'bg-sage-deep/10 text-sage-deep group-hover:bg-accent-brand/15 group-hover:text-accent-brand')
+                          ? 'bg-warm/15 text-warm group-hover:bg-champagne/15 group-hover:text-champagne'
+                          : 'bg-sage-deep/10 text-sage-deep group-hover:bg-champagne/15 group-hover:text-champagne')
                     }
                   >
                     <Icon className="size-5" strokeWidth={1.75} />

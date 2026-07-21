@@ -42,8 +42,8 @@ export function ProblemBlock() {
       'group flex h-40 w-[19rem] shrink-0 cursor-pointer items-start gap-4 rounded-md border p-5 text-left backdrop-blur-md',
       'transition-all duration-200',
       isActive
-        ? 'border-warm/50 bg-cream/70 shadow-card'
-        : 'border-white/40 bg-cream/35 shadow-soft hover:border-warm/40 hover:bg-cream/55',
+        ? 'border-champagne/60 bg-cream/70 shadow-card'
+        : 'border-white/40 bg-cream/35 shadow-soft hover:border-champagne/50 hover:bg-cream/55',
     ].join(' ');
 
   const renderCard = (point: (typeof points)[number], originalIndex: number, key: string, ariaHidden = false) => {
@@ -67,8 +67,8 @@ export function ProblemBlock() {
           className={[
             'mt-0.5 inline-flex size-9 shrink-0 items-center justify-center rounded-full transition-colors duration-200',
             isActive
-              ? 'bg-warm text-cream'
-              : 'bg-cream-deep/60 ring-1 ring-inset ring-champagne/40 text-sage-soft group-hover:bg-warm/15 group-hover:text-warm',
+              ? 'bg-champagne text-cream'
+              : 'bg-cream-deep/60 ring-1 ring-inset ring-champagne/40 text-sage-soft group-hover:bg-champagne/15 group-hover:text-champagne',
           ].join(' ')}
         >
           {isActive ? <Check className="size-4" strokeWidth={2} /> : <Icon className="size-4" strokeWidth={1.5} />}
@@ -92,12 +92,12 @@ export function ProblemBlock() {
     <section className="relative overflow-hidden bg-cream-deep py-section">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[26rem] bg-cover bg-center opacity-[0.14]"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[26rem] bg-cover bg-center opacity-[0.22]"
         style={{ backgroundImage: "url('https://images.unsplash.com/photo-1704455306251-b4634215d98f?fm=jpg&q=60&w=1600&auto=format&fit=crop')" }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[26rem] bg-gradient-to-b from-cream-deep/40 via-cream-deep/70 to-cream-deep"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[26rem] bg-gradient-to-b from-sage-deep/25 via-cream-deep/60 to-cream-deep"
       />
       <Container className="relative">
         <div className="mx-auto max-w-2xl text-center">
@@ -116,7 +116,7 @@ export function ProblemBlock() {
       <ScrollReveal delay={0.1} className="mt-10">
         {reduce ? (
           <Container>
-            <ul className="flex snap-x gap-4 overflow-x-auto pb-2" aria-label="Common frustrations">
+            <ul className="flex snap-x gap-4 overflow-x-auto py-3" aria-label="Common frustrations">
               {points.map((p, i) => (
                 <li key={p.text} className="snap-start">
                   {renderCard(p, i, `static-${i}`)}
@@ -127,7 +127,7 @@ export function ProblemBlock() {
         ) : (
           <div
             ref={marqueeRef}
-            className="marquee-paused relative overflow-hidden"
+            className="marquee-paused relative overflow-hidden py-3"
             aria-label="Common frustrations"
             style={{
               maskImage:

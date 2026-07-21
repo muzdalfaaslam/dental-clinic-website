@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
-import { Nunito, Inter } from 'next/font/google';
+import { Manrope, Inter } from 'next/font/google';
 import './globals.css';
 import { themeToCss } from '@/config/theme';
 import { meta } from '@/config/content';
@@ -8,11 +8,11 @@ import { GA_ID, META_PIXEL_ID } from '@/lib/analytics';
 
 /**
  * Self-hosted via next/font (no third-party request, no layout shift, display:swap).
- * Only two families are ever loaded — Nunito (display: warm, rounded, friendly —
- * chosen for a family dental practice over the old boutique-spa serif) + Inter
+ * Only two families are ever loaded — Manrope (display: clean, modern, professional —
+ * trustworthy for a B2B software pitch, without the overly rounded/bubbly feel) + Inter
  * (body/UI, keeps the clean/clinical trust factor). Brief §4.2, §10.
  */
-const nunito = Nunito({
+const manrope = Manrope({
   subsets: ['latin'],
   weight: ['600', '700', '800'],
   variable: '--font-display',
@@ -33,7 +33,6 @@ export const metadata: Metadata = {
   title: meta.title,
   description: meta.description,
   alternates: { canonical: '/' },
-  // One-line toggle (config/content.ts → meta.indexable) for paid-only traffic.
   robots: meta.indexable ? { index: true, follow: true } : { index: false, follow: false },
   openGraph: {
     title: meta.title,
@@ -61,7 +60,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${nunito.variable} ${inter.variable}`}>
+    <html lang="en" className={`${manrope.variable} ${inter.variable}`}>
       <head>
         {/* Brand tokens injected once from config/theme.ts — single source of truth. */}
         <style dangerouslySetInnerHTML={{ __html: themeToCss() }} />
