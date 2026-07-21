@@ -1,6 +1,7 @@
 'use client';
 
 import { forwardRef } from 'react';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { trackCta } from '@/lib/analytics';
@@ -134,13 +135,13 @@ export const Button = forwardRef<HTMLElement, ButtonProps>(function Button(props
   };
 
   return (
-    
+    <Link
       ref={ref as React.Ref<HTMLAnchorElement>}
       href={`#${targetId}`}
       onClick={handleClick}
       className={classes}
     >
       {content}
-    </a>
+    </Link>
   );
 });
