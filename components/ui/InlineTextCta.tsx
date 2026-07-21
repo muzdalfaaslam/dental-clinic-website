@@ -11,7 +11,7 @@ const variants = {
     'inline-flex items-center gap-1.5 text-sm text-charcoal/60 underline decoration-champagne/60 underline-offset-4 hover:text-sage-deep',
   // Full-weight primary button, same visual language as Button's primary variant.
   bold:
-    'inline-flex items-center justify-center gap-2 rounded-lg bg-sage-deep px-8 py-4 text-base font-medium text-cream shadow-soft ring-1 ring-inset ring-champagne/40 hover:-translate-y-0.5 hover:bg-[rgb(82_94_72)] hover:shadow-card motion-safe:hover:-translate-y-0.5',
+    'inline-flex items-center justify-center gap-2 rounded-lg bg-sage-deep px-8 py-4 text-base font-medium text-cream shadow-soft ring-1 ring-inset ring-champagne/40 hover:-translate-y-0.5 hover:bg-[rgb(rgb(15_70_87))] hover:shadow-card motion-safe:hover:-translate-y-0.5',
 };
 
 /**

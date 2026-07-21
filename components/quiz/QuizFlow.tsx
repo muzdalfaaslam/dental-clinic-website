@@ -206,7 +206,7 @@ export function QuizFlow() {
                   href={quiz.success.meetingLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group mt-8 inline-flex items-center justify-center gap-2 rounded-lg bg-sage-deep px-8 py-4 text-base font-medium text-cream shadow-soft ring-1 ring-inset ring-champagne/40 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[rgb(82_94_72)] hover:shadow-card"
+                  className="group mt-8 inline-flex items-center justify-center gap-2 rounded-lg bg-sage-deep px-8 py-4 text-base font-medium text-cream shadow-soft ring-1 ring-inset ring-champagne/40 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[rgb(15_70_87)] hover:shadow-card"
                 >
                   {quiz.success.meetingLinkLabel}
                 </a>
