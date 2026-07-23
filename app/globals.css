@@ -25,6 +25,8 @@
 
   body {
     background-color: rgb(var(--color-cream));
+    background-image: radial-gradient(rgb(var(--color-sage-deep) / 0.05) 1px, transparent 1px);
+    background-size: 22px 22px;
     color: rgb(var(--color-charcoal));
     font-family: var(--font-sans), system-ui, sans-serif;
     line-height: 1.6;
