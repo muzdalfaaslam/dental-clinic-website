@@ -18,25 +18,25 @@ export interface NicheTheme {
 }
 
 export const theme: NicheTheme = {
-  name: 'Clinical Blue (Dental Clinic)',
+  name: 'Premium Navy & Gold (Dental Clinic)',
   cssVars: {
     // ── Color: surfaces ──────────────────────────────────────────────────────
-    '--color-cream': '247 250 252', //        #F7FAFC  page background (clean, cool near-white)
-    '--color-cream-deep': '237 244 248', //   #EDF4F8  alternating section bg / card surface
+    '--color-cream': '246 247 250', //        #F6F7FA  page background (soft off-white, cool tint)
+    '--color-cream-deep': '236 239 244', //   #ECEFF4  alternating section bg / card surface
     // ── Color: brand ─────────────────────────────────────────────────────────
-    '--color-sage-deep': '20 90 110', //      #145A6E  headings, primary buttons, footer
-    '--color-sage-soft': '90 160 175', //     #5AA0AF  secondary accents, icons, hover, tints
-    '--color-champagne': '60 130 150', //     #3C8296  thin rules, icon strokes, underlines ONLY
-    '--color-rose': '180 220 225', //         #B4DCE1  optional soft accent: testimonials, before/after
-    // ── Color: warm accent (new — used sparingly: highlight badges, one CTA, icons) ─
-    '--color-warm-accent': '224 122 95', // #E07A5F  warm coral/terracotta, used sparingly for warmth
+    '--color-sage-deep': '18 40 61', //       #12283D  headings, primary buttons, footer (deep navy)
+    '--color-sage-soft': '70 108 140', //     #466C8C  secondary accents, icons, hover, tints
+    '--color-champagne': '201 162 75', //     #C9A24B  thin rules, icon strokes, underlines (warm gold)
+    '--color-rose': '223 211 184', //         #DFD3B8  optional soft accent: testimonials, before/after
+    // ── Color: warm accent (used sparingly: highlight badges, one CTA, icons) ─
+    '--color-warm-accent': '201 162 75', //   #C9A24B  same warm gold, used sparingly for warmth
     // ── Color: text ──────────────────────────────────────────────────────────
-    '--color-charcoal': '46 42 38', //        #2E2A26  body text
+    '--color-charcoal': '28 32 38', //        #1C2026  body text (near-navy-black)
     // ── Color: footer-only brand accent (TechxServe red, used as a small touch) ─
     '--color-accent-brand': '199 62 56', //   #C73E38  permitted ONLY in the footer
 
     // ── Hairlines ────────────────────────────────────────────────────────────
-    '--color-line': 'rgba(20,90,110,0.18)',
+    '--color-line': 'rgba(18,40,61,0.14)',
 
     // ── Radius (rounder + friendlier — was 10/16/24) ─────────────────────────
     '--radius-sm': '12px',
@@ -45,9 +45,9 @@ export const theme: NicheTheme = {
 
     // ── Shadow (soft, warm, low-opacity — never harsh black) ─────────────────
     '--shadow-soft':
-      '0 2px 8px rgba(46,42,38,0.04), 0 12px 32px rgba(46,42,38,0.06)',
+      '0 2px 8px rgba(28,32,38,0.05), 0 12px 32px rgba(28,32,38,0.06)',
     '--shadow-card':
-      '0 1px 2px rgba(46,42,38,0.04), 0 18px 40px rgba(20,90,110,0.08)',
+      '0 1px 2px rgba(28,32,38,0.05), 0 18px 40px rgba(18,40,61,0.10)',
 
     // ── Layout rhythm ────────────────────────────────────────────────────────
     '--section-py': 'clamp(2.75rem, 6vw, 5rem)',
@@ -78,7 +78,7 @@ const sharedTokens = {
   '--radius-sm': '12px',
   '--radius-md': '20px',
   '--radius-lg': '28px',
-  '--color-warm-accent': '224 122 95',
+  '--color-warm-accent': '201 162 75',
   '--shadow-soft': '0 2px 8px rgba(46,42,38,0.04), 0 12px 32px rgba(46,42,38,0.06)',
   '--shadow-card': '0 1px 2px rgba(46,42,38,0.04), 0 18px 40px rgba(94,107,82,0.08)',
   '--section-py': 'clamp(2.75rem, 6vw, 5rem)',

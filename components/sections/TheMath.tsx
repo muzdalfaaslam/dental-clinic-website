@@ -76,17 +76,17 @@ export function TheMath() {
   const annual = monthly * 12;
 
   return (
-    <section className="bg-[rgb(16_22_32)] py-12 lg:py-16">
+    <section className="bg-cream-deep py-12 lg:py-16">
       <Container className="max-w-3xl">
         <div className="mx-auto max-w-2xl text-center">
           <ScrollReveal>
-            <SectionLabel className="justify-center" tone="invert">{math.eyebrow}</SectionLabel>
+            <SectionLabel className="justify-center">{math.eyebrow}</SectionLabel>
           </ScrollReveal>
           <ScrollReveal delay={0.05}>
-            <h2 className="mt-3 text-h2 text-[rgb(235_240_245)]">{math.headline}</h2>
+            <h2 className="mt-3 text-h2 text-sage-deep">{math.headline}</h2>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <p className="mx-auto mt-3 max-w-md text-[0.95rem] text-[rgb(235_240_245)]/70">{math.intro}</p>
+            <p className="mx-auto mt-3 max-w-md text-[0.95rem] text-charcoal/70">{math.intro}</p>
           </ScrollReveal>
         </div>
 
@@ -161,14 +161,14 @@ export function TheMath() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.05}>
-          <p className="mx-auto mt-8 max-w-2xl text-center text-[0.95rem] leading-relaxed text-[rgb(235_240_245)]/80">
+          <p className="mx-auto mt-8 max-w-2xl text-center text-[0.95rem] leading-relaxed text-charcoal/75">
             {math.closing}
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={0.08}>
           <div className="mt-8 flex justify-center">
-            <Button source="the_math" variant="invert" size="md">
+            <Button source="the_math" size="md">
               {math.cta}
             </Button>
           </div>
