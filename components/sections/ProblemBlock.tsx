@@ -39,11 +39,11 @@ export function ProblemBlock() {
 
   const cardClasses = (isActive: boolean) =>
     [
-      'group flex h-40 w-[19rem] shrink-0 cursor-pointer items-start gap-4 rounded-md border p-5 text-left backdrop-blur-md',
+      'group flex h-28 w-64 shrink-0 cursor-pointer items-start gap-3 rounded-md border p-4 text-left backdrop-blur-md',
       'transition-all duration-200',
       isActive
-        ? 'border-champagne/60 bg-cream/70 shadow-card'
-        : 'border-white/40 bg-cream/35 shadow-soft hover:border-champagne/50 hover:bg-cream/55',
+        ? 'border-champagne/60 bg-cream/70'
+        : 'border-white/40 bg-cream/35 hover:border-champagne/50 hover:bg-cream/55',
     ].join(' ');
 
   const renderCard = (point: (typeof points)[number], originalIndex: number, key: string, ariaHidden = false) => {
@@ -65,17 +65,17 @@ export function ProblemBlock() {
         <span
           aria-hidden
           className={[
-            'mt-0.5 inline-flex size-9 shrink-0 items-center justify-center rounded-full transition-colors duration-200',
+            'mt-0.5 inline-flex size-8 shrink-0 items-center justify-center rounded-full transition-colors duration-200',
             isActive
               ? 'bg-champagne text-cream'
               : 'bg-cream-deep/60 ring-1 ring-inset ring-champagne/40 text-sage-soft group-hover:bg-champagne/15 group-hover:text-champagne',
           ].join(' ')}
         >
-          {isActive ? <Check className="size-4" strokeWidth={2} /> : <Icon className="size-4" strokeWidth={1.5} />}
+          {isActive ? <Check className="size-3.5" strokeWidth={2} /> : <Icon className="size-3.5" strokeWidth={1.5} />}
         </span>
         <p
           className={[
-            'line-clamp-3 text-[0.92rem] leading-snug transition-colors duration-200',
+            'line-clamp-2 text-[0.85rem] leading-snug transition-colors duration-200',
             isActive ? 'font-medium text-sage-deep' : 'text-charcoal/80',
           ].join(' ')}
         >
@@ -92,12 +92,12 @@ export function ProblemBlock() {
     <section className="relative overflow-hidden bg-cream-deep py-section">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[26rem] bg-cover bg-center opacity-[0.22]"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[26rem] bg-cover bg-center opacity-[0.4]"
         style={{ backgroundImage: "url('https://images.unsplash.com/photo-1704455306251-b4634215d98f?fm=jpg&q=60&w=1600&auto=format&fit=crop')" }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[26rem] bg-gradient-to-b from-sage-deep/25 via-cream-deep/60 to-cream-deep"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[26rem] bg-gradient-to-b from-transparent via-cream-deep/50 to-cream-deep"
       />
       <Container className="relative">
         <div className="mx-auto max-w-2xl text-center">
@@ -161,7 +161,7 @@ export function ProblemBlock() {
       <Container>
         <div
           className={[
-            'mx-auto mt-8 max-w-xl overflow-hidden rounded-lg border shadow-card',
+            'mx-auto mt-8 max-w-xl overflow-hidden rounded-lg border',
             'bg-gradient-to-br from-cream to-cream-deep border-champagne/50',
             'transition-[max-height,opacity] duration-300 ease-out',
             activePoint ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0 pointer-events-none',
