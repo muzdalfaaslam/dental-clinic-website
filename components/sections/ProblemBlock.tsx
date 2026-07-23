@@ -39,7 +39,7 @@ export function ProblemBlock() {
 
   const cardClasses = (isActive: boolean) =>
     [
-      'group flex h-28 w-64 shrink-0 cursor-pointer items-start gap-3 rounded-md border p-4 text-left backdrop-blur-md',
+      'group flex h-24 w-56 shrink-0 cursor-pointer items-start gap-2.5 rounded-md border p-3.5 text-left backdrop-blur-md',
       'transition-all duration-200',
       isActive
         ? 'border-champagne/60 bg-cream/70'
@@ -65,17 +65,17 @@ export function ProblemBlock() {
         <span
           aria-hidden
           className={[
-            'mt-0.5 inline-flex size-8 shrink-0 items-center justify-center rounded-full transition-colors duration-200',
+            'mt-0.5 inline-flex size-7 shrink-0 items-center justify-center rounded-full transition-colors duration-200',
             isActive
               ? 'bg-champagne text-cream'
               : 'bg-cream-deep/60 ring-1 ring-inset ring-champagne/40 text-sage-soft group-hover:bg-champagne/15 group-hover:text-champagne',
           ].join(' ')}
         >
-          {isActive ? <Check className="size-3.5" strokeWidth={2} /> : <Icon className="size-3.5" strokeWidth={1.5} />}
+          {isActive ? <Check className="size-3" strokeWidth={2} /> : <Icon className="size-3" strokeWidth={1.5} />}
         </span>
         <p
           className={[
-            'line-clamp-2 text-[0.85rem] leading-snug transition-colors duration-200',
+            'line-clamp-2 text-[0.78rem] leading-snug transition-colors duration-200',
             isActive ? 'font-medium text-sage-deep' : 'text-charcoal/80',
           ].join(' ')}
         >
@@ -92,12 +92,12 @@ export function ProblemBlock() {
     <section className="relative overflow-hidden bg-cream-deep py-section">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[26rem] bg-cover bg-center opacity-[0.4]"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[26rem] bg-cover bg-center opacity-[0.55]"
         style={{ backgroundImage: "url('https://images.unsplash.com/photo-1704455306251-b4634215d98f?fm=jpg&q=60&w=1600&auto=format&fit=crop')" }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[26rem] bg-gradient-to-b from-transparent via-cream-deep/50 to-cream-deep"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[26rem] bg-gradient-to-b from-transparent via-transparent to-cream-deep"
       />
       <Container className="relative">
         <div className="mx-auto max-w-2xl text-center">
@@ -161,29 +161,30 @@ export function ProblemBlock() {
       <Container>
         <div
           className={[
-            'mx-auto mt-8 max-w-xl overflow-hidden rounded-lg border',
-            'bg-gradient-to-br from-cream to-cream-deep border-champagne/50',
-            'transition-[max-height,opacity] duration-300 ease-out',
-            activePoint ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0 pointer-events-none',
+            'mx-auto mt-8 max-w-xl rounded-lg border bg-gradient-to-br from-cream to-cream-deep border-champagne/50',
+            'grid transition-all duration-300 ease-out',
+            activePoint ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] border-transparent opacity-0',
           ].join(' ')}
         >
-          <div aria-live="polite" className="p-6 text-center">
-            {activePoint && (
-              <div key={active} className="animate-fade-in-up">
-                <p className="text-[0.68rem] font-medium uppercase tracking-[0.16em] text-champagne">
-                  1 issue selected
-                </p>
-                <p className="mt-2 font-display text-[1.05rem] font-semibold leading-snug text-sage-deep">
-                  {activePoint.response.headline}
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-charcoal/65">{activePoint.response.body}</p>
-                <div className="mt-5">
-                  <Button source="problem_block" size="md">
-                    Show Me What We&apos;d Fix
-                  </Button>
+          <div className="overflow-hidden">
+            <div aria-live="polite" className="p-6 text-center">
+              {activePoint && (
+                <div key={active} className="animate-fade-in-up">
+                  <p className="text-[0.68rem] font-medium uppercase tracking-[0.16em] text-champagne">
+                    1 issue selected
+                  </p>
+                  <p className="mt-2 font-display text-[1.05rem] font-semibold leading-snug text-sage-deep">
+                    {activePoint.response.headline}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-charcoal/65">{activePoint.response.body}</p>
+                  <div className="mt-5">
+                    <Button source="problem_block" size="md">
+                      Show Me What We&apos;d Fix
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </Container>
