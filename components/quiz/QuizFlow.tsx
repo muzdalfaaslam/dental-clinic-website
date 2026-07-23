@@ -255,7 +255,7 @@ export function QuizFlow() {
                       onClick={() => setStepIndex((i) => i + 1)}
                       className={cn(
                         'inline-flex items-center justify-center rounded-lg bg-sage-deep px-6 py-3 text-[0.95rem] font-medium text-cream shadow-soft ring-1 ring-inset ring-champagne/40 transition-all duration-200',
-                        'hover:-translate-y-0.5 hover:bg-[rgb(82_94_72)] hover:shadow-card disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0',
+                        'hover:-translate-y-0.5 hover:bg-[rgb(15_70_87)] hover:shadow-card disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0',
                       )}
                     >
                       Continue
@@ -307,7 +307,7 @@ export function QuizFlow() {
                 <div className="mt-1 flex justify-end">
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-sage-deep px-6 py-3 text-[0.95rem] font-medium text-cream shadow-soft ring-1 ring-inset ring-champagne/40 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[rgb(82_94_72)] hover:shadow-card"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-sage-deep px-6 py-3 text-[0.95rem] font-medium text-cream shadow-soft ring-1 ring-inset ring-champagne/40 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[rgb(15_70_87)] hover:shadow-card"
                   >
                     {quiz.companyStep.cta}
                   </button>
@@ -359,7 +359,7 @@ export function QuizFlow() {
                 <button
                   type="submit"
                   disabled={status === 'submitting'}
-                  className="mt-2 inline-flex w-full items-center justify-center rounded-lg bg-sage-deep px-6 py-4 text-base font-medium text-cream shadow-soft ring-1 ring-inset ring-champagne/40 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[rgb(82_94_72)] hover:shadow-card disabled:cursor-not-allowed disabled:opacity-60"
+                  className="mt-2 inline-flex w-full items-center justify-center rounded-lg bg-sage-deep px-6 py-4 text-base font-medium text-cream shadow-soft ring-1 ring-inset ring-champagne/40 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[rgb(15_70_87)] hover:shadow-card disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {status === 'submitting' ? 'Sending…' : quiz.submit}
                 </button>

@@ -89,26 +89,26 @@ export function ProblemBlock() {
   const duration = Math.max(24, points.length * 6);
 
   return (
-    <section className="relative overflow-hidden bg-cream-deep py-section">
+    <section className="relative overflow-hidden bg-sage-deep py-section">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[26rem] bg-cover bg-center opacity-[0.55]"
+        className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.18]"
         style={{ backgroundImage: "url('https://images.unsplash.com/photo-1704455306251-b4634215d98f?fm=jpg&q=60&w=1600&auto=format&fit=crop')" }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[26rem] bg-gradient-to-b from-transparent via-transparent to-cream-deep"
+        className="pointer-events-none absolute inset-0 bg-sage-deep/70"
       />
       <Container className="relative">
         <div className="mx-auto max-w-2xl text-center">
           <ScrollReveal>
-            <SectionLabel className="justify-center">A QUICK CHECKUP</SectionLabel>
+            <SectionLabel className="justify-center" tone="invert">A QUICK CHECKUP</SectionLabel>
           </ScrollReveal>
           <ScrollReveal delay={0.05}>
-            <h2 className="mt-4 text-h2 text-sage-deep">{problem.headline}</h2>
+            <h2 className="mt-4 text-h2 text-cream">{problem.headline}</h2>
           </ScrollReveal>
           <ScrollReveal delay={0.08}>
-            <p className="mt-3 text-sm text-charcoal/50">Tap anything that sounds like your practice.</p>
+            <p className="mt-3 text-sm text-cream/60">Tap anything that sounds like your practice.</p>
           </ScrollReveal>
         </div>
       </Container>

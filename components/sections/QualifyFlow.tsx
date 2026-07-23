@@ -293,7 +293,7 @@ export function QualifyFlow() {
                       </button>
                       <button
                         type="submit"
-                        className="inline-flex items-center justify-center gap-2 rounded-lg bg-sage-deep px-6 py-3 text-[0.95rem] font-medium text-cream shadow-soft ring-1 ring-inset ring-champagne/40 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[rgb(82_94_72)] hover:shadow-card"
+                        className="inline-flex items-center justify-center gap-2 rounded-lg bg-sage-deep px-6 py-3 text-[0.95rem] font-medium text-cream shadow-soft ring-1 ring-inset ring-champagne/40 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[rgb(15_70_87)] hover:shadow-card"
                       >
                         {qualify.business.cta}
                       </button>
@@ -366,7 +366,7 @@ export function QualifyFlow() {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => setShowExpect(true)}
-                            className="inline-flex items-center justify-center gap-2 rounded-lg bg-sage-deep px-6 py-3 text-[0.95rem] font-medium text-cream shadow-soft ring-1 ring-inset ring-champagne/40 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[rgb(82_94_72)] hover:shadow-card"
+                            className="inline-flex items-center justify-center gap-2 rounded-lg bg-sage-deep px-6 py-3 text-[0.95rem] font-medium text-cream shadow-soft ring-1 ring-inset ring-champagne/40 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[rgb(15_70_87)] hover:shadow-card"
                           >
                             <CalendarClock className="size-4" strokeWidth={1.75} />
                             {qualify.scheduling.selfOption.label}
