@@ -12,7 +12,7 @@ import { whatWeBuild } from '@/config/content';
  */
 export function WhatWeBuild() {
   return (
-    <section className="py-section">
+    <section id="what-we-build" className="scroll-mt-24 py-section">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <ScrollReveal>

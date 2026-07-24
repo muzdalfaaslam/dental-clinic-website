@@ -76,7 +76,7 @@ export function TheMath() {
   const annual = monthly * 12;
 
   return (
-    <section className="bg-cream-deep py-12 lg:py-16">
+    <section id="the-math" className="scroll-mt-24 bg-cream-deep py-12 lg:py-16">
       <Container className="max-w-3xl">
         <div className="mx-auto max-w-2xl text-center">
           <ScrollReveal>
