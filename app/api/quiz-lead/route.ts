@@ -78,7 +78,7 @@ export async function POST(req: Request): Promise<Response> {
     source: 'quiz' as const,
     submittedAt: new Date().toISOString(),
     sourceIp: ip,
-    niche: 'med-spa',
+    niche: 'dental-clinic',
   };
 
   const webhook = process.env.LEAD_WEBHOOK_URL;
