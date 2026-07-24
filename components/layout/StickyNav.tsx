@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Flower2 } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
@@ -53,13 +54,13 @@ export function StickyNav() {
 
         <nav aria-label="Section links" className="hidden items-center gap-7 lg:flex">
           {nav.links.map((link) => (
-            
+            <Link
               key={link.href}
               href={link.href}
               className="text-sm font-medium text-charcoal/70 transition-colors duration-200 hover:text-sage-deep"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 

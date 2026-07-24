@@ -48,13 +48,13 @@ export function Footer() {
             <p className="text-xs font-medium uppercase tracking-[0.16em] text-cream/50">Quick Links</p>
             <nav className="mt-4 flex flex-col gap-3" aria-label="Quick links">
               {nav.links.map((link) => (
-                
+                <Link
                   key={link.href}
                   href={link.href}
                   className="text-sm text-cream/80 transition-colors duration-200 hover:text-cream"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>
