@@ -90,12 +90,12 @@ export function ProblemBlock() {
     <section className="relative overflow-hidden bg-sage-deep py-section">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-[0.18]"
+        className="pointer-events-none absolute inset-0 z-0 bg-cover bg-center opacity-[0.18]"
         style={{ backgroundImage: "url('https://images.unsplash.com/photo-1704455306251-b4634215d98f?fm=jpg&q=60&w=1600&auto=format&fit=crop')" }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-sage-deep/70"
+        className="pointer-events-none absolute inset-0 z-0 bg-sage-deep/70"
       />
       <Container className="relative">
         <div className="mx-auto max-w-2xl text-center">
@@ -156,13 +156,14 @@ export function ProblemBlock() {
         )}
       </ScrollReveal>
 
-      <Container>
+      <Container className="relative z-10">
         <div
           className={[
-            'mx-auto mt-8 max-w-xl rounded-lg border bg-white shadow-card border-champagne/50',
+            'mx-auto mt-8 max-w-xl rounded-lg border shadow-card border-champagne/50',
             'grid transition-all duration-300 ease-out',
-            activePoint ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] border-transparent opacity-0',
+            activePoint ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0',
           ].join(' ')}
+          style={{ backgroundColor: '#ffffff' }}
         >
           <div className="overflow-hidden">
             <div aria-live="polite" className="p-6 text-center">
