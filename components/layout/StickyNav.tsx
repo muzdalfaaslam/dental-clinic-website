@@ -6,7 +6,7 @@ import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { Logo } from '@/components/ui/Logo';
 import { cn } from '@/lib/utils';
-import { ctas } from '@/config/content';
+import { ctas, nav } from '@/config/content';
 
 /**
  * Sticky top nav: brand mark left, single CTA right (brief §5). Transparent and
@@ -50,6 +50,19 @@ export function StickyNav() {
           </span>
           <Logo />
         </a>
+
+        <nav aria-label="Section links" className="hidden items-center gap-7 lg:flex">
+          {nav.links.map((link) => (
+            
+              key={link.href}
+              href={link.href}
+              className="text-sm font-medium text-charcoal/70 transition-colors duration-200 hover:text-sage-deep"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
         <Button
           source="nav"
           size="md"

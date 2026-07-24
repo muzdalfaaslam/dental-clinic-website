@@ -31,7 +31,7 @@ export function PlatformThemeShowcase() {
   };
 
   return (
-    <section className="py-section">
+    <section id="platform" className="scroll-mt-24 py-section">
       <Container>
         <div className="rounded-lg border border-line bg-cream-deep/50 p-6 sm:p-9">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">

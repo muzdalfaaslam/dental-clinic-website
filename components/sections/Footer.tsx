@@ -3,7 +3,7 @@ import { Mail, Phone } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { Logo } from '@/components/ui/Logo';
-import { footer } from '@/config/content';
+import { footer, nav } from '@/config/content';
 
 /**
  * Section 9 — Footer. TechxServe branding + tagline, the US-registered company
@@ -16,7 +16,7 @@ export function Footer() {
     <footer className="rounded-t-lg bg-sage-deep text-cream">
       <div aria-hidden className="h-1 w-full rounded-t-lg bg-warm" />
       <Container className="py-16">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.7fr_1fr] lg:gap-12">
           {/* Brand */}
           <div>
             {/* Footer brand sits on sage — render the wordmark in cream with the
@@ -41,6 +41,22 @@ export function Footer() {
                 {footer.contact.phone}
               </a>
             </div>
+          </div>
+
+          {/* Quick links */}
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.16em] text-cream/50">Quick Links</p>
+            <nav className="mt-4 flex flex-col gap-3" aria-label="Quick links">
+              {nav.links.map((link) => (
+                
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-cream/80 transition-colors duration-200 hover:text-cream"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
           </div>
 
           {/* Final CTA + legal */}

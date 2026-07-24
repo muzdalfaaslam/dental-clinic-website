@@ -59,6 +59,11 @@ export const meta = {
 export const nav = {
   brand: 'TechxServe',
   brandTagline: 'Tomorrow’s Reality, Today.',
+  links: [
+    { label: 'What We Build', href: '#what-we-build' },
+    { label: 'The Platform', href: '#platform' },
+    { label: 'Pricing', href: '#the-math' },
+  ],
 };
 
 /* ── Section 1 — Hero. ────────────────────────────────────────────────────── */
