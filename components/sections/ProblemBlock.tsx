@@ -39,9 +39,9 @@ export function ProblemBlock() {
 
   const cardClasses = (isActive: boolean) =>
     [
-      'group flex h-32 w-60 shrink-0 cursor-pointer flex-col items-center justify-center gap-2 rounded-md border bg-white p-4 text-center',
+      'group flex h-32 w-60 shrink-0 cursor-pointer flex-col items-center justify-center gap-2 rounded-md border bg-white p-4 text-center shadow-card',
       'transition-all duration-200',
-      isActive ? 'border-champagne/60' : 'border-white/40 hover:border-champagne/50',
+      isActive ? 'border-champagne ring-2 ring-champagne/40' : 'border-transparent hover:border-champagne/50',
     ].join(' ');
 
   const renderCard = (point: (typeof points)[number], originalIndex: number, key: string, ariaHidden = false) => {
@@ -159,7 +159,7 @@ export function ProblemBlock() {
       <Container>
         <div
           className={[
-            'mx-auto mt-8 max-w-xl rounded-lg border bg-gradient-to-br from-cream to-cream-deep border-champagne/50',
+            'mx-auto mt-8 max-w-xl rounded-lg border bg-white shadow-card border-champagne/50',
             'grid transition-all duration-300 ease-out',
             activePoint ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] border-transparent opacity-0',
           ].join(' ')}
