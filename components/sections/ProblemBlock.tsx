@@ -39,11 +39,9 @@ export function ProblemBlock() {
 
   const cardClasses = (isActive: boolean) =>
     [
-      'group flex h-24 w-56 shrink-0 cursor-pointer items-start gap-2.5 rounded-md border p-3.5 text-left backdrop-blur-md',
+      'group flex h-32 w-60 shrink-0 cursor-pointer flex-col items-center justify-center gap-2 rounded-md border bg-white p-4 text-center',
       'transition-all duration-200',
-      isActive
-        ? 'border-champagne/60 bg-cream/70'
-        : 'border-white/40 bg-cream/35 hover:border-champagne/50 hover:bg-cream/55',
+      isActive ? 'border-champagne/60' : 'border-white/40 hover:border-champagne/50',
     ].join(' ');
 
   const renderCard = (point: (typeof points)[number], originalIndex: number, key: string, ariaHidden = false) => {
@@ -65,17 +63,17 @@ export function ProblemBlock() {
         <span
           aria-hidden
           className={[
-            'mt-0.5 inline-flex size-7 shrink-0 items-center justify-center rounded-full transition-colors duration-200',
+            'inline-flex size-10 shrink-0 items-center justify-center rounded-full transition-colors duration-200',
             isActive
               ? 'bg-champagne text-cream'
               : 'bg-cream-deep/60 ring-1 ring-inset ring-champagne/40 text-sage-soft group-hover:bg-champagne/15 group-hover:text-champagne',
           ].join(' ')}
         >
-          {isActive ? <Check className="size-3" strokeWidth={2} /> : <Icon className="size-3" strokeWidth={1.5} />}
+          {isActive ? <Check className="size-4" strokeWidth={2} /> : <Icon className="size-4" strokeWidth={1.5} />}
         </span>
         <p
           className={[
-            'line-clamp-2 text-[0.78rem] leading-snug transition-colors duration-200',
+            'line-clamp-2 text-[0.92rem] leading-snug transition-colors duration-200',
             isActive ? 'font-medium text-sage-deep' : 'text-charcoal/80',
           ].join(' ')}
         >
