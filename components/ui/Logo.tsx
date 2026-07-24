@@ -15,7 +15,7 @@ export function Logo({
   return (
     <span
       className={cn(
-        'font-display text-lg font-semibold tracking-tight text-sage-deep',
+        'font-display text-base font-semibold tracking-tight text-sage-deep sm:text-lg',
         className,
       )}
     >

@@ -21,8 +21,8 @@ export const theme: NicheTheme = {
   name: 'Premium Navy & Gold (Dental Clinic)',
   cssVars: {
     // ── Color: surfaces ──────────────────────────────────────────────────────
-    '--color-cream': '246 247 250', //        #F6F7FA  page background (soft off-white, cool tint)
-    '--color-cream-deep': '236 239 244', //   #ECEFF4  alternating section bg / card surface
+    '--color-cream': '241 242 244', //        #F1F2F4  page background (soft grayish off-white)
+    '--color-cream-deep': '231 233 236', //   #E7E9EC  alternating section bg / card surface
     // ── Color: brand ─────────────────────────────────────────────────────────
     '--color-sage-deep': '18 40 61', //       #12283D  headings, primary buttons, footer (deep navy)
     '--color-sage-soft': '70 108 140', //     #466C8C  secondary accents, icons, hover, tints

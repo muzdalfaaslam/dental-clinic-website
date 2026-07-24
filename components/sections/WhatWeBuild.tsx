@@ -16,7 +16,7 @@ export function WhatWeBuild() {
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <ScrollReveal>
-            <SectionLabel className="justify-center">{whatWeBuild.eyebrow}</SectionLabel>
+            <SectionLabel className="justify-center" lines={['YOUR NEW WEBSITE,', 'DONE FOR YOU']} />
           </ScrollReveal>
           <ScrollReveal delay={0.05}>
             <h2 className="mt-4 text-h2 text-sage-deep text-balance">{whatWeBuild.headline}</h2>

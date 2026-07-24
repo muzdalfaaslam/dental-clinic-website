@@ -39,7 +39,7 @@ export function PlatformThemeShowcase() {
             {/* left — hover-only service list, no scrolling */}
             <div>
               <ScrollReveal>
-                <SectionLabel>{whatWeBuild.platform.eyebrow}</SectionLabel>
+                <SectionLabel lines={['EVERYTHING UNDER', 'ONE ROOF']} />
               </ScrollReveal>
               <ScrollReveal delay={0.05}>
                 <h3 className="mt-4 text-h3 text-sage-deep">{whatWeBuild.platform.heading}</h3>

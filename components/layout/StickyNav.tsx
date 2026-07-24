@@ -50,7 +50,12 @@ export function StickyNav() {
           </span>
           <Logo />
         </a>
-        <Button source="nav" size="md" withArrow={false} className="px-5 py-2.5 text-sm">
+        <Button
+          source="nav"
+          size="md"
+          withArrow={false}
+          className="whitespace-nowrap px-3 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm"
+        >
           {ctas.nav}
         </Button>
       </Container>
