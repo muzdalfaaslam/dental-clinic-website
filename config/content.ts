@@ -457,13 +457,7 @@ export const quiz = {
       type: 'single' as const,
       options: qualifierOptions.patientsPerMonth,
     },
-    {
-      key: 'frustration' as const,
-      question: 'What’s your biggest frustration with your current site?',
-      helper: 'Choose all that apply.',
-      type: 'multi' as const,
-      options: qualifierOptions.frustration,
-    },
+    
     {
       key: 'timeline' as const,
       question: 'When would you want a new site live?',

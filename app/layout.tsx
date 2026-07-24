@@ -26,7 +26,7 @@ const inter = Inter({
   display: 'swap',
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://dental-clinic-website-steel.vercel.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     title: meta.title,
     description: meta.description,
     url: siteUrl,
-    siteName: 'TechxServe Med Spa Websites',
+    siteName: 'TechxServe Dental Clinic Websites',
     type: 'website',
     locale: 'en_US',
     images: [{ url: '/images/og.svg', width: 1200, height: 630, alt: meta.ogImageAlt }],

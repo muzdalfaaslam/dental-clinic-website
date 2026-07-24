@@ -14,7 +14,6 @@ import { QuizOptionCard } from './QuizOptionCard';
 import { quiz } from '@/config/content';
 import { quizLeadSchema } from '@/lib/quizValidation';
 import { track } from '@/lib/analytics';
-import { cn } from '@/lib/utils';
 
 type SingleKey = 'role' | 'patientsPerMonth' | 'timeline';
 
@@ -95,14 +94,6 @@ export function QuizFlow() {
     markStarted();
     setAnswers((a) => ({ ...a, [key]: value }));
     window.setTimeout(() => setStepIndex((i) => i + 1), AUTO_ADVANCE_MS);
-  };
-
-  const toggleFrustration = (value: string) => {
-    markStarted();
-    setAnswers((a) => {
-      const has = a.frustration.includes(value);
-      return { ...a, frustration: has ? a.frustration.filter((v) => v !== value) : [...a.frustration, value] };
-    });
   };
 
   const back = () => setStepIndex((i) => Math.max(0, i - 1));
@@ -202,7 +193,7 @@ export function QuizFlow() {
               <p className="mt-4 max-w-md text-body-lg text-charcoal/80">{quiz.success.body}</p>
 
               {quiz.success.meetingLink ? (
-                <a
+                
                   href={quiz.success.meetingLink}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -232,48 +223,17 @@ export function QuizFlow() {
                 Question {stepIndex + 1} of {quiz.steps.length}
               </p>
               <h1 className="mt-3 text-h3 text-sage-deep sm:text-h2">{currentQuestion.question}</h1>
-              {'helper' in currentQuestion && currentQuestion.helper && (
-                <p className="mt-2 text-sm text-charcoal/60">{currentQuestion.helper}</p>
-              )}
 
-              {currentQuestion.type === 'multi' ? (
-                <>
-                  <div className="mt-6 flex flex-col gap-2.5">
-                    {currentQuestion.options.map((opt) => (
-                      <QuizOptionCard
-                        key={opt}
-                        label={opt}
-                        active={answers.frustration.includes(opt)}
-                        onClick={() => toggleFrustration(opt)}
-                      />
-                    ))}
-                  </div>
-                  <div className="mt-6 flex justify-end">
-                    <button
-                      type="button"
-                      disabled={answers.frustration.length === 0}
-                      onClick={() => setStepIndex((i) => i + 1)}
-                      className={cn(
-                        'inline-flex items-center justify-center rounded-lg bg-sage-deep px-6 py-3 text-[0.95rem] font-medium text-cream shadow-soft ring-1 ring-inset ring-champagne/40 transition-all duration-200',
-                        'hover:-translate-y-0.5 hover:bg-[rgb(15_70_87)] hover:shadow-card disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0',
-                      )}
-                    >
-                      Continue
-                    </button>
-                  </div>
-                </>
-              ) : (
-                <div className="mt-6 flex flex-col gap-2.5">
-                  {currentQuestion.options.map((opt) => (
-                    <QuizOptionCard
-                      key={opt}
-                      label={opt}
-                      active={answers[currentQuestion.key] === opt}
-                      onClick={() => selectSingle(currentQuestion.key, opt)}
-                    />
-                  ))}
-                </div>
-              )}
+              <div className="mt-6 flex flex-col gap-2.5">
+                {currentQuestion.options.map((opt) => (
+                  <QuizOptionCard
+                    key={opt}
+                    label={opt}
+                    active={answers[currentQuestion.key] === opt}
+                    onClick={() => selectSingle(currentQuestion.key, opt)}
+                  />
+                ))}
+              </div>
             </motion.div>
           ) : isCompanyStep ? (
             <motion.div
