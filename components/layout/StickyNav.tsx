@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { Flower2 } from 'lucide-react';
+import { Flower2, Menu, X } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { Logo } from '@/components/ui/Logo';
@@ -17,6 +17,7 @@ import { ctas, nav } from '@/config/content';
  */
 export function StickyNav() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -64,15 +65,48 @@ export function StickyNav() {
           ))}
         </nav>
 
-        <Button
-          source="nav"
-          size="md"
-          withArrow={false}
-          className="whitespace-nowrap px-3 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm"
-        >
-          {ctas.nav}
-        </Button>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            className="inline-flex size-9 items-center justify-center rounded-lg text-sage-deep lg:hidden"
+          >
+            {menuOpen ? <X className="size-5" strokeWidth={1.75} /> : <Menu className="size-5" strokeWidth={1.75} />}
+          </button>
+
+          <Button
+            source="nav"
+            size="md"
+            withArrow={false}
+            className="whitespace-nowrap px-3 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm"
+          >
+            {ctas.nav}
+          </Button>
+        </div>
       </Container>
+
+      {/* Mobile dropdown panel — the same section links, shown below the bar */}
+      {menuOpen && (
+        <nav
+          aria-label="Section links (mobile)"
+          className="border-t border-line bg-cream/95 backdrop-blur-xl lg:hidden"
+        >
+          <Container className="flex flex-col gap-1 py-3">
+            {nav.links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="rounded-md px-2 py-2.5 text-sm font-medium text-charcoal/80 transition-colors duration-200 hover:bg-cream-deep hover:text-sage-deep"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </Container>
+        </nav>
+      )}
     </header>
   );
 }
